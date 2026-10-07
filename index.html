@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Quán Nam Family Kitchen</title>
+  <meta name="description" content="Quán Nam is a family-run Vietnamese kitchen in Ho Chi Minh City. Grandma's recipes, local prices, an English menu and free iced tea. Pull up a plastic stool.">
+  <meta name="theme-color" content="#F5B41A">
+  <meta property="og:title" content="Quán Nam Family Kitchen, Saigon">
+  <meta property="og:description" content="Real Saigon home cooking at local prices. Phở, bánh xèo, cơm tấm and cold Bia Sài Gòn, served by the family that cooks it.">
+  <meta property="og:type" content="restaurant">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Bungee&family=Patrick+Hand&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Quán Nam",
+    "servesCuisine": "Vietnamese",
+    "priceRange": "₫",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ho Chi Minh City", "addressCountry": "VN" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- Shared SVG defs: the cement-tile (gạch bông) pattern used by every tile strip -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="gachbong" width="36" height="36" patternUnits="userSpaceOnUse">
+      <rect class="t-bg" width="36" height="36"/>
+      <circle class="t-a" cx="0" cy="0" r="8"/>
+      <circle class="t-a" cx="36" cy="0" r="8"/>
+      <circle class="t-a" cx="0" cy="36" r="8"/>
+      <circle class="t-a" cx="36" cy="36" r="8"/>
+      <path class="t-b" d="M18 5 31 18 18 31 5 18Z"/>
+      <circle class="t-c" cx="18" cy="18" r="4.5"/>
+    </pattern>
+    <clipPath id="bowl-clip">
+      <path d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<a class="skip" href="#menu">Skip to the menu</a>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="#top">
+      <span class="brand__sign">Quán Nam</span>
+      <span class="brand__sub">family kitchen<br>Sài Gòn</span>
+    </a>
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open sections menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav id="nav" class="nav" aria-label="Sections">
+      <a href="#menu">Menu</a>
+      <a href="#family">The family</a>
+      <a href="#local">Eat like a local</a>
+      <a href="#find">Find us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="status" data-status>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="status__text">Open daily from 7 am</span>
+        </p>
+        <h1 class="hero__title">Pull up a <span class="hl">plastic stool.</span></h1>
+        <p class="hero__lede">Grandma's recipes, Mum's cooking and Nam's bad jokes. Proper Saigon home food at local prices, served by the family that cooks it.</p>
+        <div class="hero__cta">
+          <a class="btn btn--red" href="#menu">See the menu</a>
+          <a class="btn btn--plain" href="#find">How to find us</a>
+        </div>
+        <ul class="perks">
+          <li><strong>Most plates under 60k&nbsp;₫</strong> (about US$2.30)</li>
+          <li><strong>Free trà đá</strong> (iced tea), always</li>
+          <li><strong>English menu</strong> and veggie options</li>
+        </ul>
+      </div>
+
+      <figure class="hero__art">
+        <svg class="hero__svg" viewBox="0 0 420 470" role="img" aria-label="A steaming bowl of phở sitting on a red plastic stool">
+          <ellipse class="a-floor" cx="210" cy="448" rx="160" ry="13"/>
+          <!-- the stool -->
+          <path class="a-stool" fill-rule="evenodd" d="M106 284H314L338 440H82ZM128 440V356Q128 330 154 330H266Q292 330 292 356V440Z"/>
+          <rect class="a-stool" x="92" y="258" width="236" height="28" rx="9"/>
+          <rect class="a-shine" x="108" y="265" width="120" height="6" rx="3"/>
+          <!-- chopsticks, drawn before the bowl so the soup hides their tips -->
+          <line class="a-stick" x1="236" y1="168" x2="350" y2="44"/>
+          <line class="a-stick" x1="256" y1="170" x2="376" y2="60"/>
+          <!-- the bowl -->
+          <rect class="a-porc" x="178" y="242" width="64" height="18" rx="4"/>
+          <path class="a-porc" d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
+          <g clip-path="url(#bowl-clip)">
+            <rect class="a-band" x="90" y="172" width="240" height="10"/>
+            <rect class="a-band" x="90" y="222" width="240" height="5"/>
+          </g>
+          <path class="a-edge" d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
+          <ellipse class="a-porc" cx="210" cy="152" rx="112" ry="18"/>
+          <ellipse class="a-broth" cx="210" cy="153" rx="99" ry="12"/>
+          <path class="a-noodle" d="M126 155q14-7 28 0t28 0t28 0t28 0t28 0"/>
+          <ellipse class="a-beef" cx="168" cy="150" rx="20" ry="6" transform="rotate(-6 168 150)"/>
+          <ellipse class="a-beef" cx="208" cy="156" rx="18" ry="5.5" transform="rotate(5 208 156)"/>
+          <ellipse class="a-herb" cx="252" cy="149" rx="12" ry="5" transform="rotate(-25 252 149)"/>
+          <ellipse class="a-herb" cx="272" cy="156" rx="11" ry="4.5" transform="rotate(20 272 156)"/>
+          <circle class="a-onion" cx="234" cy="158" r="3.5"/>
+          <circle class="a-onion" cx="190" cy="146" r="3"/>
+          <path class="a-lime" d="M296 148a15 15 0 0 1 30 0Z"/>
+          <!-- steam -->
+          <g class="a-steam">
+            <path d="M162 128c-14-18 14-30 0-50s12-30 0-46"/>
+            <path d="M210 120c-14-18 14-30 0-50s12-30 0-46"/>
+            <path d="M258 128c-14-18 14-30 0-50s12-30 0-46"/>
+          </g>
+          <!-- hand-written note -->
+          <g class="a-note">
+            <text x="6" y="48" transform="rotate(-8 6 48)">12-hour broth!</text>
+            <path d="M50 64c4 34 26 54 64 68M105 121L114 132L100 134"/>
+          </g>
+        </svg>
+        <p class="tag-sticker" aria-hidden="true">phở bò<br><b>55k</b></p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ STREET BANNER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <p class="ticker__group"><span>Phở bò</span><i></i><span>Bún thịt nướng</span><i></i><span>Cơm tấm</span><i></i><span>Bánh xèo</span><i></i><span>Gỏi cuốn</span><i></i><span>Cà phê sữa đá</span><i></i><span>Bia Sài Gòn</span><i></i></p>
+      <p class="ticker__group"><span>Phở bò</span><i></i><span>Bún thịt nướng</span><i></i><span>Cơm tấm</span><i></i><span>Bánh xèo</span><i></i><span>Gỏi cuốn</span><i></i><span>Cà phê sữa đá</span><i></i><span>Bia Sài Gòn</span><i></i></p>
+    </div>
+  </div>
+
+  <!-- ============ MENU ============ -->
+  <section id="menu" class="section menu">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="kicker" lang="vi">Thực đơn · the menu</p>
+        <h2>What's cooking</h2>
+        <p>Everything is made fresh each morning by Mum. Can't pronounce it? Neither could Nam's English teacher. We've written how to say each dish, or just point and smile.</p>
+      </header>
+
+      <div class="menu__controls">
+        <div class="chips" role="group" aria-label="Filter dishes">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="noodles" aria-pressed="false">Noodles</button>
+          <button class="chip" type="button" data-filter="rice" aria-pressed="false">Rice</button>
+          <button class="chip" type="button" data-filter="share" aria-pressed="false">To share</button>
+          <button class="chip" type="button" data-filter="veg" aria-pressed="false">Veggie</button>
+          <button class="chip" type="button" data-filter="sweet" aria-pressed="false">Sweets</button>
+        </div>
+        <div class="currency">
+          <span class="currency__label" id="cur-label">Prices in</span>
+          <div class="currency__seg" role="group" aria-labelledby="cur-label">
+            <button type="button" data-cur="VND" aria-pressed="true">₫</button>
+            <button type="button" data-cur="USD" aria-pressed="false">US$</button>
+            <button type="button" data-cur="EUR" aria-pressed="false">€</button>
+          </div>
+        </div>
+      </div>
+      <p class="sr-only" id="menu-count" aria-live="polite"></p>
+
+      <!-- EDIT: dishes. data-cat = noodles | rice | share | sweet. data-veg="true" shows it under Veggie. data-vnd is the price in đồng. -->
+      <ul class="menu__grid">
+        <li class="dish dish--special" data-cat="noodles">
+          <span class="sticker">12-hour broth</span>
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Phở bò</h3>
+            <p class="price"><span class="price__main" data-vnd="55000">55k</span><span class="price__sub">55.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “fuh baw”</p>
+          <p class="dish__en">Beef noodle soup. Bone broth simmered overnight with star anise, charred ginger and cinnamon. Herbs and lime on the side.</p>
+          <p class="dish__tags"><span class="tag">Noodles</span></p>
+        </li>
+        <li class="dish" data-cat="noodles">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Bún thịt nướng</h3>
+            <p class="price"><span class="price__main" data-vnd="50000">50k</span><span class="price__sub">50.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “boon tit noo-ung”</p>
+          <p class="dish__en">Cold rice noodles under grilled lemongrass pork, crushed peanuts, pickles and a pile of herbs. Pour the fish-sauce dressing over everything.</p>
+          <p class="dish__tags"><span class="tag">Noodles</span></p>
+        </li>
+        <li class="dish" data-cat="noodles">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Hủ tiếu Nam Vang</h3>
+            <p class="price"><span class="price__main" data-vnd="55000">55k</span><span class="price__sub">55.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “hoo tee-oo nahm vahng”</p>
+          <p class="dish__en">Saigon's other noodle soup. Clear pork broth, chewy rice noodles, shrimp, quail egg and a scatter of crispy garlic.</p>
+          <p class="dish__tags"><span class="tag">Noodles</span></p>
+        </li>
+        <li class="dish dish--special" data-cat="rice">
+          <span class="sticker">Saigon breakfast</span>
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Cơm tấm sườn</h3>
+            <p class="price"><span class="price__main" data-vnd="55000">55k</span><span class="price__sub">55.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “kuhm tum soo-un”</p>
+          <p class="dish__en">Broken rice with a chargrilled pork chop, shredded pork skin, steamed egg cake and sweet fish sauce. What half the city eats before work.</p>
+          <p class="dish__tags"><span class="tag">Rice</span></p>
+        </li>
+        <li class="dish dish--special" data-cat="rice">
+          <span class="sticker">Grandma's recipe</span>
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Cá kho tộ</h3>
+            <p class="price"><span class="price__main" data-vnd="75000">75k</span><span class="price__sub">75.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “kah kaw toh”</p>
+          <p class="dish__en">Catfish caramelised in a clay pot with black pepper and fish sauce. Comes bubbling to the table with rice and a small soup.</p>
+          <p class="dish__tags"><span class="tag">Rice</span></p>
+        </li>
+        <li class="dish" data-cat="rice" data-veg="true">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Đậu hũ sốt cà</h3>
+            <p class="price"><span class="price__main" data-vnd="45000">45k</span><span class="price__sub">45.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “dow hoo soht kah”</p>
+          <p class="dish__en">Fried tofu in a garlicky tomato sauce with spring onion, on rice. Simple, cheap and fully vegetarian.</p>
+          <p class="dish__tags"><span class="tag">Rice</span><span class="tag tag--veg">Veggie</span></p>
+        </li>
+        <li class="dish" data-cat="share" data-veg="true">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Bánh xèo</h3>
+            <p class="price"><span class="price__main" data-vnd="60000">60k</span><span class="price__sub">60.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “bahn seh-oh”</p>
+          <p class="dish__en">A crispy turmeric crêpe named after the sizzle it makes in the pan. Shrimp, pork and bean sprouts. Wrap it in mustard leaf and dip.</p>
+          <p class="dish__tags"><span class="tag">To share</span><span class="tag tag--veg">Veggie option</span></p>
+        </li>
+        <li class="dish" data-cat="share" data-veg="true">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Gỏi cuốn</h3>
+            <p class="price"><span class="price__main" data-vnd="40000">40k</span><span class="price__sub">40.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “goy kwon”</p>
+          <p class="dish__en">Fresh rice-paper rolls with shrimp, pork, vermicelli and herbs, plus a peanut-hoisin dip. Three to a plate.</p>
+          <p class="dish__tags"><span class="tag">To share</span><span class="tag tag--veg">Veggie option</span></p>
+        </li>
+        <li class="dish" data-cat="share">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Chả giò</h3>
+            <p class="price"><span class="price__main" data-vnd="45000">45k</span><span class="price__sub">45.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “chah yaw”</p>
+          <p class="dish__en">Crispy fried spring rolls stuffed with pork, taro and glass noodles. Order more than you think you need.</p>
+          <p class="dish__tags"><span class="tag">To share</span></p>
+        </li>
+        <li class="dish" data-cat="share" data-veg="true">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Rau muống xào tỏi</h3>
+            <p class="price"><span class="price__main" data-vnd="35000">35k</span><span class="price__sub">35.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “rao moo-ong sow toy”</p>
+          <p class="dish__en">Morning glory stir-fried hard and fast with far too much garlic. The green plate on every Saigon table.</p>
+          <p class="dish__tags"><span class="tag">To share</span><span class="tag tag--veg">Veggie</span></p>
+        </li>
+        <li class="dish" data-cat="sweet" data-veg="true">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Chè ba màu</h3>
+            <p class="price"><span class="price__main" data-vnd="25000">25k</span><span class="price__sub">25.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “cheh bah mow”</p>
+          <p class="dish__en">“Three-colour” dessert in a glass: mung bean, red bean, pandan jelly, coconut milk and crushed ice.</p>
+          <p class="dish__tags"><span class="tag">Sweet</span><span class="tag tag--veg">Veggie</span></p>
+        </li>
+        <li class="dish" data-cat="sweet" data-veg="true">
+          <div class="dish__top">
+            <h3 class="dish__vn" lang="vi">Bánh flan</h3>
+            <p class="price"><span class="price__main" data-vnd="20000">20k</span><span class="price__sub">20.000 ₫</span></p>
+          </div>
+          <p class="dish__say">say “bahn flan”</p>
+          <p class="dish__en">Silky caramel custard, a French leftover we kept. Saigon-style, with a splash of black coffee over ice.</p>
+          <p class="dish__tags"><span class="tag">Sweet</span><span class="tag tag--veg">Veggie</span></p>
+        </li>
+      </ul>
+
+      <!-- Drinks board -->
+      <div class="board">
+        <div class="board__intro">
+          <h3 class="board__title">Drinks board</h3>
+          <p>Herbs, lime and chili are always on the table. Help yourself.</p>
+        </div>
+        <ul class="board__list">
+          <li><span class="b-row"><span class="b-name" lang="vi">Cà phê sữa đá</span><span class="b-dots"></span><span class="bprice" data-vnd="25000">25k</span></span><span class="b-desc">iced coffee with condensed milk</span></li>
+          <li><span class="b-row"><span class="b-name" lang="vi">Cà phê đen đá</span><span class="b-dots"></span><span class="bprice" data-vnd="20000">20k</span></span><span class="b-desc">iced black coffee, very strong</span></li>
+          <li><span class="b-row"><span class="b-name" lang="vi">Nước mía</span><span class="b-dots"></span><span class="bprice" data-vnd="20000">20k</span></span><span class="b-desc">fresh sugarcane juice with kumquat</span></li>
+          <li><span class="b-row"><span class="b-name" lang="vi">Sinh tố bơ</span><span class="b-dots"></span><span class="bprice" data-vnd="35000">35k</span></span><span class="b-desc">avocado smoothie. Trust us.</span></li>
+          <li><span class="b-row"><span class="b-name" lang="vi">Bia Sài Gòn</span><span class="b-dots"></span><span class="bprice" data-vnd="20000">20k</span></span><span class="b-desc">local lager, served with ice</span></li>
+          <li><span class="b-row"><span class="b-name" lang="vi">Trà đá</span><span class="b-dots"></span><span class="bprice" data-vnd="0">free</span></span><span class="b-desc">iced tea, bottomless</span></li>
+        </ul>
+      </div>
+      <p class="menu__note">Prices are in Vietnamese đồng. Other currencies are rough conversions. We take cash or bank-transfer QR.</p>
+    </div>
+  </section>
+
+  <svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#gachbong)"/></svg>
+
+  <!-- ============ FAMILY ============ -->
+  <section id="family" class="section family">
+    <div class="wrap family__grid">
+      <div class="family__intro">
+        <header class="section__head">
+          <p class="kicker" lang="vi">Gia đình · the family</p>
+          <h2>Three generations, one tiny kitchen</h2>
+        </header>
+        <!-- EDIT: the family story -->
+        <p><em lang="vi">Quán</em> means a small local eatery. Ours began in Grandma's front room, feeding the neighbours and the odd lost tourist. These days Mum runs the stoves, Nam runs the front, and the recipes still live in Grandma's head.</p>
+        <p>There's no head office and no franchise. When you eat here, you're eating at our house.</p>
+        <blockquote class="quote">
+          <p>“Fish sauce is not optional.”</p>
+          <cite>Bà Ngoại, most days</cite>
+        </blockquote>
+      </div>
+
+      <ul class="crew">
+        <li class="crew__item">
+          <span class="stamp stamp--red" aria-hidden="true">Bà</span>
+          <div>
+            <h3>Grandma <span lang="vi">(Bà Ngoại)</span></h3>
+            <p class="role">Recipe keeper</p>
+            <p>Wrote every recipe on the menu, mostly from memory. Still tastes the broth each morning and tells Mum it needs more fish sauce.</p>
+          </div>
+        </li>
+        <li class="crew__item">
+          <span class="stamp stamp--jade" aria-hidden="true">Mẹ</span>
+          <div>
+            <h3>Mum <span lang="vi">(Mẹ)</span></h3>
+            <p class="role">Head chef</p>
+            <p>At the market by 5 am, picking the herbs herself. Her bánh xèo is the reason the neighbours queue at lunch.</p>
+          </div>
+        </li>
+        <li class="crew__item">
+          <span class="stamp stamp--blue" aria-hidden="true">Nam</span>
+          <div>
+            <h3>Nam</h3>
+            <p class="role">Front of house</p>
+            <p>Speaks English, takes your order, and knows which rooftop bar is worth it and which one is a rip-off. Ask him anything.</p>
+          </div>
+        </li>
+        <li class="crew__item">
+          <span class="stamp stamp--yellow" aria-hidden="true">Mèo</span>
+          <div>
+            <h3>The cat <span lang="vi">(con mèo)</span></h3>
+            <p class="role">Head of security</p>
+            <p>Sleeps on the rice sack. Accepts head scratches. Please don't feed her chả giò.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ EAT LIKE A LOCAL ============ -->
+  <section id="local" class="section local">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="kicker" lang="vi">Ăn như người Sài Gòn · eat like a local</p>
+        <h2>First time in Saigon? Start here.</h2>
+        <p>Street food here runs on a few unwritten rules. We wrote them down for you.</p>
+      </header>
+
+      <div class="local__grid">
+        <div>
+          <h3 class="subhead">How to eat phở</h3>
+          <ol class="steps">
+            <li><p><strong>Taste the broth first.</strong> Before you add anything. Mum is watching.</p></li>
+            <li><p><strong>Tear in the herbs.</strong> Thai basil, sawtooth herb, bean sprouts. Use as much as you like.</p></li>
+            <li><p><strong>Add lime and chili.</strong> Go slowly. You can always add more, but you can't take it back out.</p></li>
+            <li><p><strong>Chopsticks right, spoon left.</strong> Lift noodles onto the spoon, sip, then slurp. Slurping is a compliment.</p></li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="subhead">Rules of the street</h3>
+          <ul class="rules">
+            <li><strong>The tiny stools are normal.</strong> Everyone's knees end up near their chin. That's the fun.</li>
+            <li><strong>Ice in your beer is normal too.</strong> Saigon is 33&nbsp;°C most afternoons. You'll understand.</li>
+            <li><strong>Packaged wet towels on the table may cost a few thousand đồng.</strong> Leave yours sealed if you don't want it.</li>
+            <li><strong>Pay at the end.</strong> Say <em lang="vi">“tính tiền”</em> and we'll bring the bill. Tipping isn't expected.</li>
+            <li><strong>Clink and shout <em lang="vi">“dzô!”</em></strong> before you drink. Everyone at the table, every round.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phrases">
+        <div class="phrases__head">
+          <h3 class="subhead">Say it like a local</h3>
+          <p>Rough Saigon-accent pronunciations. Nam will happily correct you.</p>
+        </div>
+        <ul class="phrase-grid">
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Xin chào</p>
+            <p class="phrase__say">“sin chow”</p>
+            <p class="phrase__en">Hello</p>
+            <button class="say" type="button" data-say="Xin chào" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Cho tôi một…</p>
+            <p class="phrase__say">“chaw toy moht”</p>
+            <p class="phrase__en">One of those, please (then point)</p>
+            <button class="say" type="button" data-say="Cho tôi một" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Không cay</p>
+            <p class="phrase__say">“khome kai”</p>
+            <p class="phrase__en">Not spicy</p>
+            <button class="say" type="button" data-say="Không cay" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Ngon quá!</p>
+            <p class="phrase__say">“ngon kwah”</p>
+            <p class="phrase__en">So delicious!</p>
+            <button class="say" type="button" data-say="Ngon quá" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Một, hai, ba, dzô!</p>
+            <p class="phrase__say">“moht, hai, bah, yo!”</p>
+            <p class="phrase__en">One, two, three, cheers!</p>
+            <button class="say" type="button" data-say="Một, hai, ba, dô" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Không đá</p>
+            <p class="phrase__say">“khome dah”</p>
+            <p class="phrase__en">No ice</p>
+            <button class="say" type="button" data-say="Không đá" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Tính tiền</p>
+            <p class="phrase__say">“tin tee-en”</p>
+            <p class="phrase__en">The bill, please</p>
+            <button class="say" type="button" data-say="Tính tiền" hidden>Hear it</button>
+          </li>
+          <li class="phrase">
+            <p class="phrase__vn" lang="vi">Cảm ơn</p>
+            <p class="phrase__say">“gahm uhn”</p>
+            <p class="phrase__en">Thank you</p>
+            <button class="say" type="button" data-say="Cảm ơn" hidden>Hear it</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIND US ============ -->
+  <section id="find" class="section find">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="kicker" lang="vi">Tìm quán · find us</p>
+        <h2>Come hungry. Bring friends.</h2>
+        <!-- EDIT: directions -->
+        <p>We're down a small alley (a <em lang="vi">hẻm</em>), which is where the best food in Saigon hides. Look for the yellow sign and the stack of red stools.</p>
+      </header>
+
+      <div class="find__grid">
+        <div class="find__where">
+          <!-- EDIT: house number + street, exactly as it appears on the blue plate outside -->
+          <div class="plate" aria-hidden="true">
+            <span class="plate__num">123</span>
+            <span class="plate__street" lang="vi">Đường Mẫu</span>
+          </div>
+
+          <div class="driver">
+            <p class="driver__label">Show this to your Grab driver</p>
+            <!-- EDIT: full address in Vietnamese -->
+            <p class="driver__addr" id="driver-addr" lang="vi">Cho tôi đến: 123 Đường Mẫu, TP. Hồ Chí Minh</p>
+            <button class="btn btn--small btn--plain" type="button" data-copy="driver-addr">Copy address</button>
+          </div>
+        </div>
+
+        <div class="find__when">
+          <h3 class="subhead">Opening hours</h3>
+          <p class="status status--inline" data-status>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="status__text">Times are Saigon time (GMT+7)</span>
+          </p>
+          <!-- EDIT: hours. data-days uses 0 = Sunday … 6 = Saturday, times in 24h Saigon time -->
+          <table class="hours">
+            <tbody>
+              <tr data-days="1 2 3 4 5 6" data-open="07:00" data-close="22:00">
+                <th scope="row">Monday to Saturday</th>
+                <td>7 am – 10 pm</td>
+              </tr>
+              <tr data-days="0" data-open="08:00" data-close="21:00">
+                <th scope="row">Sunday</th>
+                <td>8 am – 9 pm</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="hours__note">We close for a few days over <span lang="vi">Tết</span> (Lunar New Year). Dates go up on Instagram.</p>
+
+          <!-- EDIT: replace the placeholder links with Nam's real Google Maps place, WhatsApp / Zalo number and Instagram handle -->
+          <div class="actions">
+            <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%C3%A1n%20Nam%20Ho%20Chi%20Minh%20City" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="btn btn--plain" href="https://wa.me/84XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn--plain" href="https://zalo.me/84XXXXXXXXX" target="_blank" rel="noopener">Zalo</a>
+            <a class="btn btn--plain" href="https://www.instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#gachbong)"/></svg>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__brand">
+      <span class="brand__sign">Quán Nam</span>
+      <p>Made with nước mắm in Sài Gòn.</p>
+    </div>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="#menu">Menu</a>
+      <a href="#family">The family</a>
+      <a href="#local">Eat like a local</a>
+      <a href="#find">Find us</a>
+    </nav>
+    <p class="foot__legal">© <span id="year">2026</span> Quán Nam · family-run in Ho Chi Minh City</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
