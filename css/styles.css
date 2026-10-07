@@ -1,8 +1,9 @@
-/* Layout: a Saigon street stall as a page. Painted-sign hero, scrolling street banner,
-   a wall of hand-painted shop signs, cement-tile (gạch bông) dividers,
-   and a stool-red closing banner. */
+/* Shared structure for every design, plus Design 1 "Street stall" (the default):
+   painted-sign hero, scrolling street banner, a wall of hand-painted shop signs,
+   cement-tile (gạch bông) dividers and a stool-red closing banner.
+   Designs 2–5 live in designs.css and override these tokens and components. */
 :root {
-  /* surfaces and text (change in dark mode) */
+  /* surfaces and text */
   --wall: #E7F0E9;        /* pale mint shophouse wall */
   --paper: #FFFFFF;
   --ink: #13201A;
@@ -25,11 +26,11 @@
   --floor: rgba(19, 32, 26, .16);
   --outline: #13201A;
 
-  /* real-world object colours (same in both themes) */
+  /* object and accent colours (the stool, the bowl, the signs) */
   --stool: #DE2A1E;       /* plastic-stool red */
   --turmeric: #F5B41A;
   --jade-fill: #0A7A62;
-  --blue: #1F54C4;        /* house-number plate blue */
+  --blue: #1F54C4;
   --porcelain: #FBFCFA;
   --broth: #E3A03A;
   --beef: #A5574B;
@@ -48,58 +49,6 @@
   --hand: "Patrick Hand", "Segoe Print", "Chalkboard SE", "Comic Sans MS", cursive;
 
   --gutter: clamp(16px, 4vw, 36px);
-}
-
-/* Saigon after dark */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --wall: #0D1713;
-    --paper: #16231E;
-    --ink: #E9F1EB;
-    --muted: #A1B4AA;
-    --line: #2A3C34;
-    --edge: #3A5046;
-    --shadow: #030806;
-    --red-text: #FF6E5A;
-    --jade: #56D3B1;
-    --soft: #123A30;
-    --focus: #8FB0FF;
-    --hero-bg: #13201A;
-    --hero-glow: rgba(255, 194, 61, .16);
-    --hero-ink: #E9F1EB;
-    --hero-title: #FFC23D;
-    --foot-bg: #060C09;
-    --foot-fg: #DDE8E1;
-    --foot-muted: #8DA398;
-    --steam: rgba(233, 241, 235, .5);
-    --floor: rgba(0, 0, 0, .45);
-    --outline: #0A120E;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --wall: #0D1713;
-  --paper: #16231E;
-  --ink: #E9F1EB;
-  --muted: #A1B4AA;
-  --line: #2A3C34;
-  --edge: #3A5046;
-  --shadow: #030806;
-  --red-text: #FF6E5A;
-  --jade: #56D3B1;
-  --soft: #123A30;
-  --focus: #8FB0FF;
-  --hero-bg: #13201A;
-  --hero-glow: rgba(255, 194, 61, .16);
-  --hero-ink: #E9F1EB;
-  --hero-title: #FFC23D;
-  --foot-bg: #060C09;
-  --foot-fg: #DDE8E1;
-  --foot-muted: #8DA398;
-  --steam: rgba(233, 241, 235, .5);
-  --floor: rgba(0, 0, 0, .45);
-  --outline: #0A120E;
-  color-scheme: dark;
 }
 
 /* ---------- Base ---------- */
@@ -124,7 +73,7 @@ button { font: inherit; }
 
 .wrap { max-width: 1140px; margin-inline: auto; padding-inline: var(--gutter); }
 .section { padding-block: clamp(64px, 9vw, 112px); }
-section[id] { scroll-margin-top: 72px; }
+section[id] { scroll-margin-top: 64px; }
 
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .sr-only {
@@ -206,8 +155,7 @@ h2 {
 
 /* ---------- Header ---------- */
 .topbar {
-  position: sticky;
-  top: env(safe-area-inset-top, 0px);
+  position: relative;
   z-index: 50;
   background: var(--wall);
   border-bottom: 2px solid var(--edge);
@@ -355,6 +303,7 @@ h2 {
 }
 .signboard {
   --screw: rgba(0, 0, 0, .32);
+  position: relative;
   padding: clamp(28px, 3.6vw, 42px) clamp(24px, 3.6vw, 42px) clamp(24px, 3.2vw, 36px);
   border: 3px solid var(--outline);
   border-radius: 10px;

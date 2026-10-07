@@ -1,0 +1,753 @@
+/* Designs 2–5 and the design chooser bar.
+   Each design is switched on by <html data-design="…"> and restyles the same page.
+   Once Nam picks a favourite, the others (and the chooser) can be deleted. */
+
+/* ====================================================================
+   Design chooser bar (neutral, sits above every design)
+   ==================================================================== */
+.designbar { display: none; }
+.js .designbar {
+  display: block;
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 80;
+  background: #101114;
+  color: #F4F4F5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-bottom: 1px solid #2A2B31;
+}
+.designbar__inner {
+  max-width: 1140px; margin-inline: auto;
+  padding: 8px var(--gutter);
+  display: flex; align-items: center; gap: 14px;
+}
+.designbar__label { flex: none; margin: 0; font-size: .8rem; font-weight: 600; color: #B4B6BE; }
+.designbar__tabs {
+  display: flex; gap: 6px; min-width: 0; padding: 2px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.designbar__tabs::-webkit-scrollbar { display: none; }
+.designbar button {
+  flex: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 600 .85rem/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #E4E4E7; background: #1C1D22;
+  border: 1px solid #33343B; border-radius: 999px;
+  padding: 7px 13px 7px 8px;
+  white-space: nowrap; cursor: pointer;
+}
+.designbar button:hover { background: #26272E; }
+.designbar button[aria-pressed="true"] { background: #F4F4F5; color: #101114; border-color: #F4F4F5; }
+.designbar button:focus-visible { outline: 2px solid #8AB4FF; outline-offset: 2px; }
+.designbar .sw { flex: none; width: 16px; height: 16px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3); }
+.sw--street { background: linear-gradient(135deg, #F5B41A 50%, #DE2A1E 50%); }
+.sw--night { background: linear-gradient(135deg, #FF3EA5 50%, #3EF0F0 50%); }
+.sw--porcelain { background: linear-gradient(135deg, #FFFFFF 50%, #1E3A8A 50%); }
+.sw--poster { background: linear-gradient(135deg, #C4161C 50%, #F6C21C 50%); }
+.sw--postcard { background: repeating-linear-gradient(135deg, #C8283C 0 3px, #FFFFFF 3px 6px, #23498C 6px 9px, #FFFFFF 9px 12px); }
+@media (max-width: 560px) { .designbar__label { display: none; } }
+
+
+/* ====================================================================
+   Design 2 · Night market
+   Saigon after dark: neon tube signs glowing over a wet street.
+   ==================================================================== */
+:root[data-design="night"] {
+  --wall: #0A0E1A;
+  --paper: #111829;
+  --ink: #F1EEFF;
+  --muted: #A9AECB;
+  --line: #262F4A;
+  --edge: #2C3654;
+  --shadow: transparent;
+  --red-text: #FF5DB1;
+  --jade: #3EF0F0;
+  --soft: #1A2340;
+  --focus: #3EF0F0;
+  --hero-bg: #0A0E1A;
+  --hero-ink: #F1EEFF;
+  --hero-title: #F1EEFF;
+  --foot-bg: #06080F;
+  --foot-fg: #D9D6F0;
+  --foot-muted: #8C90AE;
+  --steam: rgba(241, 238, 255, .55);
+  --floor: rgba(255, 62, 165, .18);
+  --outline: #FF3EA5;
+  --stool: #FF3EA5;
+  --turmeric: #FFE45E;
+  --jade-fill: #3EF0F0;
+  --blue: #8B7CFF;
+  --neon-green: #7CFF6B;
+  --display: "Tilt Neon", "Lexend", system-ui, sans-serif;
+  --body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Tilt Neon", "Lexend", system-ui, sans-serif;
+  color-scheme: dark;
+}
+[data-design="night"] .topbar { background: #0A0E1A; border-bottom: 1px solid var(--line); }
+[data-design="night"] .brand__sign {
+  background: transparent; color: var(--stool);
+  border: 2px solid var(--stool); border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 62, 165, .55), inset 0 0 10px rgba(255, 62, 165, .3);
+  text-shadow: 0 0 8px rgba(255, 62, 165, .9);
+}
+[data-design="night"] .nav a { background-image: linear-gradient(var(--jade-fill), var(--jade-fill)); }
+[data-design="night"] .hero {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 62, 165, .16), transparent 42%),
+    radial-gradient(circle at 80% 62%, rgba(62, 240, 240, .13), transparent 45%),
+    var(--hero-bg);
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 861px) { [data-design="night"] .hero__art { order: -1; } }
+[data-design="night"] .hero__title { font-size: clamp(3rem, 8.4vw, 6.2rem); line-height: 1; text-shadow: 0 0 14px rgba(241, 238, 255, .35); }
+[data-design="night"] .hl {
+  background: none; color: var(--stool); padding: 0;
+  text-shadow: 0 0 6px var(--stool), 0 0 22px rgba(255, 62, 165, .85), 0 0 50px rgba(255, 62, 165, .5);
+  animation: flicker 7s infinite;
+}
+@keyframes flicker {
+  0%, 18%, 20.5%, 22%, 61%, 63%, 100% { opacity: 1; }
+  19%, 21.5%, 62% { opacity: .4; }
+}
+[data-design="night"] .pill { background: transparent; color: var(--jade); border-color: var(--jade-fill); box-shadow: 0 0 12px rgba(62, 240, 240, .35); }
+[data-design="night"] .btn { border-width: 2px; border-radius: 999px; }
+[data-design="night"] .btn--red { background: var(--stool); color: #0A0E1A; border-color: var(--stool); box-shadow: 0 0 20px rgba(255, 62, 165, .55); }
+[data-design="night"] .btn--plain { background: transparent; color: var(--jade); border-color: var(--jade-fill); box-shadow: 0 0 14px rgba(62, 240, 240, .3); }
+[data-design="night"] .btn--red:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(255, 62, 165, .85); }
+[data-design="night"] .btn--plain:hover { transform: translateY(-2px); box-shadow: 0 0 22px rgba(62, 240, 240, .55); }
+[data-design="night"] .btn:active { transform: none; }
+[data-design="night"] .perks li::before { background: var(--turmeric); border: 0; box-shadow: 0 0 8px var(--turmeric); }
+
+/* the bowl and stool become a neon sign */
+[data-design="night"] .hero__svg { filter: drop-shadow(0 0 4px rgba(255, 62, 165, .55)) drop-shadow(0 0 14px rgba(62, 240, 240, .3)); }
+[data-design="night"] .a-stool { fill: rgba(255, 62, 165, .07); stroke: var(--stool); stroke-width: 3.5; }
+[data-design="night"] .a-shine { opacity: 0; }
+[data-design="night"] .a-porc { fill: rgba(62, 240, 240, .05); stroke: var(--jade-fill); stroke-width: 3.5; }
+[data-design="night"] .a-edge { stroke: var(--jade-fill); stroke-width: 3.5; }
+[data-design="night"] .a-band { fill: var(--jade-fill); opacity: .5; }
+[data-design="night"] .a-broth { fill: rgba(255, 228, 94, .1); stroke: var(--turmeric); stroke-width: 2.5; }
+[data-design="night"] .a-noodle { stroke: var(--turmeric); }
+[data-design="night"] .a-beef { fill: none; stroke: var(--stool); stroke-width: 2.5; }
+[data-design="night"] .a-herb,
+[data-design="night"] .a-lime { fill: none; stroke: var(--neon-green); stroke-width: 2.5; }
+[data-design="night"] .a-onion { stroke: var(--neon-green); }
+[data-design="night"] .a-stick { stroke: var(--turmeric); stroke-width: 5; }
+[data-design="night"] .a-note text { fill: var(--turmeric); }
+[data-design="night"] .a-note path { stroke: var(--turmeric); }
+[data-design="night"] .tag-sticker {
+  background: #0A0E1A; color: var(--jade); font-family: var(--display);
+  border: 2px solid var(--jade-fill); box-shadow: 0 0 16px rgba(62, 240, 240, .5);
+}
+[data-design="night"] .tag-sticker b { color: var(--stool); text-shadow: 0 0 10px rgba(255, 62, 165, .85); }
+
+[data-design="night"] .ticker {
+  background: #070A14; border-top: 1px solid var(--stool); border-bottom: 1px solid var(--stool);
+  box-shadow: 0 0 18px rgba(255, 62, 165, .35);
+}
+[data-design="night"] .ticker__group { color: var(--turmeric); font-size: 1.4rem; text-shadow: 0 0 8px rgba(255, 228, 94, .7); }
+[data-design="night"] .ticker__group i { background: var(--stool); border: 0; box-shadow: 0 0 8px var(--stool); }
+
+[data-design="night"] .kicker { color: var(--jade); font-size: 1.15rem; letter-spacing: .04em; text-shadow: 0 0 8px rgba(62, 240, 240, .5); }
+[data-design="night"] h2 { font-size: clamp(2.3rem, 5.6vw, 4rem); text-shadow: 0 0 14px rgba(241, 238, 255, .25); }
+[data-design="night"] .subhead { color: var(--turmeric); text-shadow: 0 0 8px rgba(255, 228, 94, .45); }
+
+[data-design="night"] .signboard--red { --glow: #FF3EA5; --glow-soft: rgba(255, 62, 165, .35); }
+[data-design="night"] .signboard--jade { --glow: #3EF0F0; --glow-soft: rgba(62, 240, 240, .3); }
+[data-design="night"] .signboard--yellow { --glow: #FFE45E; --glow-soft: rgba(255, 228, 94, .3); }
+[data-design="night"] .signboard--blue { --glow: #8B7CFF; --glow-soft: rgba(139, 124, 255, .35); }
+[data-design="night"] .signboard {
+  background: var(--paper); color: var(--ink);
+  border: 2px solid var(--glow); border-radius: 16px;
+  box-shadow: 0 0 22px var(--glow-soft), inset 0 0 18px var(--glow-soft);
+}
+[data-design="night"] .signboard:nth-child(n) { transform: none; }
+[data-design="night"] .signboard:hover { transform: translateY(-4px); }
+[data-design="night"] .signboard h3 { color: var(--glow); text-shadow: 0 0 10px var(--glow-soft), 0 0 2px var(--glow); }
+
+[data-design="night"] .tiles { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+[data-design="night"] .t-bg { fill: #0A0E1A; }
+[data-design="night"] .t-a { fill: #FF3EA5; }
+[data-design="night"] .t-b { fill: #1C2440; }
+[data-design="night"] .t-c { fill: #3EF0F0; }
+
+[data-design="night"] .quote p { text-shadow: 0 0 12px rgba(255, 62, 165, .55); }
+[data-design="night"] .stamp--red { --glow: #FF3EA5; }
+[data-design="night"] .stamp--jade { --glow: #3EF0F0; }
+[data-design="night"] .stamp--blue { --glow: #8B7CFF; }
+[data-design="night"] .stamp--yellow { --glow: #FFE45E; }
+[data-design="night"] .stamp {
+  background: transparent; color: var(--glow);
+  border: 2px solid var(--glow);
+  box-shadow: 0 0 14px var(--glow), inset 0 0 10px var(--glow);
+  text-shadow: 0 0 8px var(--glow);
+  font-size: 1.35rem; transform: none;
+}
+[data-design="night"] .steps li::before {
+  background: transparent; color: var(--stool);
+  border: 2px solid var(--stool);
+  box-shadow: 0 0 12px rgba(255, 62, 165, .5);
+  text-shadow: 0 0 8px rgba(255, 62, 165, .9);
+}
+[data-design="night"] .rules li::before { background: var(--jade-fill); border: 0; box-shadow: 0 0 8px var(--jade-fill); }
+[data-design="night"] .phrase { border-radius: 4px 4px 14px 14px; }
+
+[data-design="night"] .visit {
+  background: radial-gradient(circle at 50% 45%, rgba(255, 62, 165, .22), transparent 62%), #070A14;
+  color: var(--ink);
+  border-top: 1px solid var(--stool);
+}
+[data-design="night"] .visit .kicker { color: var(--jade); }
+[data-design="night"] .visit h2 { font-size: clamp(2.8rem, 7.6vw, 5.6rem); }
+[data-design="night"] .visit__hl {
+  background: none; color: var(--turmeric); padding: 0;
+  text-shadow: 0 0 8px var(--turmeric), 0 0 28px rgba(255, 228, 94, .7);
+  animation: flicker 9s infinite 2s;
+}
+[data-design="night"] .clock { color: var(--jade); }
+
+
+/* ====================================================================
+   Design 3 · Porcelain
+   Blue-and-white Vietnamese ceramics: cobalt brushwork on white glaze,
+   a potter's red seal, everything calm and centred.
+   ==================================================================== */
+:root[data-design="porcelain"] {
+  --wall: #F6F8FD;
+  --paper: #FFFFFF;
+  --ink: #13224F;
+  --muted: #4A5778;
+  --line: #D3DCEF;
+  --edge: #1E3A8A;
+  --shadow: transparent;
+  --red-text: #1E3A8A;
+  --jade: #2F55B5;
+  --soft: #EAF0FB;
+  --focus: #B3261E;
+  --hero-bg: #FFFFFF;
+  --hero-glow: transparent;
+  --hero-ink: #13224F;
+  --hero-title: #13224F;
+  --foot-bg: #13224F;
+  --foot-fg: #EEF2FB;
+  --foot-muted: #A8B5D6;
+  --steam: rgba(30, 58, 138, .32);
+  --floor: rgba(30, 58, 138, .09);
+  --outline: #1E3A8A;
+  --stool: #1E3A8A;
+  --turmeric: #DCE5F7;
+  --jade-fill: #2F55B5;
+  --blue: #13224F;
+  --porcelain: #FFFFFF;
+  --broth: #E3EAF8;
+  --beef: #1E3A8A;
+  --herb: #6481C8;
+  --wood: #1E3A8A;
+  --lime: #DCE5F7;
+  --onion: #1E3A8A;
+  --seal: #B3261E;
+  --sticker-red: #FFFFFF;
+  --on-dark: #FFFFFF;
+  --on-light: #13224F;
+  --display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --body: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Cormorant Garamond", Georgia, serif;
+  color-scheme: light;
+}
+[data-design="porcelain"] .topbar { background: var(--paper); border-bottom: 1px solid var(--line); }
+[data-design="porcelain"] .brand__sign {
+  background: var(--seal); color: #FFFFFF;
+  font-weight: 600; font-size: 1.3rem; line-height: 1.2;
+  border: 0; border-radius: 3px; box-shadow: none;
+  padding: .15em .55em;
+}
+[data-design="porcelain"] .brand__sub { font-style: italic; font-size: 1.05rem; }
+[data-design="porcelain"] .nav a { background-image: linear-gradient(var(--stool), var(--stool)); background-size: 0 1.5px; }
+[data-design="porcelain"] .nav a:hover,
+[data-design="porcelain"] .nav a:focus-visible { background-size: 100% 1.5px; }
+
+[data-design="porcelain"] .hero { border-bottom: 1px solid var(--line); }
+[data-design="porcelain"] .hero__grid { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 8px; }
+[data-design="porcelain"] .hero__art { order: -1; max-width: 250px; }
+[data-design="porcelain"] .hero__copy { justify-items: center; }
+[data-design="porcelain"] .hero__title { font-weight: 500; font-size: clamp(3.2rem, 8.6vw, 6.6rem); line-height: .95; letter-spacing: -.015em; }
+[data-design="porcelain"] .hl { background: none; color: var(--stool); padding: 0; font-style: italic; }
+[data-design="porcelain"] .hero__lede { margin-inline: auto; color: var(--muted); }
+[data-design="porcelain"] .hero__cta,
+[data-design="porcelain"] .perks { justify-content: center; }
+[data-design="porcelain"] .pill {
+  background: transparent; border: 1px solid var(--edge); color: var(--stool);
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+}
+[data-design="porcelain"] .btn { border-width: 1.5px; border-radius: 999px; box-shadow: none; padding: .85em 1.6em; }
+[data-design="porcelain"] .btn--plain { border-color: var(--edge); color: var(--stool); }
+[data-design="porcelain"] .btn:hover,
+[data-design="porcelain"] .btn:active { transform: none; box-shadow: none; }
+[data-design="porcelain"] .btn--red:hover { background: var(--ink); }
+[data-design="porcelain"] .btn--plain:hover { background: var(--soft); }
+[data-design="porcelain"] .perks li::before { border-width: 1px; }
+
+[data-design="porcelain"] .a-stool,
+[data-design="porcelain"] .a-porc,
+[data-design="porcelain"] .a-edge { stroke-width: 3; }
+[data-design="porcelain"] .a-shine { opacity: 0; }
+[data-design="porcelain"] .a-noodle { stroke: #FFFFFF; }
+[data-design="porcelain"] .a-lime { stroke-width: 2.5; }
+[data-design="porcelain"] .a-note { display: none; }
+[data-design="porcelain"] .tag-sticker {
+  right: -8px; bottom: 26%;
+  width: 84px; height: 84px; border-radius: 50%;
+  display: grid; place-content: center;
+  background: var(--seal); color: #FFFFFF;
+  border: 0; box-shadow: none;
+  font-family: var(--body); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  transform: rotate(-10deg);
+}
+[data-design="porcelain"] .tag-sticker b { font-family: var(--display); font-style: italic; font-size: 1.7rem; text-transform: none; letter-spacing: 0; }
+
+[data-design="porcelain"] .ticker {
+  background: var(--paper); color: var(--stool);
+  border-top: 4px double var(--edge); border-bottom: 4px double var(--edge);
+}
+[data-design="porcelain"] .ticker__track { animation-duration: 64s; }
+[data-design="porcelain"] .ticker__group { font-style: italic; font-size: 1.45rem; font-weight: 500; padding-block: .55rem .5rem; }
+[data-design="porcelain"] .ticker__group i { width: .4em; height: .4em; border-radius: 0; border: 0; background: var(--stool); transform: rotate(45deg); }
+
+[data-design="porcelain"] .section__head { margin-inline: auto; text-align: center; justify-items: center; }
+[data-design="porcelain"] .kicker { font-family: var(--body); font-size: .76rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--stool); }
+[data-design="porcelain"] h2 { font-weight: 500; font-size: clamp(2.5rem, 5.6vw, 4rem); line-height: 1.04; }
+[data-design="porcelain"] .subhead { font-weight: 600; font-style: italic; font-size: 1.75rem; color: var(--stool); }
+
+[data-design="porcelain"] .signboard {
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--edge); border-radius: 2px;
+  outline: 1px solid var(--edge); outline-offset: -9px;
+  box-shadow: none; text-align: center;
+  padding: clamp(34px, 4vw, 48px) clamp(28px, 4vw, 44px);
+}
+[data-design="porcelain"] .signboard:nth-child(n),
+[data-design="porcelain"] .signboard:hover { transform: none; }
+[data-design="porcelain"] .signboard h3 { font-style: italic; font-weight: 600; font-size: clamp(1.9rem, 3vw, 2.4rem); color: var(--stool); }
+[data-design="porcelain"] .signboard p { margin-inline: auto; color: var(--muted); }
+
+[data-design="porcelain"] .tiles { border-top: 1px solid var(--edge); border-bottom: 1px solid var(--edge); }
+[data-design="porcelain"] .t-bg { fill: #FFFFFF; }
+[data-design="porcelain"] .t-a { fill: #1E3A8A; }
+[data-design="porcelain"] .t-b { fill: #DCE5F7; }
+[data-design="porcelain"] .t-c { fill: #1E3A8A; }
+
+[data-design="porcelain"] .family { background: var(--wall); }
+[data-design="porcelain"] .family__intro .section__head { margin-inline: 0; text-align: left; justify-items: start; }
+[data-design="porcelain"] .quote { transform: none; }
+[data-design="porcelain"] .quote p { font-style: italic; font-weight: 500; font-size: clamp(2rem, 3.6vw, 2.6rem); color: var(--stool); }
+[data-design="porcelain"] .quote cite { font-family: var(--body); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; }
+[data-design="porcelain"] .role { font-style: italic; font-size: 1.25rem; }
+[data-design="porcelain"] .stamp {
+  border: 0; transform: none; font-weight: 600; font-size: 1.45rem;
+  box-shadow: 0 0 0 3px var(--wall), 0 0 0 4px var(--edge);
+}
+
+[data-design="porcelain"] .steps li::before {
+  background: var(--paper); color: var(--stool);
+  border: 1.5px solid var(--edge); box-shadow: none;
+  font-weight: 600; font-style: italic; font-size: 1.6rem;
+}
+[data-design="porcelain"] .rules li::before { border: 0; background: var(--stool); width: 9px; height: 9px; top: .55em; }
+[data-design="porcelain"] .phrases__head { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+[data-design="porcelain"] .phrase { border-top: 2px solid var(--stool); border-radius: 0; text-align: center; align-items: center; }
+[data-design="porcelain"] .phrase:nth-child(n) { border-top-color: var(--stool); }
+[data-design="porcelain"] .phrase__say { font-style: italic; font-size: 1.35rem; }
+[data-design="porcelain"] .say { align-self: center; }
+
+[data-design="porcelain"] .visit { border-top: 0; }
+[data-design="porcelain"] .visit .kicker { color: #DCE5F7; }
+[data-design="porcelain"] .visit h2 { font-weight: 500; font-size: clamp(2.8rem, 7vw, 5.2rem); }
+[data-design="porcelain"] .visit__hl { background: none; color: #FFFFFF; font-style: italic; padding: 0; }
+[data-design="porcelain"] .clock { font-style: italic; font-size: 1.5rem; color: #DCE5F7; }
+
+
+/* ====================================================================
+   Design 4 · Retro poster
+   Old Saigon poster art: flat red and golden yellow, sunburst rays,
+   heavy condensed capitals, everything shouting with joy.
+   ==================================================================== */
+:root[data-design="poster"] {
+  --wall: #F1E6CC;
+  --paper: #FAF3E1;
+  --ink: #1D1A16;
+  --muted: #554D41;
+  --line: #D9C9A6;
+  --edge: #1D1A16;
+  --shadow: #1D1A16;
+  --red-text: #B8141A;
+  --jade: #1F5F4A;
+  --soft: #EADBB8;
+  --focus: #1F5F4A;
+  --hero-bg: #C4161C;
+  --hero-glow: transparent;
+  --hero-ink: #FAF3E1;
+  --hero-title: #F6C21C;
+  --foot-bg: #1D1A16;
+  --foot-fg: #F1E6CC;
+  --foot-muted: #A79C86;
+  --steam: rgba(250, 243, 225, .75);
+  --floor: rgba(29, 26, 22, .28);
+  --outline: #1D1A16;
+  --stool: #C4161C;
+  --turmeric: #F6C21C;
+  --jade-fill: #1F5F4A;
+  --blue: #1D1A16;
+  --porcelain: #FAF3E1;
+  --broth: #E8892A;
+  --beef: #8E2A1E;
+  --herb: #2F7A4A;
+  --wood: #8B5A2B;
+  --lime: #9BC53D;
+  --onion: #9BC53D;
+  --shine: #FFE27A;
+  --sticker-red: #C4161C;
+  --on-dark: #FAF3E1;
+  --on-light: #1D1A16;
+  --display: "Anton", "Oswald", Impact, "Arial Narrow", sans-serif;
+  --body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Barlow Condensed", "Barlow", "Arial Narrow", sans-serif;
+  color-scheme: light;
+}
+[data-design="poster"] .topbar { background: var(--paper); border-bottom: 3px solid var(--edge); }
+[data-design="poster"] .brand__sign {
+  font-size: 1.3rem; letter-spacing: .04em; text-transform: uppercase; line-height: 1.25;
+  border-radius: 0; padding: .1em .5em;
+}
+[data-design="poster"] .brand__sub { font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; line-height: 1.25; }
+[data-design="poster"] .nav a { text-transform: uppercase; letter-spacing: .06em; font-family: var(--hand); font-size: 1.05rem; }
+
+[data-design="poster"] .hero {
+  background: repeating-conic-gradient(from 0deg at 74% 58%, rgba(246, 194, 28, .2) 0 6deg, transparent 6deg 12deg), var(--hero-bg);
+  border-bottom: 4px solid var(--edge);
+}
+@media (max-width: 860px) {
+  [data-design="poster"] .hero { background: repeating-conic-gradient(from 0deg at 50% 78%, rgba(246, 194, 28, .2) 0 6deg, transparent 6deg 12deg), var(--hero-bg); }
+}
+[data-design="poster"] .hero__title {
+  font-size: clamp(3.4rem, 9.6vw, 7.4rem); line-height: .92; letter-spacing: .005em; text-transform: uppercase;
+  text-shadow: 5px 5px 0 var(--ink);
+}
+[data-design="poster"] .hl {
+  display: inline-block; margin-top: .08em;
+  background: var(--paper); color: var(--stool);
+  padding: .02em .16em 0; border-radius: 0;
+  text-shadow: none; box-shadow: 7px 7px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+[data-design="poster"] .hero__lede { font-size: clamp(1.15rem, 1.8vw, 1.35rem); font-weight: 600; }
+[data-design="poster"] .pill {
+  background: var(--turmeric); color: var(--ink);
+  border: 2px solid var(--ink); border-radius: 0;
+  font-family: var(--hand); font-size: 1rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+[data-design="poster"] .btn {
+  border-radius: 0; border-width: 3px;
+  font-family: var(--hand); font-weight: 700; font-size: 1.15rem; letter-spacing: .08em; text-transform: uppercase;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+[data-design="poster"] .btn--red { background: var(--turmeric); color: var(--ink); border-color: var(--ink); }
+[data-design="poster"] .btn--plain { background: var(--paper); }
+[data-design="poster"] .perks { font-weight: 600; }
+[data-design="poster"] .perks li::before { background: var(--turmeric); }
+
+[data-design="poster"] .a-stool { fill: var(--turmeric); }
+[data-design="poster"] .a-stool,
+[data-design="poster"] .a-porc,
+[data-design="poster"] .a-edge { stroke-width: 5; }
+[data-design="poster"] .a-band { fill: var(--stool); }
+[data-design="poster"] .a-note text { font-family: var(--hand); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 22px; }
+[data-design="poster"] .tag-sticker {
+  width: 98px; height: 98px; border-radius: 50%;
+  display: grid; place-content: center;
+  background: var(--turmeric); color: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: inset 0 0 0 5px var(--turmeric), inset 0 0 0 7px var(--ink), 4px 4px 0 var(--ink);
+  font-family: var(--hand); font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
+  transform: rotate(-12deg);
+}
+[data-design="poster"] .tag-sticker b { font-family: var(--display); font-size: 1.9rem; line-height: 1; letter-spacing: .02em; }
+
+[data-design="poster"] .ticker { background: var(--turmeric); color: var(--ink); border-bottom: 4px solid var(--edge); }
+[data-design="poster"] .ticker__group { font-size: 1.5rem; letter-spacing: .04em; text-transform: uppercase; }
+[data-design="poster"] .ticker__group i { background: var(--stool); }
+
+[data-design="poster"] .kicker {
+  font-weight: 700; font-size: 1.05rem; letter-spacing: .14em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px;
+}
+[data-design="poster"] .kicker::before { content: ""; width: 34px; height: 4px; background: var(--stool); }
+[data-design="poster"] h2 { font-size: clamp(2.8rem, 6.4vw, 4.8rem); line-height: .98; text-transform: uppercase; letter-spacing: .005em; }
+[data-design="poster"] .subhead { font-size: 1.7rem; text-transform: uppercase; letter-spacing: .02em; }
+
+[data-design="poster"] .signboard--red { --band: #C4161C; --band-ink: #FAF3E1; }
+[data-design="poster"] .signboard--jade { --band: #1F5F4A; --band-ink: #FAF3E1; }
+[data-design="poster"] .signboard--yellow { --band: #F6C21C; --band-ink: #1D1A16; }
+[data-design="poster"] .signboard--blue { --band: #1D1A16; --band-ink: #F6C21C; }
+[data-design="poster"] .signboard {
+  background: var(--paper); color: var(--ink);
+  border: 3px solid var(--edge); border-radius: 0;
+  box-shadow: 8px 8px 0 var(--shadow);
+}
+[data-design="poster"] .signboard:nth-child(n) { transform: none; }
+[data-design="poster"] .signboard:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--shadow); }
+[data-design="poster"] .signboard h3 {
+  display: inline-block; margin-bottom: 18px;
+  padding: .12em .4em .08em;
+  background: var(--band); color: var(--band-ink);
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem); letter-spacing: .02em; text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+[data-design="poster"] .signboard p { font-size: 1.1rem; font-weight: 500; }
+
+[data-design="poster"] .tiles { border-top: 4px solid var(--edge); border-bottom: 4px solid var(--edge); }
+[data-design="poster"] .t-bg { fill: #FAF3E1; }
+[data-design="poster"] .t-a { fill: #C4161C; }
+[data-design="poster"] .t-b { fill: #1D1A16; }
+[data-design="poster"] .t-c { fill: #F6C21C; }
+
+[data-design="poster"] .quote p { font-family: var(--display); font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.05; text-transform: uppercase; }
+[data-design="poster"] .quote cite { font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .95rem; }
+[data-design="poster"] .role { font-weight: 700; font-size: .95rem; letter-spacing: .1em; text-transform: uppercase; color: var(--red-text); }
+[data-design="poster"] .stamp { font-size: 1.5rem; letter-spacing: .02em; text-transform: uppercase; border-width: 3px; box-shadow: 4px 4px 0 var(--shadow); }
+
+[data-design="poster"] .steps li::before { border-radius: 0; background: var(--stool); color: var(--turmeric); font-size: 1.7rem; border-width: 3px; }
+[data-design="poster"] .rules li::before { background: var(--stool); }
+[data-design="poster"] .phrase { border: 2px solid var(--edge); border-top-width: 8px; border-radius: 0; }
+[data-design="poster"] .phrase:nth-child(4n+1) { border-top-color: var(--stool); }
+[data-design="poster"] .phrase:nth-child(4n+2) { border-top-color: var(--jade-fill); }
+[data-design="poster"] .phrase:nth-child(4n+3) { border-top-color: var(--turmeric); }
+[data-design="poster"] .phrase:nth-child(4n+4) { border-top-color: var(--ink); }
+[data-design="poster"] .phrase__say { font-style: italic; font-weight: 600; font-size: 1.15rem; }
+
+[data-design="poster"] .visit {
+  background: repeating-conic-gradient(from 0deg at 50% 50%, #F6C21C 0 7.5deg, #ECB512 7.5deg 15deg);
+  color: var(--ink);
+  border-top: 4px solid var(--edge);
+}
+[data-design="poster"] .visit .kicker { color: var(--ink); justify-content: center; }
+[data-design="poster"] .visit .kicker::before { background: var(--ink); }
+[data-design="poster"] .visit h2 { color: var(--stool); font-size: clamp(3.2rem, 9vw, 6.6rem); text-shadow: 5px 5px 0 var(--ink); }
+[data-design="poster"] .visit__hl { display: inline-block; background: var(--ink); color: var(--turmeric); text-shadow: none; transform: rotate(-2deg); padding: .04em .16em 0; }
+[data-design="poster"] .visit__lede { font-weight: 600; }
+[data-design="poster"] .clock { font-weight: 700; font-size: 1.3rem; letter-spacing: .04em; text-transform: uppercase; }
+
+
+/* ====================================================================
+   Design 5 · Postcard
+   A backpacker's postcard home: kraft paper, airmail stripes,
+   a perforated stamp, a postmark, washi tape and ballpoint handwriting.
+   ==================================================================== */
+:root[data-design="postcard"] {
+  --wall: #E6D6B8;
+  --paper: #FFFCF4;
+  --ink: #22324F;
+  --muted: #4A4F5E;
+  --line: #DCCFB4;
+  --edge: #22324F;
+  --shadow: rgba(60, 40, 10, .18);
+  --red-text: #B8233A;
+  --jade: #1D6E8C;
+  --soft: #F3ECDD;
+  --focus: #B8233A;
+  --hero-bg: #E6D6B8;
+  --hero-glow: rgba(255, 255, 255, .25);
+  --hero-ink: #22324F;
+  --hero-title: #22324F;
+  --foot-bg: #22324F;
+  --foot-fg: #F3ECDD;
+  --foot-muted: #A9B1C6;
+  --steam: rgba(34, 50, 79, .38);
+  --floor: rgba(34, 50, 79, .12);
+  --outline: #22324F;
+  --stool: #C8283C;
+  --turmeric: #F2C14E;
+  --jade-fill: #1D6E8C;
+  --blue: #23498C;
+  --porcelain: #FFFCF4;
+  --sticker-red: #C8283C;
+  --airmail: repeating-linear-gradient(-45deg, #C8283C 0 12px, #FFFCF4 12px 24px, #23498C 24px 36px, #FFFCF4 36px 48px);
+  --display: "Shantell Sans", "Patrick Hand", "Comic Sans MS", cursive;
+  --body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Shantell Sans", "Patrick Hand", cursive;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+[data-design="postcard"] .topbar { background: var(--paper); border-bottom: 1px solid var(--line); }
+[data-design="postcard"] .brand__sign {
+  background: transparent; color: var(--stool);
+  border: 2.5px solid var(--stool); border-radius: 4px; box-shadow: none;
+  font-family: var(--mono); font-weight: 500; font-size: 1rem; letter-spacing: .12em; text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+[data-design="postcard"] .nav a { background-image: linear-gradient(rgba(242, 193, 78, .75), rgba(242, 193, 78, .75)); background-size: 0 .55em; background-position: 0 85%; }
+[data-design="postcard"] .nav a:hover,
+[data-design="postcard"] .nav a:focus-visible { background-size: 100% .55em; }
+
+/* the hero becomes a postcard lying on the desk */
+[data-design="postcard"] .hero { border-bottom: 0; padding-block: clamp(20px, 4vw, 48px); }
+[data-design="postcard"] .hero__grid {
+  width: min(1100px, calc(100% - 2 * var(--gutter)));
+  max-width: none;
+  padding: clamp(24px, 4vw, 52px);
+  background: var(--paper);
+  border: 12px solid transparent;
+  border-image: var(--airmail) 12;
+  box-shadow: 0 18px 40px rgba(60, 40, 10, .22);
+  transform: rotate(-.5deg);
+}
+[data-design="postcard"] .hero__title { font-weight: 700; font-size: clamp(2.6rem, 6.6vw, 5rem); line-height: 1.04; letter-spacing: -.01em; }
+[data-design="postcard"] .hl { background: linear-gradient(transparent 55%, rgba(242, 193, 78, .8) 55%); color: var(--ink); padding: 0 .06em; }
+[data-design="postcard"] .pill {
+  background: transparent; color: var(--stool);
+  border: 2px solid var(--stool); border-radius: 4px;
+  font-family: var(--mono); font-weight: 500; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+[data-design="postcard"] .btn { border-radius: 8px; border-width: 2px; box-shadow: 0 6px 14px rgba(60, 40, 10, .18); }
+[data-design="postcard"] .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(60, 40, 10, .22); }
+[data-design="postcard"] .btn:active { transform: none; box-shadow: 0 3px 8px rgba(60, 40, 10, .2); }
+[data-design="postcard"] .btn--red { border-color: var(--stool); }
+[data-design="postcard"] .perks li::before { background: var(--turmeric); border: 0; transform: rotate(-8deg); width: 13px; height: 9px; }
+
+[data-design="postcard"] .hero__art { max-width: 360px; transform: rotate(3deg); filter: drop-shadow(0 8px 10px rgba(60, 40, 10, .22)); }
+[data-design="postcard"] .hero__svg {
+  padding: 16px;
+  background: linear-gradient(#E1ECF1, #E1ECF1) content-box, #FFFFFF;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, radial-gradient(circle at 10px 10px, transparent 5px, #000 5.5px) -10px -10px / 20px 20px;
+  mask: linear-gradient(#000 0 0) content-box, radial-gradient(circle at 10px 10px, transparent 5px, #000 5.5px) -10px -10px / 20px 20px;
+}
+[data-design="postcard"] .hero__art::after {
+  content: "SÀI GÒN\A ✶ VN ✶";
+  white-space: pre;
+  position: absolute; left: -38px; top: -22px;
+  width: 112px; height: 112px; border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  border: 3px solid rgba(34, 50, 79, .55);
+  box-shadow: inset 0 0 0 5px transparent, inset 0 0 0 6.5px rgba(34, 50, 79, .45);
+  font: 500 .72rem/1.5 var(--mono); letter-spacing: .14em;
+  color: rgba(34, 50, 79, .65);
+  transform: rotate(-16deg);
+}
+[data-design="postcard"] .a-stool,
+[data-design="postcard"] .a-porc,
+[data-design="postcard"] .a-edge { stroke-width: 3; }
+[data-design="postcard"] .a-note { display: none; }
+[data-design="postcard"] .tag-sticker {
+  background: var(--paper); color: var(--ink);
+  border: 0; border-radius: 2px;
+  box-shadow: 0 6px 12px rgba(60, 40, 10, .2);
+  font-family: var(--hand);
+  transform: rotate(6deg);
+  padding: .7em .9em .5em;
+}
+[data-design="postcard"] .tag-sticker::before {
+  content: ""; position: absolute; left: 50%; top: -10px;
+  width: 54px; height: 18px;
+  background: rgba(242, 193, 78, .75);
+  transform: translateX(-50%) rotate(-4deg);
+}
+[data-design="postcard"] .tag-sticker b { font-weight: 700; }
+
+[data-design="postcard"] .ticker { background: var(--airmail); border: 0; padding-block: 7px; }
+[data-design="postcard"] .ticker__track { background: var(--paper); }
+[data-design="postcard"] .ticker__group {
+  font-family: var(--mono); font-weight: 500; font-size: .95rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink); padding-block: .6rem .55rem;
+}
+[data-design="postcard"] .ticker__group i { border: 0; background: var(--stool); width: .45em; height: .45em; }
+
+[data-design="postcard"] .kicker { font-family: var(--mono); font-weight: 500; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
+[data-design="postcard"] h2 { font-weight: 700; font-size: clamp(2.3rem, 5.2vw, 3.6rem); line-height: 1.08; }
+[data-design="postcard"] .subhead { font-weight: 700; font-size: 1.5rem; }
+
+[data-design="postcard"] .signboard--red { --tape: rgba(200, 40, 60, .32); --pen: #B8233A; }
+[data-design="postcard"] .signboard--jade { --tape: rgba(29, 110, 140, .3); --pen: #1D6E8C; }
+[data-design="postcard"] .signboard--yellow { --tape: rgba(242, 193, 78, .7); --pen: #22324F; }
+[data-design="postcard"] .signboard--blue { --tape: rgba(35, 73, 140, .3); --pen: #23498C; }
+[data-design="postcard"] .signboard {
+  background: var(--paper); color: var(--ink);
+  border: 0; border-radius: 2px;
+  box-shadow: 0 12px 26px rgba(60, 40, 10, .18);
+  padding-top: clamp(34px, 4vw, 46px);
+  transform: rotate(-1.4deg);
+}
+[data-design="postcard"] .signboard:nth-child(even) { transform: rotate(1.6deg); }
+[data-design="postcard"] .signboard:hover { transform: rotate(0deg) translateY(-4px); }
+[data-design="postcard"] .signboard::before {
+  content: ""; position: absolute; left: 50%; top: -12px;
+  width: 104px; height: 26px;
+  background: var(--tape);
+  transform: translateX(-50%) rotate(-3deg);
+}
+[data-design="postcard"] .signboard h3 { font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2rem); color: var(--pen); }
+
+[data-design="postcard"] .tiles { height: 14px; border: 0; background: var(--airmail); }
+[data-design="postcard"] .tiles rect { fill: transparent; }
+
+[data-design="postcard"] .quote p { font-weight: 600; }
+[data-design="postcard"] .role { font-weight: 600; font-size: 1.05rem; }
+[data-design="postcard"] .stamp--red { --ink-stamp: #B8233A; }
+[data-design="postcard"] .stamp--jade { --ink-stamp: #1D6E8C; }
+[data-design="postcard"] .stamp--blue { --ink-stamp: #23498C; }
+[data-design="postcard"] .stamp--yellow { --ink-stamp: #6B4E16; }
+[data-design="postcard"] .stamp {
+  background: transparent; color: var(--ink-stamp);
+  border: 2.5px solid var(--ink-stamp);
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5.5px var(--ink-stamp);
+  font-family: var(--mono); font-weight: 500; font-size: .95rem; letter-spacing: .08em; text-transform: uppercase;
+  transform: rotate(-9deg);
+}
+
+[data-design="postcard"] .steps li::before {
+  background: transparent; color: var(--ink);
+  border: 2.5px solid var(--ink); box-shadow: none;
+  border-radius: 50% 44% 56% 47% / 52% 48% 50% 46%;
+  font-family: var(--hand); font-weight: 700; font-size: 1.4rem;
+}
+[data-design="postcard"] .rules li::before { background: var(--turmeric); border: 0; width: 15px; height: 10px; top: .5em; transform: rotate(-8deg); }
+[data-design="postcard"] .phrase {
+  border-radius: 2px;
+  border-top: 3px solid var(--stool);
+  background: repeating-linear-gradient(transparent 0 27px, #D7E3EF 27px 28px) 0 12px, var(--paper);
+  box-shadow: 0 6px 16px rgba(60, 40, 10, .12);
+}
+[data-design="postcard"] .phrase:nth-child(n) { border-top-color: var(--stool); }
+
+/* the closing section is the back of the postcard */
+[data-design="postcard"] .visit { background: var(--wall); color: var(--ink); text-align: left; border-top: 0; }
+[data-design="postcard"] .visit__inner {
+  position: relative;
+  width: min(980px, calc(100% - 2 * var(--gutter)));
+  max-width: none;
+  justify-items: start;
+  padding: clamp(28px, 5vw, 56px);
+  padding-right: clamp(28px, 18vw, 200px);
+  background: var(--paper);
+  border: 12px solid transparent;
+  border-image: var(--airmail) 12;
+  box-shadow: 0 18px 40px rgba(60, 40, 10, .22);
+  transform: rotate(.5deg);
+}
+[data-design="postcard"] .visit__inner::after {
+  content: "PLACE\A STAMP\A HERE";
+  white-space: pre;
+  position: absolute; top: clamp(20px, 3vw, 32px); right: clamp(20px, 3vw, 32px);
+  width: 92px; height: 112px;
+  display: grid; place-items: center; text-align: center;
+  border: 2px dashed rgba(34, 50, 79, .45);
+  font: 500 .66rem/1.6 var(--mono); letter-spacing: .14em; color: rgba(34, 50, 79, .6);
+}
+[data-design="postcard"] .visit .kicker { color: var(--red-text); }
+[data-design="postcard"] .visit h2 { font-size: clamp(2.4rem, 5.6vw, 4rem); max-width: 18ch; }
+[data-design="postcard"] .visit__hl { background: linear-gradient(transparent 55%, rgba(242, 193, 78, .8) 55%); color: var(--ink); padding: 0 .06em; }
+[data-design="postcard"] .clock { color: var(--jade); font-size: 1.25rem; }
+@media (max-width: 640px) {
+  [data-design="postcard"] .pill { letter-spacing: .06em; }
+  [data-design="postcard"] .visit__inner { padding-right: clamp(24px, 5vw, 56px); }
+  [data-design="postcard"] .visit__inner::after { display: none; }
+}

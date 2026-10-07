@@ -20,9 +20,20 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Bungee&family=Patrick+Hand&display=swap">
+  <!-- Fonts for all five designs. Once a design is chosen, trim this to its fonts. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Bungee&family=Patrick+Hand&family=Tilt+Neon&family=Lexend:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Mulish:wght@400;600;700&family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,600&family=Shantell+Sans:wght@400;600;700&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
   <link rel="stylesheet" href="css/styles.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="css/designs.css">
+  <script>
+    /* Pick the design before the page paints: #night etc. in the link, else the last one viewed. */
+    (function () {
+      var root = document.documentElement, ok = ['street', 'night', 'porcelain', 'poster', 'postcard'];
+      var fromLink = location.hash.slice(1), saved = null;
+      try { saved = localStorage.getItem('quannam-design'); } catch (e) {}
+      root.classList.add('js');
+      root.setAttribute('data-design', ok.indexOf(fromLink) > -1 ? fromLink : (ok.indexOf(saved) > -1 ? saved : 'street'));
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,6 +65,20 @@
 </svg>
 
 <a class="skip" href="#why">Skip to content</a>
+
+<!-- Design chooser: delete this block (and designs.css) once a design is picked -->
+<div class="designbar">
+  <div class="designbar__inner">
+    <p class="designbar__label" id="designbar-label">Pick a design</p>
+    <div class="designbar__tabs" role="group" aria-labelledby="designbar-label">
+      <button type="button" data-design-pick="street" aria-pressed="true"><span class="sw sw--street" aria-hidden="true"></span>1 · Street stall</button>
+      <button type="button" data-design-pick="night" aria-pressed="false"><span class="sw sw--night" aria-hidden="true"></span>2 · Night market</button>
+      <button type="button" data-design-pick="porcelain" aria-pressed="false"><span class="sw sw--porcelain" aria-hidden="true"></span>3 · Porcelain</button>
+      <button type="button" data-design-pick="poster" aria-pressed="false"><span class="sw sw--poster" aria-hidden="true"></span>4 · Retro poster</button>
+      <button type="button" data-design-pick="postcard" aria-pressed="false"><span class="sw sw--postcard" aria-hidden="true"></span>5 · Postcard</button>
+    </div>
+  </div>
+</div>
 
 <header class="topbar">
   <div class="wrap topbar__inner">

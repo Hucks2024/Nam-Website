@@ -5,12 +5,29 @@ No build step, no framework: plain HTML, CSS and a little JavaScript.
 
 ```
 index.html      the website
-css/styles.css  all styling (light and dark mode)
-js/main.js      mobile menu button, live Saigon clock, "Hear it" buttons for the phrasebook
+css/styles.css  shared layout + Design 1 (Street stall)
+css/designs.css Designs 2–5 and the "Pick a design" bar
+js/main.js      design chooser, mobile menu button, live Saigon clock, "Hear it" buttons
 og-image.png    the preview picture shown when the link is shared (WhatsApp, Facebook, Zalo…)
 favicon.svg     the little red stool
 tools/          source and script for regenerating og-image.png
 ```
+
+## Five designs to choose from
+
+A dark bar at the top of the page switches between five looks. The words and sections are the same in each, so it's a fair comparison.
+
+| # | Design | The idea |
+|---|--------|----------|
+| 1 | **Street stall** | Yellow shop sign, red plastic stools, hand-painted signboards and cement-tile borders |
+| 2 | **Night market** | Saigon after dark: glowing neon-tube signs in pink, cyan and yellow |
+| 3 | **Porcelain** | Blue-and-white Vietnamese ceramics: calm, elegant and centred, with a red potter's seal |
+| 4 | **Retro poster** | Old Saigon poster art: red and gold sunbursts, huge condensed capitals |
+| 5 | **Postcard** | A backpacker's postcard home: airmail stripes, a perforated stamp, postmarks and washi tape |
+
+To send someone straight to one design, add its name to the link: `…/Nam-Website/#night`, `#porcelain`, `#poster`, `#postcard` or `#street`.
+
+Once a favourite is picked, the other four and the chooser bar get removed so the site only carries one design.
 
 ## What's on the page
 

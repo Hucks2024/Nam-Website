@@ -3,6 +3,35 @@
   'use strict';
 
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  const store = {
+    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+    set(key, value) { try { localStorage.setItem(key, value); } catch { /* storage blocked */ } },
+  };
+
+  /* ---------- Design chooser (remove once a design is picked) ---------- */
+  const DESIGNS = ['street', 'night', 'porcelain', 'poster', 'postcard'];
+  const designButtons = $$('[data-design-pick]');
+  const setDesign = (name, remember) => {
+    const design = DESIGNS.includes(name) ? name : 'street';
+    document.documentElement.dataset.design = design;
+    designButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.designPick === design)));
+    if (!remember) return;
+    store.set('quannam-design', design);
+    // Put the design in the address so a link opens straight to it (e.g. …/#night).
+    try { history.replaceState(null, '', `#${design}`); } catch { /* not allowed here */ }
+  };
+  setDesign(document.documentElement.dataset.design, false);
+  // On phones the tab row scrolls sideways: start with the current design in view.
+  const current = designButtons.find((b) => b.getAttribute('aria-pressed') === 'true');
+  if (current) {
+    const row = current.parentElement;
+    row.scrollLeft = current.getBoundingClientRect().left - row.getBoundingClientRect().left - 8;
+  }
+  designButtons.forEach((b) => b.addEventListener('click', () => setDesign(b.dataset.designPick, true)));
+  window.addEventListener('hashchange', () => {
+    const name = location.hash.slice(1);
+    if (DESIGNS.includes(name)) setDesign(name, true);
+  });
 
   /* ---------- Mobile navigation ---------- */
   const toggle = document.querySelector('.navtoggle');
