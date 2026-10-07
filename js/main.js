@@ -180,6 +180,23 @@
     });
   }
 
+  /* ---------- Phone quick bar: same links as Find us, hidden while the hero is on screen ---------- */
+  const quickbar = document.querySelector('.quickbar');
+  if (quickbar) {
+    $$('[data-link-from]', quickbar).forEach((a) => {
+      const source = document.querySelector(`[data-link="${a.dataset.linkFrom}"]`);
+      if (source) a.href = source.href;
+    });
+    const hero = document.querySelector('.hero');
+    if (hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        quickbar.classList.toggle('is-shown', entry.intersectionRatio < 0.35);
+      }, { threshold: [0, 0.35, 1] }).observe(hero);
+    } else {
+      quickbar.classList.add('is-shown');
+    }
+  }
+
   /* ---------- Footer year ---------- */
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());

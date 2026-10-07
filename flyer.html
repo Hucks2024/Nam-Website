@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quán Nam Hostel Flyers</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Bungee&family=Patrick+Hand&display=swap">
+  <style>
+    /* A print sheet: four A6 flyers on one A4 page, cut along the dashed lines.
+       Deliberately light-only, because it's made for paper. */
+    :root {
+      --ink: #13201A; --muted: #4D5F56; --paper: #FFFFFF; --desk: #DCE6DF;
+      --stool: #DE2A1E; --turmeric: #F5B41A; --jade: #0A7A62; --cut: #9AA9A1;
+      --display: "Bungee", "Arial Black", Impact, sans-serif;
+      --body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --hand: "Patrick Hand", "Segoe Print", "Comic Sans MS", cursive;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--desk); color: var(--ink); font-family: var(--body); }
+    p { margin: 0; }
+
+    .toolbar {
+      max-width: 210mm; margin: 0 auto; padding: 24px 16px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;
+    }
+    .toolbar h1 { font-family: var(--display); font-weight: 400; font-size: 1.4rem; margin: 0 0 4px; }
+    .toolbar p { font-size: .95rem; color: var(--muted); max-width: 52ch; }
+    .print {
+      font: 700 1rem var(--body); padding: .8em 1.3em; cursor: pointer;
+      background: var(--stool); color: #fff; border: 2.5px solid var(--ink); border-radius: 12px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .print:focus-visible { outline: 3px solid #1F54C4; outline-offset: 3px; }
+
+    .sheet {
+      width: 210mm; height: 297mm; margin: 0 auto 40px;
+      background: var(--paper);
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+      box-shadow: 0 10px 40px rgba(19, 32, 26, .18);
+    }
+    .flyer {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 4.5mm;
+      padding: 9mm 8mm 13mm;
+      border: .3mm dashed var(--cut);
+    }
+    .flyer__top { display: flex; align-items: center; gap: 3mm; }
+    .sign {
+      font-family: var(--display); font-size: 13pt; line-height: 1.35;
+      padding: .5mm 2.4mm 0; background: var(--stool); color: #fff;
+      border: .6mm solid var(--ink); border-radius: 1.5mm; box-shadow: .9mm .9mm 0 var(--ink);
+    }
+    .sub { font-family: var(--hand); font-size: 11pt; line-height: 1.05; color: var(--muted); }
+    .flyer h2 { font-family: var(--display); font-weight: 400; font-size: 22pt; line-height: 1.08; margin: 0; }
+    .hl { background: var(--turmeric); padding: 0 .12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .dishes { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.2mm; font-family: var(--hand); font-size: 16pt; line-height: 1.15; }
+    .dishes li { display: flex; align-items: flex-end; gap: 2mm; }
+    .dishes .dots { flex: 1; border-bottom: .5mm dotted var(--muted); margin-bottom: 1.4mm; }
+    .dishes b { font-weight: 400; color: var(--stool); }
+    .perks { font-size: 9.5pt; font-weight: 600; line-height: 1.4; }
+    .scan { margin-top: auto; display: grid; grid-template-columns: 30mm 1fr; gap: 4mm; align-items: center; }
+    .qr { width: 30mm; height: 30mm; }
+    .qr svg { display: block; width: 100%; height: 100%; }
+    .scan__text { font-size: 9pt; line-height: 1.35; }
+    .scan__text strong { display: block; font-family: var(--hand); font-weight: 400; font-size: 13pt; line-height: 1.1; color: var(--jade); margin-bottom: 1mm; }
+    .qr-url { display: block; margin-top: .5mm; font-size: 7.5pt; color: var(--muted); white-space: nowrap; }
+    .tiles { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 7mm; border-top: .6mm solid var(--ink); }
+    .t-bg { fill: #fff; } .t-a { fill: var(--stool); } .t-b { fill: var(--jade); } .t-c { fill: var(--turmeric); }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .sheet { margin: 0; box-shadow: none; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+    @media screen and (max-width: 820px) {
+      .sheet { zoom: .45; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <pattern id="gachbong" width="26" height="26" patternUnits="userSpaceOnUse">
+        <rect class="t-bg" width="26" height="26"/>
+        <circle class="t-a" cx="0" cy="0" r="6"/><circle class="t-a" cx="26" cy="0" r="6"/>
+        <circle class="t-a" cx="0" cy="26" r="6"/><circle class="t-a" cx="26" cy="26" r="6"/>
+        <path class="t-b" d="M13 3.5 22.5 13 13 22.5 3.5 13Z"/>
+        <circle class="t-c" cx="13" cy="13" r="3.2"/>
+      </pattern>
+    </defs>
+  </svg>
+
+  <header class="toolbar">
+    <div>
+      <h1>Hostel flyers</h1>
+      <p>Print on A4 and cut along the dashed lines to get four flyers. Hostels and cafés with a notice board are usually happy to pin one up. The QR code opens the website.</p>
+    </div>
+    <button class="print" type="button" onclick="window.print()">Print flyers</button>
+  </header>
+
+  <main class="sheet" id="sheet">
+    <!-- EDIT: one flyer; the script copies it to fill the sheet -->
+    <article class="flyer" id="flyer">
+      <div class="flyer__top">
+        <span class="sign">Quán Nam</span>
+        <span class="sub">family kitchen<br>Sài Gòn</span>
+      </div>
+      <h2>Hungry? Pull up a <span class="hl">plastic stool.</span></h2>
+      <ul class="dishes" lang="vi">
+        <li><span>Phở bò</span><span class="dots"></span><b>55k</b></li>
+        <li><span>Bánh xèo</span><span class="dots"></span><b>60k</b></li>
+        <li><span>Cơm tấm sườn</span><span class="dots"></span><b>55k</b></li>
+        <li><span>Bia Sài Gòn</span><span class="dots"></span><b>20k</b></li>
+      </ul>
+      <p class="perks">Grandma's recipes · free iced tea · English menu · veggie options</p>
+      <div class="scan">
+        <div class="qr" role="img" aria-label="QR code that opens the Quán Nam website"></div>
+        <p class="scan__text"><strong>Scan for the menu &amp; map</strong>or type the address:<span class="qr-url"></span></p>
+      </div>
+      <svg class="tiles" aria-hidden="true"><rect width="100%" height="100%" fill="url(#gachbong)"/></svg>
+    </article>
+  </main>
+
+  <script src="js/vendor/qrcode.js"></script>
+  <script>
+    (() => {
+      // EDIT: the site's address. When this page is opened from the live site, its own address is used instead.
+      const SITE_URL = 'https://hucks2024.github.io/Nam-Website/';
+      const isLive = /^https?:$/.test(location.protocol) && !/^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname);
+      const url = isLive ? new URL('./', location.href).href : SITE_URL;
+
+      const sheet = document.getElementById('sheet');
+      const flyer = document.getElementById('flyer');
+      flyer.removeAttribute('id');
+      for (let i = 0; i < 3; i += 1) sheet.append(flyer.cloneNode(true));
+
+      const short = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      document.querySelectorAll('.qr-url').forEach((el) => { el.textContent = short; });
+
+      if (typeof qrcode !== 'function') return;
+      const qr = qrcode(0, 'M');
+      qr.addData(url);
+      qr.make();
+      const svg = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+      document.querySelectorAll('.qr').forEach((el) => { el.innerHTML = svg; });
+    })();
+  </script>
+</body>
+</html>

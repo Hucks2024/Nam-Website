@@ -9,6 +9,14 @@
   <meta property="og:title" content="Quán Nam Family Kitchen, Saigon">
   <meta property="og:description" content="Real Saigon home cooking at local prices. Phở, bánh xèo, cơm tấm and cold Bia Sài Gòn, served by the family that cooks it.">
   <meta property="og:type" content="restaurant">
+  <!-- EDIT: if the site moves to its own domain, update these three URLs -->
+  <link rel="canonical" href="https://hucks2024.github.io/Nam-Website/">
+  <meta property="og:url" content="https://hucks2024.github.io/Nam-Website/">
+  <meta property="og:image" content="https://hucks2024.github.io/Nam-Website/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Quán Nam: a bowl of phở on a red plastic stool. Pull up a plastic stool.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -500,11 +508,13 @@
 
           <!-- EDIT: replace the placeholder links with Nam's real Google Maps place, WhatsApp / Zalo number and Instagram handle -->
           <div class="actions">
-            <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%C3%A1n%20Nam%20Ho%20Chi%20Minh%20City" target="_blank" rel="noopener">Open in Google Maps</a>
-            <a class="btn btn--plain" href="https://wa.me/84XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn--red" data-link="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%C3%A1n%20Nam%20Ho%20Chi%20Minh%20City" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="btn btn--plain" data-link="whatsapp" href="https://wa.me/84XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
             <a class="btn btn--plain" href="https://zalo.me/84XXXXXXXXX" target="_blank" rel="noopener">Zalo</a>
             <a class="btn btn--plain" href="https://www.instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
           </div>
+          <!-- EDIT: YOUR_PLACE_ID comes from Google's Place ID Finder once the restaurant has a Google Business Profile -->
+          <p class="review">Eaten with us? <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank" rel="noopener">Leave us a Google review</a>. It helps a small family place more than you'd think.</p>
         </div>
       </div>
     </div>
@@ -529,6 +539,22 @@
     <p class="foot__legal">© <span id="year">2026</span> Quán Nam · family-run in Ho Chi Minh City</p>
   </div>
 </footer>
+
+<!-- Phone-only action bar. Its Directions and WhatsApp links are copied from the Find us buttons. -->
+<nav class="quickbar" aria-label="Quick actions">
+  <a href="#menu">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11h18a9 8 0 0 1-18 0ZM9 20h6M9 7.5c0-1.2 1.2-1.6 1.2-3M14 7.5c0-1.2 1.2-1.6 1.2-3"/></svg>
+    <span>Menu</span>
+  </a>
+  <a class="quickbar__main" data-link-from="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%C3%A1n%20Nam%20Ho%20Chi%20Minh%20City" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+    <span>Directions</span>
+  </a>
+  <a data-link-from="whatsapp" href="https://wa.me/84XXXXXXXXX" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.6 18.6Z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+</nav>
 
 <script src="js/main.js"></script>
 </body>
