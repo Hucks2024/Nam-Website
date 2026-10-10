@@ -96,12 +96,17 @@
     box.addEventListener('close', () => { img.src = 'data:,'; });
   }
 
-  /* ---------- Open now? (Vietnam time) ---------- */
-  // EDIT: opening hours as minutes after midnight, every day.
-  const OPEN_FROM = 10 * 60;
-  const OPEN_UNTIL = 22 * 60;
+  /* ---------- Open now? (Vietnam time) ----------
+     Reads the hours from data-open / data-close on the opening-hours line in index.html. */
+  const hoursEl = document.querySelector('[data-open][data-close]');
+  const toMinutes = (hhmm) => {
+    const [h, m] = String(hhmm).split(':').map(Number);
+    return Number.isInteger(h) && Number.isInteger(m) ? h * 60 + m : NaN;
+  };
+  const OPEN_FROM = hoursEl ? toMinutes(hoursEl.dataset.open) : NaN;
+  const OPEN_UNTIL = hoursEl ? toMinutes(hoursEl.dataset.close) : NaN;
   const openStatus = document.querySelector('[data-open-status]');
-  if (openStatus) {
+  if (openStatus && !Number.isNaN(OPEN_FROM) && !Number.isNaN(OPEN_UNTIL)) {
     const hhmm = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
     const update = () => {
       let parts;

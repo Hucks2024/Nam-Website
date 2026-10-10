@@ -26,14 +26,13 @@ and Dancing Script for the little Italian phrases.
 ## What's on the page
 
 1. **Hero**: "Handmade pasta, proper pizza and a spritz in the sun." with the carbonara and a call-to-book button.
-2. **Food**, starting with *Novità* (new on the menu: torta alla ricotta and tortino al cioccolato, 45k each), then four groups:
-   *La pizza* (prosciutto e burrata, funghi e salsiccia, pepperoni, prosciutto & pesto fold), *Pasta & plates* (ravioli al pesto,
-   tagliatelle & burrata, fritto misto, burrata e rucola), *Dolci & caffè* (tiramisù, pizza dolce, cornetti & cappuccino, limoncello)
-   and *Da bere · drinks* (Aperol Spritz, Peroni, Italian wine, kombucha), then a burrata feature.
+2. **Food**: *La pizza* (prosciutto e burrata, funghi e salsiccia, pepperoni, prosciutto & pesto fold), *Pasta & plates*
+   (ravioli al pesto, tagliatelle & burrata, fritto misto, burrata e rucola), *Dolci* (tiramisù, torta alla ricotta,
+   tortino al cioccolato, pizza dolce) and *Caffè & drinks* (cornetti & cappuccino, Aperol Spritz, Italian wine, limoncello),
+   then the homemade mozzarella feature.
 3. **Fresh pasta**: roll, fill, cover, cut. The ravioli process in four photos.
-4. **Chef**: chef Manuel Reale, with his training and World Pizza Championship results (2014–2019), taken from his certificates,
-   and the black-and-gold **Chef's menu**: Tomahawk (270.000₫ / 100 g, limited stock), Il Risotto (230.000₫) and Pizza del Sole (280.000₫),
-   with the note that prices exclude 8% VAT and a 5% service charge.
+4. **Chef**: chef Manuel Reale and his training and World Pizza Championship results (2014–2019), taken from his certificates,
+   then the black-and-gold **chef's menu** showing plates it has featured (Tomahawk, Il Risotto, Pizza del Sole).
 5. **The room**: six photos of the dining room, the striped awning, the bar and the busy windows at night.
 6. **The team**: the crew in the green aprons on opening day (22 August 2026).
 7. **Visit**: E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai; phone, Google Maps, Zalo, WhatsApp and Facebook,
@@ -52,20 +51,25 @@ The **VI | EN** switch in the header changes the whole page, including photo cap
 - When you change or add English text, update the matching line in `js/i18n-vi.js` too, or that spot stays in English.
 - The chef's menu and the new desserts use Bontà's own Vietnamese wording from their posters.
 
-## Still to fill in
+## Built to last
 
-Search `index.html` for `EDIT:` to find each spot.
+The page is written so it stays true for years without editing:
 
-- [ ] **Opening hours.** 10:00–22:00 every day, from the dessert posters. If they change, update the Visit section and `OPEN_FROM` / `OPEN_UNTIL` in `js/main.js`.
-- [ ] **Chef's menu prices.** Copied from the Chef Menu poster; update them in `index.html` if they change.
-- [ ] **Pizza names.** "Pepperoni" and "Prosciutto & pesto fold" are descriptive names; swap in the names on the real menu.
-- [ ] **New dishes.** The *Novità* row is for whatever is new; swap the two cards when the next dish launches.
-- [ ] **Chef wording.** Check that Manuel is happy with how his role and awards are described.
-- [ ] **Google Maps link.** It currently searches for the name and address. Swap in the real place link (Google Maps → Share) once the listing exists.
-- [ ] **Facebook link.** It searches Facebook for "Bontà Pizza Pasta Cafe"; replace it with the page's own address
-      (in the Facebook app: the page's ••• menu → Copy link).
-- [ ] **Zalo / WhatsApp.** Both use 036 666 4930; check that number is set up on each app.
-- [ ] **Dish descriptions.** Written from the photos; correct any names or ingredients that are off.
+- **No prices, no "new" labels, no offers or dated posters.** Prices and specials change; the page shows the food, and the team gives today's prices.
+- **The menu is described as a sample.** "A few of our favourites" and "a few of the plates the chef's menu has featured", so it stays right as dishes come and go.
+- **Past facts are written in the past tense.** The opening date and the chef's awards are history, so they never go out of date.
+- **The year in the footer updates itself**, and the "open now" light always uses Vietnam time.
+- **No outside code.** Everything runs from this repository on GitHub Pages; the only outside service is Google Fonts, and if that ever fails the page falls back to standard fonts.
+- **Link previews** use a fixed image in the repo.
+
+### The only things that would ever need changing
+
+- **Opening hours** (10:00–22:00 every day): in the Visit section of `index.html`, change the text and the `data-open` / `data-close`
+  values on the same line, plus `"openingHours"` in `<head>`. The "open now" light reads them from there.
+- **Phone number or address**, if they change.
+- **Google Maps / Facebook links**: they currently search for the restaurant. Swapping in the exact page links is optional.
+
+Search `index.html` for `EDIT:` to find each spot. Dish names and descriptions were written from photos; correct any that are off.
 
 ## Adding or swapping photos
 
