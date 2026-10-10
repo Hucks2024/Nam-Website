@@ -8,7 +8,7 @@ No build step, no framework: plain HTML, CSS and a little JavaScript.
 ```
 index.html        the website
 css/styles.css    all styling
-js/main.js        language switch, mobile menu, tap-a-photo viewer, offer bar, "open now", footer year
+js/main.js        language switch, mobile menu, tap-a-photo viewer, "open now", footer year
 js/i18n-vi.js     the Vietnamese text for the VI | EN switch
 images/           the restaurant's photos (each has a full size and a -sm phone size)
 og-image.png      the preview picture shown when the link is shared (WhatsApp, Facebook, Zalo…)
@@ -50,14 +50,7 @@ The **VI | EN** switch in the header changes the whole page, including photo cap
 - First-time visitors whose phone or browser is set to Vietnamese see Vietnamese; everyone else sees English. After that the site remembers their choice.
 - Add `?lang=vi` or `?lang=en` to a link to open it in that language: `https://hucks2024.github.io/Nam-Website/?lang=vi`.
 - When you change or add English text, update the matching line in `js/i18n-vi.js` too, or that spot stays in English.
-- The chef's menu, the new desserts and the Women's Day offer use Bontà's own Vietnamese wording from their posters.
-
-## Time-limited offers
-
-A slim bar above the header announces an offer and hides itself after a set date (Vietnam time).
-Right now it promotes **Vietnamese Women's Day (20.10)**: book a table and receive a Mystery Box. It disappears on 21 October 2026.
-For the next offer, edit the text in `<aside class="promo" data-until="2026-10-20">` in `index.html` (and its Vietnamese, `promo.text` and `promo.cta` in `js/i18n-vi.js`) and change `data-until` to the last day it should show.
-Visitors can close it with the ×.
+- The chef's menu and the new desserts use Bontà's own Vietnamese wording from their posters.
 
 ## Still to fill in
 
