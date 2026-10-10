@@ -1,6 +1,6 @@
 /* Layout: a simple one-page trattoria site taken from Bontà's own dining room.
-   Butter-yellow walls, sage-green arched window for the hero photo, the green-and-white
-   striped awning and strips of the green quatrefoil floor tile. */
+   Butter-yellow walls, sage-green arched window for the hero photo
+   and strips of the green quatrefoil floor tile. */
 :root {
   --wall: #F3DFA4;        /* dining-room walls */
   --paper: #FFFCF4;
@@ -95,13 +95,6 @@ h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); line-height: 1.05; letter-spacing:
 .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
 .status.is-open { color: var(--open); }
 
-/* striped awning with a scalloped edge */
-.awning {
-  height: 24px;
-  background: repeating-linear-gradient(90deg, var(--green) 0 28px, var(--paper) 28px 56px);
-  -webkit-mask: radial-gradient(circle at 14px 11px, #000 12.5px, transparent 13px) 0 0 / 28px 100% repeat-x, linear-gradient(#000 0 0) top / 100% 11px no-repeat;
-  mask: radial-gradient(circle at 14px 11px, #000 12.5px, transparent 13px) 0 0 / 28px 100% repeat-x, linear-gradient(#000 0 0) top / 100% 11px no-repeat;
-}
 /* green cement-tile strip */
 .tiles { display: block; width: 100%; height: 36px; }
 .tile-bg { fill: var(--green); }
@@ -205,8 +198,7 @@ h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); line-height: 1.05; letter-spacing:
 }
 
 /* ---------- Visit ---------- */
-.visit { background: var(--green-deep); color: var(--on-green); padding-bottom: clamp(56px, 8vw, 104px); }
-.awning--inset { margin-bottom: clamp(44px, 6vw, 80px); }
+.visit { background: var(--green-deep); color: var(--on-green); padding-block: clamp(56px, 8vw, 104px); }
 .visit__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
 .visit__copy { display: grid; gap: 24px; justify-items: start; min-width: 0; }
 .visit h2 { color: var(--on-green); }

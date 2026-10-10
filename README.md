@@ -19,7 +19,7 @@ tools/            source and script for regenerating og-image.png
 ## The look
 
 Taken from the restaurant itself: the real Bontà logo (`images/logo.png`, and `logo-cream.png` for dark backgrounds),
-butter-yellow walls, a sage-green arched window, the green-and-white striped awning and the green quatrefoil floor tiles.
+butter-yellow walls, a sage-green arched window and the green quatrefoil floor tiles.
 Fonts: Cormorant Garamond for headings and Be Vietnam Pro for text (it handles Vietnamese accents well).
 
 ## What's on the page
