@@ -62,7 +62,7 @@ The page is written so it stays true for years without editing:
 - **Opening hours** (10:00-22:00 every day): in the Visit section of `index.html`, change the text and the `data-open` / `data-close`
   values on the same line, plus `"openingHours"` in `<head>`. The "open now" light reads them from there.
 - **Phone number or address**, if they change.
-- **Google Maps / Facebook links**: they currently search for the restaurant. Swapping in the exact page links is optional.
+- **Google Maps link**: it currently searches for the restaurant's name and address. Swapping in the exact place link (Google Maps → Share) is optional.
 
 Search `index.html` for `EDIT:` to find each spot. Dish names and descriptions were written from photos; correct any that are off.
 
