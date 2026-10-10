@@ -2,102 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Quán Nam share card</title>
+<title>Bontà share card</title>
 <!-- Source for ../og-image.png, the picture shown when the site link is shared.
      Re-render with: node tools/render-og.mjs -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700&family=Bungee&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600&family=Cormorant+Garamond:wght@600&family=Dancing+Script:wght@700&display=swap">
 <style>
-  :root {
-    --ink: #13201A; --stool: #DE2A1E; --turmeric: #F5B41A; --jade: #0A7A62;
-    --porcelain: #FBFCFA; --broth: #E3A03A; --beef: #A5574B; --herb: #3E9B4F;
-    --wood: #B57B45; --blue: #1F54C4; --lime: #8BC34A; --onion: #7BC86C; --shine: #FF7A6E;
-  }
+  :root { --wall: #F3DFA4; --paper: #FFFCF4; --green: #1F5A4C; --green-deep: #153F35; --sage: #86A98F; --terracotta: #8E4636; }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
     width: 1200px; height: 630px; overflow: hidden; position: relative;
-    background: radial-gradient(circle at 80% 40%, rgba(255,255,255,.35), transparent 55%), var(--turmeric);
-    color: var(--ink); font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    background: radial-gradient(circle at 80% 10%, rgba(255, 252, 244, .55), transparent 55%), var(--wall);
+    color: var(--green-deep); font-family: "Be Vietnam Pro", system-ui, sans-serif;
   }
-  .copy { position: absolute; left: 72px; top: 64px; width: 700px; display: grid; gap: 26px; justify-items: start; }
-  .sign {
-    font-family: "Bungee", sans-serif; font-size: 30px; line-height: 1.35;
-    padding: 6px 18px 2px; background: var(--stool); color: #fff;
-    border: 3px solid var(--ink); border-radius: 8px; box-shadow: 5px 5px 0 var(--ink);
+  .awning {
+    position: absolute; left: 0; right: 0; top: 0; height: 30px;
+    background: repeating-linear-gradient(90deg, var(--green) 0 32px, var(--paper) 32px 64px);
+    -webkit-mask: radial-gradient(circle at 16px 14px, #000 15.5px, transparent 16px) 0 0 / 32px 100% repeat-x, linear-gradient(#000 0 0) top / 100% 14px no-repeat;
   }
-  h1 { font-family: "Bungee", sans-serif; font-weight: 400; font-size: 84px; line-height: 1.02; margin: 0; }
-  .hl { background: var(--stool); color: #fff; padding: 0 .14em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-  .sub { font-size: 30px; font-weight: 700; margin: 0; }
-  .note { font-family: "Patrick Hand", cursive; font-size: 30px; margin: 0; }
-  .art { position: absolute; right: 40px; top: 46px; width: 400px; }
-  .tiles { position: absolute; left: 0; bottom: 0; width: 100%; height: 42px; border-top: 3px solid var(--ink); }
-  .t-bg { fill: var(--porcelain); } .t-a { fill: var(--stool); } .t-b { fill: var(--jade); } .t-c { fill: var(--turmeric); }
-  .a-floor { fill: rgba(19,32,26,.16); }
-  .a-stool { fill: var(--stool); stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
-  .a-shine { fill: var(--shine); opacity: .8; }
-  .a-stick { stroke: var(--wood); stroke-width: 8; stroke-linecap: round; }
-  .a-porc { fill: var(--porcelain); stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
-  .a-band { fill: var(--blue); }
-  .a-edge { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
-  .a-broth { fill: var(--broth); }
-  .a-noodle { fill: none; stroke: var(--porcelain); stroke-width: 3.5; stroke-linecap: round; }
-  .a-beef { fill: var(--beef); } .a-herb { fill: var(--herb); }
-  .a-onion { fill: none; stroke: var(--onion); stroke-width: 2.5; }
-  .a-lime { fill: var(--lime); stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
-  .a-steam path { fill: none; stroke: rgba(19,32,26,.42); stroke-width: 6; stroke-linecap: round; }
+  .copy { position: absolute; left: 80px; top: 92px; width: 640px; display: grid; gap: 18px; justify-items: start; }
+  .logo { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 64px; letter-spacing: .16em; line-height: 1; color: var(--green); }
+  .tag { margin-top: -8px; font-weight: 600; font-size: 15px; letter-spacing: .34em; text-transform: uppercase; color: #56625B; }
+  h1 { margin: 26px 0 0; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 74px; line-height: 1; letter-spacing: -.01em; }
+  .script { font-family: "Dancing Script", cursive; font-weight: 700; font-size: 38px; color: var(--terracotta); }
+  .window {
+    position: absolute; right: 90px; top: 64px;
+    width: 330px; height: 470px; padding: 12px;
+    background: var(--sage); border-radius: 999px 999px 10px 10px;
+    box-shadow: 0 34px 60px -30px rgba(29, 43, 37, .5);
+  }
+  .window img { width: 100%; height: 100%; object-fit: cover; border-radius: 999px 999px 3px 3px; display: block; }
+  .tiles { position: absolute; left: 0; bottom: 0; width: 100%; height: 44px; }
 </style>
 </head>
 <body>
+  <div class="awning"></div>
   <div class="copy">
-    <span class="sign">Quán Nam</span>
-    <h1>Pull up a <span class="hl">plastic stool.</span></h1>
-    <p class="sub">Family kitchen in Ho Chi Minh City</p>
-    <p class="note">Grandma's recipes · local prices · backpackers welcome</p>
+    <span class="logo">BONTÀ</span>
+    <span class="tag">Pizza · Pasta · Cafe</span>
+    <h1>Handmade pasta in Biên Hòa</h1>
+    <span class="script">Benvenuti!</span>
   </div>
-
-  <svg class="art" viewBox="0 0 420 470" aria-hidden="true">
-    <defs><clipPath id="bowl-clip"><path d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/></clipPath></defs>
-    <ellipse class="a-floor" cx="210" cy="448" rx="160" ry="13"/>
-    <path class="a-stool" fill-rule="evenodd" d="M106 284H314L338 440H82ZM128 440V356Q128 330 154 330H266Q292 330 292 356V440Z"/>
-    <rect class="a-stool" x="92" y="258" width="236" height="28" rx="9"/>
-    <rect class="a-shine" x="108" y="265" width="120" height="6" rx="3"/>
-    <line class="a-stick" x1="236" y1="168" x2="350" y2="44"/>
-    <line class="a-stick" x1="256" y1="170" x2="376" y2="60"/>
-    <rect class="a-porc" x="178" y="242" width="64" height="18" rx="4"/>
-    <path class="a-porc" d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
-    <g clip-path="url(#bowl-clip)">
-      <rect class="a-band" x="90" y="172" width="240" height="10"/>
-      <rect class="a-band" x="90" y="222" width="240" height="5"/>
-    </g>
-    <path class="a-edge" d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
-    <ellipse class="a-porc" cx="210" cy="152" rx="112" ry="18"/>
-    <ellipse class="a-broth" cx="210" cy="153" rx="99" ry="12"/>
-    <path class="a-noodle" d="M126 155q14-7 28 0t28 0t28 0t28 0t28 0"/>
-    <ellipse class="a-beef" cx="168" cy="150" rx="20" ry="6" transform="rotate(-6 168 150)"/>
-    <ellipse class="a-beef" cx="208" cy="156" rx="18" ry="5.5" transform="rotate(5 208 156)"/>
-    <ellipse class="a-herb" cx="252" cy="149" rx="12" ry="5" transform="rotate(-25 252 149)"/>
-    <ellipse class="a-herb" cx="272" cy="156" rx="11" ry="4.5" transform="rotate(20 272 156)"/>
-    <circle class="a-onion" cx="234" cy="158" r="3.5"/>
-    <circle class="a-onion" cx="190" cy="146" r="3"/>
-    <path class="a-lime" d="M296 148a15 15 0 0 1 30 0Z"/>
-    <g class="a-steam">
-      <path d="M162 118c-14-18 14-30 0-50s12-30 0-46"/>
-      <path d="M210 108c-14-18 14-30 0-50s12-30 0-46"/>
-      <path d="M258 118c-14-18 14-30 0-50s12-30 0-46"/>
-    </g>
-  </svg>
-
+  <div class="window"><img src="../images/carbonara.jpg" alt=""></div>
   <svg class="tiles" aria-hidden="true">
     <defs>
-      <pattern id="gachbong" width="36" height="36" patternUnits="userSpaceOnUse">
-        <rect class="t-bg" width="36" height="36"/>
-        <circle class="t-a" cx="0" cy="0" r="8"/><circle class="t-a" cx="36" cy="0" r="8"/>
-        <circle class="t-a" cx="0" cy="36" r="8"/><circle class="t-a" cx="36" cy="36" r="8"/>
-        <path class="t-b" d="M18 5 31 18 18 31 5 18Z"/>
-        <circle class="t-c" cx="18" cy="18" r="4.5"/>
+      <pattern id="t" width="44" height="44" patternUnits="userSpaceOnUse">
+        <rect width="44" height="44" fill="#1F5A4C"/>
+        <g fill="#FFFCF4">
+          <circle cx="17.4" cy="22" r="5.4"/><circle cx="26.6" cy="22" r="5.4"/><circle cx="22" cy="17.4" r="5.4"/><circle cx="22" cy="26.6" r="5.4"/>
+          <circle cx="-4.6" cy="0" r="5.4"/><circle cx="4.6" cy="0" r="5.4"/><circle cx="0" cy="4.6" r="5.4"/>
+          <circle cx="39.4" cy="0" r="5.4"/><circle cx="48.6" cy="0" r="5.4"/><circle cx="44" cy="4.6" r="5.4"/>
+          <circle cx="-4.6" cy="44" r="5.4"/><circle cx="4.6" cy="44" r="5.4"/><circle cx="0" cy="39.4" r="5.4"/>
+          <circle cx="39.4" cy="44" r="5.4"/><circle cx="48.6" cy="44" r="5.4"/><circle cx="44" cy="39.4" r="5.4"/>
+        </g>
       </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#gachbong)"/>
+    <rect width="100%" height="100%" fill="url(#t)"/>
   </svg>
 </body>
 </html>

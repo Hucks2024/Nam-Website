@@ -3,97 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Quán Nam Family Kitchen</title>
-  <meta name="description" content="Quán Nam is a family-run Vietnamese kitchen in Ho Chi Minh City. Grandma's recipes, plastic stools and real Saigon home cooking. Backpackers welcome.">
-  <meta name="theme-color" content="#F5B41A">
-  <meta property="og:title" content="Quán Nam Family Kitchen, Saigon">
-  <meta property="og:description" content="Real Saigon home cooking from a family kitchen in Ho Chi Minh City. Pull up a plastic stool.">
+  <title>Bontà Pizza Pasta Cafe</title>
+  <meta name="description" content="Bontà is an Italian pizza, pasta and café house in Biên Hòa, Đồng Nai. Fresh pasta made by hand, pizza, Aperol spritz and coffee. Call 0366 664 930 to book.">
+  <meta name="theme-color" content="#1F5A4C">
+  <meta property="og:title" content="Bontà · Pizza · Pasta · Cafe">
+  <meta property="og:description" content="Handmade pasta, proper pizza and a spritz in the sun, in Biên Hòa.">
   <meta property="og:type" content="restaurant">
-  <!-- EDIT: if the site moves to its own domain, update these three URLs -->
+  <!-- EDIT: if the site moves to its own domain, update these URLs -->
   <link rel="canonical" href="https://hucks2024.github.io/Nam-Website/">
   <meta property="og:url" content="https://hucks2024.github.io/Nam-Website/">
   <meta property="og:image" content="https://hucks2024.github.io/Nam-Website/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Quán Nam: a bowl of phở on a red plastic stool. Pull up a plastic stool.">
+  <meta property="og:image:alt" content="Bontà: a nest of spaghetti carbonara in an arched frame. Handmade pasta in Biên Hòa.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fonts for all five designs. Once a design is chosen, trim this to its fonts. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&family=Bungee&family=Patrick+Hand&family=Tilt+Neon&family=Lexend:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Mulish:wght@400;600;700&family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,600&family=Shantell+Sans:wght@400;600;700&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Dancing+Script:wght@600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/designs.css">
-  <script>
-    /* Pick the design before the page paints: #night etc. in the link, else the last one viewed. */
-    (function () {
-      var root = document.documentElement, ok = ['street', 'night', 'porcelain', 'poster', 'postcard'];
-      var fromLink = location.hash.slice(1), saved = null;
-      try { saved = localStorage.getItem('quannam-design'); } catch (e) {}
-      root.classList.add('js');
-      root.setAttribute('data-design', ok.indexOf(fromLink) > -1 ? fromLink : (ok.indexOf(saved) > -1 ? saved : 'street'));
-    })();
-  </script>
+  <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Quán Nam",
-    "servesCuisine": "Vietnamese",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ho Chi Minh City", "addressCountry": "VN" }
+    "name": "Bontà Pizza Pasta Cafe",
+    "servesCuisine": ["Italian", "Pizza", "Pasta"],
+    "telephone": "+84 366 664 930",
+    "image": "https://hucks2024.github.io/Nam-Website/images/facade.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Phường Trấn Biên, Biên Hòa",
+      "addressRegion": "Đồng Nai",
+      "addressCountry": "VN"
+    }
   }
   </script>
 </head>
 <body>
 
-<!-- Shared SVG defs: the cement-tile (gạch bông) pattern used by every tile strip -->
+<!-- Shared SVG defs: the green cement floor tile from the dining room -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
-    <pattern id="gachbong" width="36" height="36" patternUnits="userSpaceOnUse">
-      <rect class="t-bg" width="36" height="36"/>
-      <circle class="t-a" cx="0" cy="0" r="8"/>
-      <circle class="t-a" cx="36" cy="0" r="8"/>
-      <circle class="t-a" cx="0" cy="36" r="8"/>
-      <circle class="t-a" cx="36" cy="36" r="8"/>
-      <path class="t-b" d="M18 5 31 18 18 31 5 18Z"/>
-      <circle class="t-c" cx="18" cy="18" r="4.5"/>
+    <pattern id="floor-tile" width="44" height="44" patternUnits="userSpaceOnUse">
+      <rect class="tile-bg" width="44" height="44"/>
+      <g class="tile-fg">
+        <circle cx="17.4" cy="22" r="5.4"/><circle cx="26.6" cy="22" r="5.4"/>
+        <circle cx="22" cy="17.4" r="5.4"/><circle cx="22" cy="26.6" r="5.4"/>
+        <circle cx="-4.6" cy="0" r="5.4"/><circle cx="4.6" cy="0" r="5.4"/><circle cx="0" cy="4.6" r="5.4"/>
+        <circle cx="39.4" cy="0" r="5.4"/><circle cx="48.6" cy="0" r="5.4"/><circle cx="44" cy="4.6" r="5.4"/>
+        <circle cx="-4.6" cy="44" r="5.4"/><circle cx="4.6" cy="44" r="5.4"/><circle cx="0" cy="39.4" r="5.4"/>
+        <circle cx="39.4" cy="44" r="5.4"/><circle cx="48.6" cy="44" r="5.4"/><circle cx="44" cy="39.4" r="5.4"/>
+      </g>
     </pattern>
-    <clipPath id="bowl-clip">
-      <path d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
-    </clipPath>
   </defs>
 </svg>
 
-<a class="skip" href="#why">Skip to content</a>
+<a class="skip" href="#food">Skip to content</a>
 
-<!-- Design chooser: delete this block (and designs.css) once a design is picked -->
-<div class="designbar">
-  <div class="designbar__inner">
-    <p class="designbar__label" id="designbar-label">Pick a design</p>
-    <div class="designbar__tabs" role="group" aria-labelledby="designbar-label">
-      <button type="button" data-design-pick="street" aria-pressed="true"><span class="sw sw--street" aria-hidden="true"></span>1 · Street stall</button>
-      <button type="button" data-design-pick="night" aria-pressed="false"><span class="sw sw--night" aria-hidden="true"></span>2 · Night market</button>
-      <button type="button" data-design-pick="porcelain" aria-pressed="false"><span class="sw sw--porcelain" aria-hidden="true"></span>3 · Porcelain</button>
-      <button type="button" data-design-pick="poster" aria-pressed="false"><span class="sw sw--poster" aria-hidden="true"></span>4 · Retro poster</button>
-      <button type="button" data-design-pick="postcard" aria-pressed="false"><span class="sw sw--postcard" aria-hidden="true"></span>5 · Postcard</button>
-    </div>
-  </div>
-</div>
+<div class="awning" aria-hidden="true"></div>
 
 <header class="topbar">
   <div class="wrap topbar__inner">
-    <a class="brand" href="#top">
-      <span class="brand__sign">Quán Nam</span>
-      <span class="brand__sub">family kitchen<br>Sài Gòn</span>
+    <a class="logo" href="#top" aria-label="Bontà, back to top">
+      <span class="logo__name">Bontà</span>
+      <span class="logo__tag">Pizza · Pasta · Cafe</span>
     </a>
-    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open sections menu">
+    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav id="nav" class="nav" aria-label="Sections">
-      <a href="#why">Why come</a>
-      <a href="#family">The family</a>
-      <a href="#local">Eat like a local</a>
+      <a href="#food">Food</a>
+      <a href="#pasta">Fresh pasta</a>
+      <a href="#room">The room</a>
       <a href="#visit">Visit</a>
+      <a class="btn btn--green btn--small" href="tel:+84366664930">Call 0366 664 930</a>
     </nav>
   </div>
 </header>
@@ -104,279 +88,217 @@
   <section class="hero">
     <div class="wrap hero__grid">
       <div class="hero__copy">
-        <p class="pill">Family-run in Ho Chi Minh City</p>
-        <h1 class="hero__title">Pull up a <span class="hl">plastic stool.</span></h1>
-        <p class="hero__lede">Grandma's recipes, Mum's cooking and Nam's bad jokes. Proper Saigon home food, served by the family that cooks it.</p>
-        <div class="hero__cta">
-          <a class="btn btn--red" href="#why">Why eat with us</a>
-          <a class="btn btn--plain" href="#family">Meet the family</a>
+        <p class="script"><span lang="it">Benvenuti!</span></p>
+        <h1>Handmade pasta, proper pizza and a spritz in the sun.</h1>
+        <p class="lede">Bontà is an Italian pizza, pasta and café house in Biên Hòa. Our pasta is rolled by hand in our own kitchen, and the dining room feels like a long summer evening in Italy.</p>
+        <div class="cta">
+          <a class="btn btn--green" href="tel:+84366664930">Call to book a table</a>
+          <a class="btn btn--line" href="#visit">How to find us</a>
         </div>
-        <ul class="perks">
-          <li><strong>Three generations</strong> of recipes</li>
-          <li><strong>Local prices</strong>, not tourist prices</li>
-          <li><strong>Backpackers</strong> very welcome</li>
+        <ul class="facts">
+          <li>Fresh pasta made in-house</li>
+          <li>Pizza, pasta &amp; coffee</li>
+          <li>Opened August 2026</li>
         </ul>
       </div>
-
-      <figure class="hero__art">
-        <svg class="hero__svg" viewBox="0 0 420 470" role="img" aria-label="A steaming bowl of phở sitting on a red plastic stool">
-          <ellipse class="a-floor" cx="210" cy="448" rx="160" ry="13"/>
-          <!-- the stool -->
-          <path class="a-stool" fill-rule="evenodd" d="M106 284H314L338 440H82ZM128 440V356Q128 330 154 330H266Q292 330 292 356V440Z"/>
-          <rect class="a-stool" x="92" y="258" width="236" height="28" rx="9"/>
-          <rect class="a-shine" x="108" y="265" width="120" height="6" rx="3"/>
-          <!-- chopsticks, drawn before the bowl so the soup hides their tips -->
-          <line class="a-stick" x1="236" y1="168" x2="350" y2="44"/>
-          <line class="a-stick" x1="256" y1="170" x2="376" y2="60"/>
-          <!-- the bowl -->
-          <rect class="a-porc" x="178" y="242" width="64" height="18" rx="4"/>
-          <path class="a-porc" d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
-          <g clip-path="url(#bowl-clip)">
-            <rect class="a-band" x="90" y="172" width="240" height="10"/>
-            <rect class="a-band" x="90" y="222" width="240" height="5"/>
-          </g>
-          <path class="a-edge" d="M98 152H322Q320 248 210 250Q100 248 98 152Z"/>
-          <ellipse class="a-porc" cx="210" cy="152" rx="112" ry="18"/>
-          <ellipse class="a-broth" cx="210" cy="153" rx="99" ry="12"/>
-          <path class="a-noodle" d="M126 155q14-7 28 0t28 0t28 0t28 0t28 0"/>
-          <ellipse class="a-beef" cx="168" cy="150" rx="20" ry="6" transform="rotate(-6 168 150)"/>
-          <ellipse class="a-beef" cx="208" cy="156" rx="18" ry="5.5" transform="rotate(5 208 156)"/>
-          <ellipse class="a-herb" cx="252" cy="149" rx="12" ry="5" transform="rotate(-25 252 149)"/>
-          <ellipse class="a-herb" cx="272" cy="156" rx="11" ry="4.5" transform="rotate(20 272 156)"/>
-          <circle class="a-onion" cx="234" cy="158" r="3.5"/>
-          <circle class="a-onion" cx="190" cy="146" r="3"/>
-          <path class="a-lime" d="M296 148a15 15 0 0 1 30 0Z"/>
-          <!-- steam -->
-          <g class="a-steam">
-            <path d="M162 128c-14-18 14-30 0-50s12-30 0-46"/>
-            <path d="M210 120c-14-18 14-30 0-50s12-30 0-46"/>
-            <path d="M258 128c-14-18 14-30 0-50s12-30 0-46"/>
-          </g>
-          <!-- hand-written note -->
-          <g class="a-note">
-            <text x="6" y="48" transform="rotate(-8 6 48)">12-hour broth!</text>
-            <path d="M50 64c4 34 26 54 64 68M105 121L114 132L100 134"/>
-          </g>
-        </svg>
-        <p class="tag-sticker" aria-hidden="true"><b lang="vi">ngon!</b>delicious</p>
+      <figure class="hero__photo">
+        <a class="window zoom" href="images/carbonara.jpg" data-caption="Spaghetti carbonara with crispy cured pork">
+          <img src="images/carbonara.jpg" srcset="images/carbonara-sm.jpg 640w, images/carbonara.jpg 1164w" sizes="(min-width: 900px) 420px, 80vw" width="1164" height="1568" alt="A nest of spaghetti carbonara topped with crispy cured pork, with a pizza and a salad behind it">
+        </a>
+        <p class="badge" aria-hidden="true"><span lang="it">Fatto a mano</span><small>made by hand</small></p>
       </figure>
     </div>
   </section>
 
-  <!-- ============ STREET BANNER ============ -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track">
-      <p class="ticker__group"><span>Phở bò</span><i></i><span>Bún thịt nướng</span><i></i><span>Cơm tấm</span><i></i><span>Bánh xèo</span><i></i><span>Gỏi cuốn</span><i></i><span>Cà phê sữa đá</span><i></i><span>Bia Sài Gòn</span><i></i></p>
-      <p class="ticker__group"><span>Phở bò</span><i></i><span>Bún thịt nướng</span><i></i><span>Cơm tấm</span><i></i><span>Bánh xèo</span><i></i><span>Gỏi cuốn</span><i></i><span>Cà phê sữa đá</span><i></i><span>Bia Sài Gòn</span><i></i></p>
-    </div>
-  </div>
+  <svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#floor-tile)"/></svg>
 
-  <!-- ============ WHY COME ============ -->
-  <section id="why" class="section why">
+  <!-- ============ FOOD ============ -->
+  <!-- EDIT: dish names and descriptions are written from the photos; correct anything that's off -->
+  <section id="food" class="section food">
     <div class="wrap">
       <header class="section__head">
-        <p class="kicker" lang="vi">Tại sao · why come</p>
-        <h2>Skip the banana pancakes.</h2>
-        <p>Saigon has plenty of places that cook for tourists. We cook for the neighbours, and there's always a stool free next to them.</p>
+        <p class="script"><span lang="it">Dalla cucina</span> · from the kitchen</p>
+        <h2>What's coming out of the kitchen</h2>
+        <p>A few favourites from our first weeks. Ask the team what's fresh today, and save room for a cannolo.</p>
       </header>
-
-      <ul class="signs">
-        <li class="signboard signboard--red">
-          <h3>Real home cooking</h3>
-          <p>The food Saigon families eat at home, cooked by one. Slow broths, charcoal grills, fresh herbs from the morning market.</p>
-        </li>
-        <li class="signboard signboard--jade">
-          <h3>Life on the street</h3>
-          <p>Low stools, cold drinks and motorbikes humming past. It's the Saigon you came for, at table height.</p>
-        </li>
-        <li class="signboard signboard--yellow">
-          <h3>Local prices</h3>
-          <p>Eat like a king and still have enough left for the night bus to Đà Lạt.</p>
-        </li>
-        <li class="signboard signboard--blue">
-          <h3>Ask us anything</h3>
-          <p>Laundry, SIM cards, the best rooftop bar, which taxis to avoid. We've lived here all our lives, so ask away.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#gachbong)"/></svg>
-
-  <!-- ============ FAMILY ============ -->
-  <section id="family" class="section family">
-    <div class="wrap family__grid">
-      <div class="family__intro">
-        <header class="section__head">
-          <p class="kicker" lang="vi">Gia đình · the family</p>
-          <h2>Three generations, one tiny kitchen</h2>
-        </header>
-        <!-- EDIT: the family story -->
-        <p><em lang="vi">Quán</em> means a small local eatery. Ours began in Grandma's front room, feeding the neighbours and the odd lost tourist. These days Mum runs the stoves, Nam runs the front, and the recipes still live in Grandma's head.</p>
-        <p>There's no head office and no franchise. When you eat here, you're eating at our house.</p>
-        <blockquote class="quote">
-          <p>“Fish sauce is not optional.”</p>
-          <cite>Bà Ngoại, most days</cite>
-        </blockquote>
-      </div>
-
-      <ul class="crew">
-        <li class="crew__item">
-          <span class="stamp stamp--red" aria-hidden="true">Bà</span>
-          <div>
-            <h3>Grandma <span lang="vi">(Bà Ngoại)</span></h3>
-            <p class="role">Recipe keeper</p>
-            <p>Knows every recipe by heart and has never once measured anything. Still tastes the broth each morning and tells Mum it needs more fish sauce.</p>
+      <ul class="dishes">
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/fritto-misto.jpg" data-caption="Fritto misto">
+            <img src="images/fritto-misto-sm.jpg" srcset="images/fritto-misto-sm.jpg 640w, images/fritto-misto.jpg 1156w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="868" loading="lazy" alt="Fried calamari rings, prawns and battered vegetables on a black plate with a pot of creamy dip">
+          </a>
+          <div class="dish__text">
+            <h3 lang="it">Fritto misto</h3>
+            <p>Calamari, prawns and vegetables fried golden, with a creamy dip for dunking.</p>
           </div>
         </li>
-        <li class="crew__item">
-          <span class="stamp stamp--jade" aria-hidden="true">Mẹ</span>
-          <div>
-            <h3>Mum <span lang="vi">(Mẹ)</span></h3>
-            <p class="role">Head chef</p>
-            <p>At the market by 5 am, picking the herbs herself. Her bánh xèo is the reason the neighbours queue at lunch.</p>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/ravioli-pesto.jpg" data-caption="Ravioli al pesto">
+            <img src="images/ravioli-pesto-sm.jpg" srcset="images/ravioli-pesto-sm.jpg 640w, images/ravioli-pesto.jpg 1163w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="863" loading="lazy" alt="Ravioli in bright green pesto with pine nuts and grated parmesan, cut open to show the spinach filling">
+          </a>
+          <div class="dish__text">
+            <h3 lang="it">Ravioli al pesto</h3>
+            <p>Our own spinach-and-ricotta ravioli in basil pesto, with pine nuts and parmesan.</p>
           </div>
         </li>
-        <li class="crew__item">
-          <span class="stamp stamp--blue" aria-hidden="true">Nam</span>
-          <div>
-            <h3>Nam</h3>
-            <p class="role">Front of house</p>
-            <p>Speaks English, takes your order, and knows which rooftop bar is worth it and which one is a rip-off. Ask him anything.</p>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/tagliatelle-burrata.jpg" data-caption="Tagliatelle with burrata">
+            <img src="images/tagliatelle-burrata-sm.jpg" srcset="images/tagliatelle-burrata-sm.jpg 640w, images/tagliatelle-burrata.jpg 1157w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="867" loading="lazy" alt="Tagliatelle in a creamy tomato sauce topped with burrata and flaked almonds on a green plate, above a green-and-white tiled floor">
+          </a>
+          <div class="dish__text">
+            <h3>Tagliatelle &amp; burrata</h3>
+            <p>Fresh tagliatelle in a creamy tomato sauce, finished with burrata and toasted almonds.</p>
           </div>
         </li>
-        <li class="crew__item">
-          <span class="stamp stamp--yellow" aria-hidden="true">Mèo</span>
-          <div>
-            <h3>The cat <span lang="vi">(con mèo)</span></h3>
-            <p class="role">Head of security</p>
-            <p>Sleeps on the rice sack. Accepts head scratches. Please don't feed her your spring rolls.</p>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/pinot-grigio.jpg" data-caption="Pinot Grigio delle Venezie, on ice">
+            <img src="images/pinot-grigio-sm.jpg" srcset="images/pinot-grigio-sm.jpg 640w, images/pinot-grigio.jpg 1162w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="864" loading="lazy" alt="A bottle of Pinot Grigio delle Venezie chilling in a silver ice bucket">
+          </a>
+          <div class="dish__text">
+            <h3>Italian wine</h3>
+            <p>Crisp Pinot Grigio from north-east Italy, poured properly cold.</p>
           </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ EAT LIKE A LOCAL ============ -->
-  <section id="local" class="section local">
+  <!-- ============ FRESH PASTA ============ -->
+  <section id="pasta" class="section pasta">
     <div class="wrap">
       <header class="section__head">
-        <p class="kicker" lang="vi">Ăn như người Sài Gòn · eat like a local</p>
-        <h2>First time in Saigon? Start here.</h2>
-        <p>Street food here runs on a few unwritten rules. We wrote them down for you.</p>
+        <p class="script"><span lang="it">Fatto a mano</span> · made by hand</p>
+        <h2>From flour to fork</h2>
+        <p>Every sheet of pasta at Bontà is made in our kitchen. This is how a plate of ravioli happens.</p>
       </header>
+      <ol class="steps">
+        <li class="step">
+          <a class="step__photo zoom" href="images/pasta-sheet.jpg" data-caption="Rolling the pasta">
+            <img src="images/pasta-sheet-sm.jpg" srcset="images/pasta-sheet-sm.jpg 640w, images/pasta-sheet.jpg 1169w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="858" loading="lazy" alt="A chef in a Bontà apron holding up a long, silky sheet of fresh egg pasta">
+          </a>
+          <h3>Roll</h3>
+          <p>Egg dough is rolled out into long, silky golden sheets.</p>
+        </li>
+        <li class="step">
+          <a class="step__photo zoom" href="images/pasta-piping.jpg" data-caption="Piping the filling">
+            <img src="images/pasta-piping-sm.jpg" srcset="images/pasta-piping-sm.jpg 640w, images/pasta-piping.jpg 1167w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="860" loading="lazy" alt="Spinach and ricotta filling being piped onto a sheet of fresh pasta">
+          </a>
+          <h3>Fill</h3>
+          <p>Spinach and ricotta is piped on in neat little mounds.</p>
+        </li>
+        <li class="step">
+          <a class="step__photo zoom" href="images/pasta-filling.jpg" data-caption="Covering the filling">
+            <img src="images/pasta-filling-sm.jpg" srcset="images/pasta-filling-sm.jpg 640w, images/pasta-filling.jpg 1164w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="862" loading="lazy" alt="A second sheet of pasta being laid over two rows of spinach and ricotta mounds">
+          </a>
+          <h3>Cover</h3>
+          <p>A second sheet goes over the top and is pressed down around every mound.</p>
+        </li>
+        <li class="step">
+          <a class="step__photo zoom" href="images/ravioli.jpg" data-caption="Freshly cut ravioli">
+            <img src="images/ravioli-sm.jpg" srcset="images/ravioli-sm.jpg 640w, images/ravioli.jpg 1166w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="861" loading="lazy" alt="Round ravioli with fluted edges laid out on a steel bench">
+          </a>
+          <h3>Cut</h3>
+          <p>Each raviolo is cut with a fluted cutter, ready for the pan and your plate.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-      <div class="local__grid">
-        <div>
-          <h3 class="subhead">How to eat phở</h3>
-          <ol class="steps">
-            <li><p><strong>Taste the broth first.</strong> Before you add anything. Mum is watching.</p></li>
-            <li><p><strong>Tear in the herbs.</strong> Thai basil, sawtooth herb, bean sprouts. Use as much as you like.</p></li>
-            <li><p><strong>Add lime and chili.</strong> Go slowly. You can always add more, but you can't take it back out.</p></li>
-            <li><p><strong>Chopsticks right, spoon left.</strong> Lift noodles onto the spoon, sip, then slurp. Slurping is a compliment.</p></li>
-          </ol>
-        </div>
-        <div>
-          <h3 class="subhead">Rules of the street</h3>
-          <ul class="rules">
-            <li><strong>The tiny stools are normal.</strong> Everyone's knees end up near their chin. That's the fun.</li>
-            <li><strong>Ice in your beer is normal too.</strong> Saigon is 33&nbsp;°C most afternoons. You'll understand.</li>
-            <li><strong>Packaged wet towels on the table may cost a few thousand đồng.</strong> Leave yours sealed if you don't want it.</li>
-            <li><strong>Pay at the end.</strong> Say <em lang="vi">“tính tiền”</em> and the bill comes over. Tipping isn't expected.</li>
-            <li><strong>Clink and shout <em lang="vi">“dzô!”</em></strong> before you drink. Everyone at the table, every round.</li>
-          </ul>
-        </div>
+  <!-- ============ THE ROOM ============ -->
+  <section id="room" class="section room">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="script"><span lang="it">La sala</span> · the dining room</p>
+        <h2>Arches, lanterns and long lunches</h2>
+        <p>Sage-green arches, sunny yellow walls, a skylight full of woven lanterns and cool cement tiles underfoot. Drop in for a coffee and a cannolo, settle in for a long dinner, or grab a spritz from the Aperol cart.</p>
+      </header>
+      <div class="room-grid">
+        <a class="room-photo room-photo--wide zoom" href="images/dining-room-2.jpg" data-caption="The dining room">
+          <img src="images/dining-room-2-sm.jpg" srcset="images/dining-room-2-sm.jpg 640w, images/dining-room-2.jpg 1162w" sizes="(min-width: 900px) 700px, 100vw" width="1162" height="880" loading="lazy" alt="The dining room: arched green windows, yellow walls, a skylight of hanging lanterns and diners at wooden tables">
+        </a>
+        <a class="room-photo room-photo--tall zoom" href="images/aperol-table.jpg" data-caption="Aperol spritz, salads, pasta and cannoli">
+          <img src="images/aperol-table-sm.jpg" srcset="images/aperol-table-sm.jpg 640w, images/aperol-table.jpg 1156w" sizes="(min-width: 900px) 350px, 100vw" width="1156" height="1568" loading="lazy" alt="A table set with two Aperol spritzes, a salad, a pasta dish and cannoli">
+        </a>
+        <a class="room-photo room-photo--tall zoom" href="images/aperol-cart.jpg" data-caption="The Aperol cart">
+          <img src="images/aperol-cart-sm.jpg" srcset="images/aperol-cart-sm.jpg 640w, images/aperol-cart.jpg 1159w" sizes="(min-width: 900px) 350px, 100vw" width="1159" height="1568" loading="lazy" alt="A red Aperol cart with glasses of spritz and bottles, framed by green leaves">
+        </a>
+        <a class="room-photo room-photo--wide zoom" href="images/dining-room.jpg" data-caption="The bar and the lanterns">
+          <img src="images/dining-room-sm.jpg" srcset="images/dining-room-sm.jpg 640w, images/dining-room.jpg 1153w" sizes="(min-width: 900px) 700px, 100vw" width="1153" height="880" loading="lazy" alt="The green marble bar with a meat slicer, a wall of wine glasses and the glowing Bontà sign">
+        </a>
       </div>
+    </div>
+  </section>
 
-      <div class="phrases">
-        <div class="phrases__head">
-          <h3 class="subhead">Say it like a local</h3>
-          <p>Rough Saigon-accent pronunciations. Nam will happily correct you.</p>
-        </div>
-        <ul class="phrase-grid">
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Xin chào</p>
-            <p class="phrase__say">“sin chow”</p>
-            <p class="phrase__en">Hello</p>
-            <button class="say" type="button" data-say="Xin chào" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Cho tôi một…</p>
-            <p class="phrase__say">“chaw toy moht”</p>
-            <p class="phrase__en">One of those, please (then point)</p>
-            <button class="say" type="button" data-say="Cho tôi một" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Không cay</p>
-            <p class="phrase__say">“khome kai”</p>
-            <p class="phrase__en">Not spicy</p>
-            <button class="say" type="button" data-say="Không cay" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Ngon quá!</p>
-            <p class="phrase__say">“ngon kwah”</p>
-            <p class="phrase__en">So delicious!</p>
-            <button class="say" type="button" data-say="Ngon quá" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Một, hai, ba, dzô!</p>
-            <p class="phrase__say">“moht, hai, bah, yo!”</p>
-            <p class="phrase__en">One, two, three, cheers!</p>
-            <button class="say" type="button" data-say="Một, hai, ba, dô" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Không đá</p>
-            <p class="phrase__say">“khome dah”</p>
-            <p class="phrase__en">No ice</p>
-            <button class="say" type="button" data-say="Không đá" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Tính tiền</p>
-            <p class="phrase__say">“tin tee-en”</p>
-            <p class="phrase__en">The bill, please</p>
-            <button class="say" type="button" data-say="Tính tiền" hidden>Hear it</button>
-          </li>
-          <li class="phrase">
-            <p class="phrase__vn" lang="vi">Cảm ơn</p>
-            <p class="phrase__say">“gahm uhn”</p>
-            <p class="phrase__en">Thank you</p>
-            <button class="say" type="button" data-say="Cảm ơn" hidden>Hear it</button>
-          </li>
-        </ul>
+  <!-- ============ TEAM ============ -->
+  <section id="team" class="section team">
+    <div class="wrap team__grid">
+      <figure class="team__photo">
+        <a class="window zoom" href="images/team.jpg" data-caption="The Bontà team on opening day">
+          <img src="images/team-sm.jpg" srcset="images/team-sm.jpg 640w, images/team.jpg 1164w" sizes="(min-width: 900px) 420px, 80vw" width="640" height="862" loading="lazy" alt="The Bontà team in green aprons giving a thumbs up outside the restaurant on opening day">
+        </a>
+      </figure>
+      <div class="team__copy">
+        <p class="script"><span lang="it">La squadra</span> · the team</p>
+        <h2>The crew in the green aprons</h2>
+        <p>Bontà opened its doors on 22 August 2026. These are the people rolling your pasta, pulling your coffee and pouring your spritz.</p>
+        <p>Come and say <span lang="it">ciao</span>.</p>
       </div>
     </div>
   </section>
 
   <!-- ============ VISIT ============ -->
-  <!-- EDIT: when the address and opening hours are ready, add them to this section -->
   <section id="visit" class="visit">
-    <div class="wrap visit__inner">
-      <p class="kicker" lang="vi">Hẹn gặp bạn · see you soon</p>
-      <h2>See you on a <span class="visit__hl">plastic stool.</span></h2>
-      <p class="visit__lede">We're cooking in Ho Chi Minh City. Our address and opening hours are going up here very soon, so check back before you land.</p>
-      <p class="clock" data-clock>Somewhere in Saigon, someone is slurping phở right now.</p>
+    <div class="awning awning--inset" aria-hidden="true"></div>
+    <div class="wrap visit__grid">
+      <div class="visit__copy">
+        <p class="script"><span lang="it">Ci vediamo!</span> · see you soon</p>
+        <h2>Come and find us</h2>
+        <!-- EDIT: add the street number and road (the banner photo was too blurry to read) -->
+        <p class="address" lang="vi">Phường Trấn Biên, Biên Hòa, Đồng Nai</p>
+        <p>Look for the green canopy and the glowing Bontà sign.</p>
+        <p class="phone"><span class="phone__label">Bookings &amp; questions</span><span class="phone__number">0366 664 930</span></p>
+        <div class="visit__actions">
+          <a class="btn btn--light" href="tel:+84366664930">Call us</a>
+          <a class="btn btn--ghost" href="https://zalo.me/0366664930" target="_blank" rel="noopener">Zalo</a>
+          <a class="btn btn--ghost" href="https://wa.me/84366664930" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Bont%C3%A0%20Pizza%20Pasta%20Cafe%20Bi%C3%AAn%20H%C3%B2a" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+        <!-- EDIT: opening hours -->
+        <p class="hours">Opening hours are going up here soon. Until then, call or message us and we'll happily book you a table.</p>
+      </div>
+      <a class="visit__photo zoom" href="images/facade.jpg" data-caption="Bontà from the street">
+        <img src="images/facade-sm.jpg" srcset="images/facade-sm.jpg 640w, images/facade.jpg 1164w" sizes="(min-width: 900px) 520px, 100vw" width="1164" height="627" loading="lazy" alt="The front of Bontà: a green steel canopy, arched windows and the glowing Bontà sign on a terracotta wall">
+      </a>
     </div>
   </section>
 
 </main>
 
-<svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#gachbong)"/></svg>
+<svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#floor-tile)"/></svg>
 
 <footer class="foot">
   <div class="wrap foot__inner">
     <div class="foot__brand">
-      <span class="brand__sign">Quán Nam</span>
-      <p>Made with nước mắm in Sài Gòn.</p>
+      <span class="logo__name">Bontà</span>
+      <span class="logo__tag">Pizza · Pasta · Cafe</span>
+      <p lang="vi">Biên Hòa, Đồng Nai · 0366 664 930</p>
     </div>
     <nav class="foot__nav" aria-label="Footer">
-      <a href="#why">Why come</a>
-      <a href="#family">The family</a>
-      <a href="#local">Eat like a local</a>
+      <a href="#food">Food</a>
+      <a href="#pasta">Fresh pasta</a>
+      <a href="#room">The room</a>
       <a href="#visit">Visit</a>
     </nav>
-    <p class="foot__legal">© <span id="year">2026</span> Quán Nam · family-run in Ho Chi Minh City</p>
+    <p class="foot__legal">© <span id="year">2026</span> Bontà Pizza Pasta Cafe</p>
   </div>
 </footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo">
+  <button class="lightbox__close" type="button" aria-label="Close photo">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <img class="lightbox__img" src="data:," alt="">
+  <p class="lightbox__caption"></p>
+</dialog>
 
 <script src="js/main.js"></script>
 </body>
