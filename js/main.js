@@ -4,22 +4,13 @@
 
   /* ---------- Language: English is written in the page, Vietnamese comes from js/i18n-vi.js ---------- */
   const VI = window.BONTA_VI || {};
-  const EN = {
-    'js.menuOpen': 'Open menu',
-    'js.menuClose': 'Close menu',
-    'js.openNow': 'Open now, until {time}',
-    'js.opensToday': 'Closed now, opens today at {time}',
-    'js.opensTomorrow': 'Closed now, opens tomorrow at {time}',
-  };
+  const EN = { 'js.openNow': 'Open now', 'js.closedNow': 'Closed now' };
   const root = document.documentElement;
   let lang = 'en';
   const onLangChange = [];
-  const t = (key, vars = {}) => {
-    const text = (lang === 'vi' && VI[key]) || EN[key] || key;
-    return text.replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? '');
-  };
+  const t = (key) => (lang === 'vi' && VI[key]) || EN[key] || key;
 
-  // Remember the English that is written in the page, so switching back restores it exactly.
+  // Remember the English written in the page, so switching back restores it exactly.
   const ATTRS = { i18nAlt: 'alt', i18nCaption: 'data-caption', i18nAria: 'aria-label' };
   const textEls = [...document.querySelectorAll('[data-i18n]')];
   const attrEls = [...document.querySelectorAll('[data-i18n-alt], [data-i18n-caption], [data-i18n-aria]')];
@@ -31,7 +22,7 @@
     english.set(el, saved);
   });
 
-  const langButtons = [...document.querySelectorAll('[data-lang]')].filter((el) => el.tagName === 'BUTTON');
+  const langButtons = [...document.querySelectorAll('button[data-lang]')];
   const setLang = (next, remember) => {
     lang = next === 'vi' && Object.keys(VI).length ? 'vi' : 'en';
     root.lang = lang;
@@ -58,21 +49,6 @@
     } catch { /* not allowed here */ }
   };
   langButtons.forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
-
-  /* ---------- Mobile navigation ---------- */
-  const toggle = document.querySelector('.navtoggle');
-  const nav = document.getElementById('nav');
-  if (toggle && nav) {
-    const setOpen = (open) => {
-      nav.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', t(open ? 'js.menuClose' : 'js.menuOpen'));
-    };
-    onLangChange.push(() => setOpen(nav.classList.contains('is-open')));
-    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
-    nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
-  }
 
   /* ---------- Tap a photo to see it big ----------
      Each photo is a link to the full-size image, so without this it still opens. */
@@ -105,9 +81,8 @@
   };
   const OPEN_FROM = hoursEl ? toMinutes(hoursEl.dataset.open) : NaN;
   const OPEN_UNTIL = hoursEl ? toMinutes(hoursEl.dataset.close) : NaN;
-  const openStatus = document.querySelector('[data-open-status]');
-  if (openStatus && !Number.isNaN(OPEN_FROM) && !Number.isNaN(OPEN_UNTIL)) {
-    const hhmm = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+  const statusEls = [...document.querySelectorAll('[data-open-status]')];
+  if (statusEls.length && !Number.isNaN(OPEN_FROM) && !Number.isNaN(OPEN_UNTIL)) {
     const update = () => {
       let parts;
       try {
@@ -117,11 +92,11 @@
       const now = (get('hour') % 24) * 60 + get('minute');
       if (Number.isNaN(now)) return;
       const open = now >= OPEN_FROM && now < OPEN_UNTIL;
-      openStatus.textContent = open
-        ? t('js.openNow', { time: hhmm(OPEN_UNTIL) })
-        : t(now < OPEN_FROM ? 'js.opensToday' : 'js.opensTomorrow', { time: hhmm(OPEN_FROM) });
-      openStatus.classList.toggle('is-open', open);
-      openStatus.hidden = false;
+      statusEls.forEach((el) => {
+        el.textContent = t(open ? 'js.openNow' : 'js.closedNow');
+        el.classList.toggle('is-open', open);
+        el.hidden = false;
+      });
     };
     update();
     setInterval(update, 60 * 1000);

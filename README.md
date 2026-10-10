@@ -8,7 +8,7 @@ No build step, no framework: plain HTML, CSS and a little JavaScript.
 ```
 index.html        the website
 css/styles.css    all styling
-js/main.js        language switch, mobile menu, tap-a-photo viewer, "open now", footer year
+js/main.js        language switch, tap-a-photo viewer, "open now", footer year
 js/i18n-vi.js     the Vietnamese text for the VI | EN switch
 images/           the restaurant's photos (each has a full size and a -sm phone size)
 og-image.png      the preview picture shown when the link is shared (WhatsApp, Facebook, Zalo…)
@@ -18,25 +18,21 @@ tools/            source and script for regenerating og-image.png
 
 ## The look
 
-Taken from the restaurant itself: the real Bontà logo (`images/logo.png`, and `logo-cream.png` for dark backgrounds), butter-yellow walls, sage-green arched windows (every photo sits in an arch),
-the green-and-white striped awning and the green quatrefoil cement tiles from the dining-room floor.
-Fonts: Cormorant Garamond for headings, Be Vietnam Pro for text (it handles Vietnamese accents well),
-and Dancing Script for the little Italian phrases.
+Taken from the restaurant itself: the real Bontà logo (`images/logo.png`, and `logo-cream.png` for dark backgrounds),
+butter-yellow walls, a sage-green arched window, the green-and-white striped awning and the green quatrefoil floor tiles.
+Fonts: Cormorant Garamond for headings and Be Vietnam Pro for text (it handles Vietnamese accents well).
 
 ## What's on the page
 
-1. **Hero**: "Handmade pasta, proper pizza and a spritz in the sun." with the carbonara and a call-to-book button.
-2. **Food**: *La pizza* (prosciutto e burrata, funghi e salsiccia, pepperoni, prosciutto & pesto fold), *Pasta & plates*
-   (ravioli al pesto, tagliatelle & burrata, fritto misto, burrata e rucola), *Dolci* (tiramisù, torta alla ricotta,
-   tortino al cioccolato, pizza dolce) and *Caffè & drinks* (cornetti & cappuccino, Aperol Spritz, Italian wine, limoncello),
-   then the homemade mozzarella feature.
-3. **Fresh pasta**: roll, fill, cover, cut. The ravioli process in four photos.
-4. **Chef**: chef Manuel Reale and his training and World Pizza Championship results (2014–2019), taken from his certificates,
-   then the black-and-gold **chef's menu** showing plates it has featured (Tomahawk, Il Risotto, Pizza del Sole).
-5. **The room**: six photos of the dining room, the striped awning, the bar and the busy windows at night.
-6. **The team**: the crew in the green aprons on opening day (22 August 2026).
-7. **Visit**: E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai; phone, Google Maps, Zalo, WhatsApp and Facebook,
-   opening hours 10:00–22:00 with a live "open now" light, and the shop front at dusk and at night.
+A short, simple page built around what customers look for: when you're open, where you are, how to book, and the food.
+
+1. **Header** (stays at the top while scrolling): logo, **VI | EN** switch and a **Call** button.
+2. **Top screen**: what Bontà is, opening hours with a live "open now / closed now" light, the address,
+   and **Call to book** and **Directions** buttons.
+3. **Our food**: eight dishes with photos and one line each.
+4. **Made in our own kitchen**: fresh pasta, homemade mozzarella and pizza by chef Manuel Reale.
+5. **The restaurant**: three photos of the dining room.
+6. **Visit us**: address, hours, phone, and Call, Directions, Zalo and Facebook buttons, with the shop front.
 
 Tap any photo to see it full size.
 
@@ -55,12 +51,10 @@ The **VI | EN** switch in the header changes the whole page, including photo cap
 
 The page is written so it stays true for years without editing:
 
-- **No prices, no "new" labels, no offers or dated posters.** Prices and specials change; the page shows the food, and the team gives today's prices.
-- **The menu is described as a sample.** "A few of our favourites" and "a few of the plates the chef's menu has featured", so it stays right as dishes come and go.
-- **Past facts are written in the past tense.** The opening date and the chef's awards are history, so they never go out of date.
-- **The year in the footer updates itself**, and the "open now" light always uses Vietnam time.
-- **No outside code.** Everything runs from this repository on GitHub Pages; the only outside service is Google Fonts, and if that ever fails the page falls back to standard fonts.
-- **Link previews** use a fixed image in the repo.
+- **No prices, no "new" labels, no offers or dated posters.** The page shows the food; the team gives today's prices.
+- **The menu is described as a sample** ("some of our favourites… the menu changes with the seasons"), so it stays right as dishes change.
+- **The footer year updates itself**, and the "open now" light always uses Vietnam time.
+- **No outside code.** Everything runs from this repository on GitHub Pages; only the fonts come from Google Fonts, with standard fonts as a fallback.
 
 ### The only things that would ever need changing
 

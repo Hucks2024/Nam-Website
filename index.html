@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Bontà Pizza Pasta Cafe</title>
-  <meta name="description" content="Bontà is an Italian pizza, pasta and café house at E79–E80 đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai. Homemade mozzarella, fresh pasta made by hand, pizza, burrata, tiramisu, limoncello and Aperol spritz. Call 036 666 4930 to book a table.">
+  <meta name="description" content="Bontà is an Italian pizza, pasta and café house at E79–E80 đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai. Fresh pasta made by hand, homemade mozzarella, pizza, coffee and Italian desserts. Open every day 10:00–22:00. Call 036 666 4930 to book.">
   <meta name="theme-color" content="#1F5A4C">
   <meta property="og:title" content="Bontà · Pizza · Pasta · Cafe">
-  <meta property="og:description" content="Handmade pasta, proper pizza and a spritz in the sun, in Biên Hòa.">
+  <meta property="og:description" content="Handmade Italian food in Biên Hòa. Open every day 10:00–22:00.">
   <meta property="og:type" content="restaurant">
   <!-- EDIT: if the site moves to its own domain, update these URLs -->
   <link rel="canonical" href="https://hucks2024.github.io/Nam-Website/">
@@ -20,7 +20,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Dancing+Script:wght@600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script>
     /* Language: ?lang=vi|en in the link, else the visitor's last choice, else their phone/browser language. */
@@ -63,7 +63,7 @@
 </head>
 <body>
 
-<!-- Shared SVG defs: the green cement floor tile from the dining room -->
+<!-- The green cement floor tile from the dining room, plus three small icons -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="floor-tile" width="44" height="44" patternUnits="userSpaceOnUse">
@@ -77,6 +77,9 @@
         <circle cx="39.4" cy="44" r="5.4"/><circle cx="48.6" cy="44" r="5.4"/><circle cx="44" cy="39.4" r="5.4"/>
       </g>
     </pattern>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5 9 3l1.6 4-2 1.4a11 11 0 0 0 7 7l1.4-2 4 1.6-.5 2.4a2 2 0 0 1-2 1.6A16.5 16.5 0 0 1 3.5 5.5a2 2 0 0 1 1.6-2Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   </defs>
 </svg>
 
@@ -89,48 +92,53 @@
     <a class="logo" href="#top">
       <img src="images/logo.png" width="720" height="274" alt="Bontà · Pizza · Pasta · Cafe">
     </a>
-    <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav id="nav" class="nav" data-i18n-aria="nav.label" aria-label="Sections">
-      <a href="#food" data-i18n="nav.food">Food</a>
-      <a href="#pasta" data-i18n="nav.pasta">Fresh pasta</a>
-      <a href="#chef" data-i18n="nav.chef">Chef</a>
-      <a href="#room" data-i18n="nav.room">The room</a>
-      <a href="#visit" data-i18n="nav.visit">Visit</a>
-      <a class="btn btn--green btn--small" href="tel:+84366664930" data-i18n="nav.call">Call 036 666 4930</a>
-    </nav>
-    <div class="lang" role="group" aria-label="Language · Ngôn ngữ">
-      <button type="button" data-lang="vi" lang="vi" title="Tiếng Việt" aria-pressed="false"><span aria-hidden="true">VI</span><span class="sr-only">Tiếng Việt</span></button>
-      <button type="button" data-lang="en" lang="en" title="English" aria-pressed="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+    <div class="topbar__actions">
+      <div class="lang" role="group" aria-label="Language · Ngôn ngữ">
+        <button type="button" data-lang="vi" lang="vi" title="Tiếng Việt" aria-pressed="false"><span aria-hidden="true">VI</span><span class="sr-only">Tiếng Việt</span></button>
+        <button type="button" data-lang="en" lang="en" title="English" aria-pressed="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></button>
+      </div>
+      <a class="btn btn--green btn--small" href="tel:+84366664930">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span data-i18n="call">Call</span><span class="hide-sm">&nbsp;036 666 4930</span>
+      </a>
     </div>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO: what, when, where, call ============ -->
   <section class="hero">
     <div class="wrap hero__grid">
       <div class="hero__copy">
-        <p class="script"><span lang="it">Benvenuti!</span></p>
-        <h1 data-i18n="hero.title">Handmade pasta, proper pizza and a spritz in the sun.</h1>
-        <p class="lede" data-i18n="hero.lede">Bontà is an Italian pizza, pasta and café house in Biên Hòa. Our pasta is rolled by hand and our mozzarella is made in our own kitchen, and the dining room feels like a long summer evening in Italy.</p>
-        <div class="cta">
-          <a class="btn btn--green" href="tel:+84366664930" data-i18n="hero.call">Call to book a table</a>
-          <a class="btn btn--line" href="#visit" data-i18n="hero.find">How to find us</a>
-        </div>
-        <ul class="facts">
-          <li data-i18n="hero.fact1">Homemade pasta &amp; mozzarella</li>
-          <li data-i18n="hero.fact2">Italian wine, spritz &amp; coffee</li>
-          <li data-i18n="hero.fact3" lang="vi">Phường Trấn Biên, Biên Hòa</li>
+        <p class="kicker">Pizza · Pasta · Cafe</p>
+        <h1 data-i18n="hero.title">Handmade Italian food in Biên Hòa</h1>
+        <p class="lede" data-i18n="hero.lede">Pizza, fresh pasta, homemade mozzarella, coffee and Italian desserts, in a dining room that feels like summer in Italy.</p>
+        <ul class="info">
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+            <span><span data-i18n="hours.every">Every day 10:00 – 22:00</span> <span class="status" data-open-status hidden></span></span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span lang="vi">E79–E80, đường D9, phường Trấn Biên, Biên Hòa</span>
+          </li>
         </ul>
+        <div class="cta">
+          <a class="btn btn--green" href="tel:+84366664930">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+            <span data-i18n="book">Call to book</span>
+          </a>
+          <a class="btn btn--line" href="https://www.google.com/maps/search/?api=1&amp;query=Bont%C3%A0%20Pizza%20Pasta%20Cafe%2C%20E79-E80%20%C4%91%C6%B0%E1%BB%9Dng%20D9%2C%20Tr%E1%BA%A5n%20Bi%C3%AAn%2C%20Bi%C3%AAn%20H%C3%B2a" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span data-i18n="directions">Directions</span>
+          </a>
+        </div>
       </div>
       <figure class="hero__photo">
-        <a class="window zoom" href="images/carbonara.jpg" data-i18n-caption="hero.photo.cap" data-caption="Spaghetti carbonara with crispy cured pork">
-          <img src="images/carbonara.jpg" srcset="images/carbonara-sm.jpg 640w, images/carbonara.jpg 1164w" sizes="(min-width: 900px) 420px, 80vw" width="1164" height="1568" data-i18n-alt="hero.photo.alt" alt="A nest of spaghetti carbonara topped with crispy cured pork, with a pizza and a salad behind it">
+        <a class="window zoom" href="images/carbonara.jpg" data-caption="Spaghetti carbonara">
+          <img src="images/carbonara.jpg" srcset="images/carbonara-sm.jpg 640w, images/carbonara.jpg 1164w" sizes="(min-width: 900px) 400px, 80vw" width="1164" height="1568" data-i18n-alt="hero.alt" alt="A nest of spaghetti carbonara topped with crispy cured pork, with a pizza and a salad behind it">
         </a>
-        <p class="badge" aria-hidden="true"><span lang="it">Fatto a mano</span><small data-i18n="hero.badge">made by hand</small></p>
       </figure>
     </div>
   </section>
@@ -138,338 +146,126 @@
   <svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#floor-tile)"/></svg>
 
   <!-- ============ FOOD ============ -->
-  <!-- EDIT: dish names and descriptions are written from the photos; correct anything that's off -->
-  <section id="food" class="section food">
+  <!-- EDIT: dish names and descriptions were written from photos; correct anything that's off -->
+  <section id="food" class="section">
     <div class="wrap">
       <header class="section__head">
-        <p class="script" data-i18n="food.kicker"><span lang="it">Dalla cucina</span> · from the kitchen</p>
-        <h2 data-i18n="food.title">What's coming out of the kitchen</h2>
-        <p data-i18n="food.intro">A few of our favourites. The menu changes with the seasons, so ask the team what's fresh today, and save room for dessert.</p>
+        <p class="kicker" data-i18n="food.kicker">Our food</p>
+        <h2 data-i18n="food.title">A taste of the menu</h2>
+        <p data-i18n="food.intro">Some of our favourites. The menu changes with the seasons, so ask what's good today.</p>
       </header>
-
-      <div class="menu-group">
-        <h3 class="menu-group__title"><span><span lang="it">La pizza</span></span></h3>
-        <ul class="dishes dishes--wide">
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/pizza-prosciutto.jpg" data-caption="Prosciutto e burrata">
-              <img src="images/pizza-prosciutto-sm.jpg" srcset="images/pizza-prosciutto-sm.jpg 640w, images/pizza-prosciutto.jpg 1166w" sizes="(min-width: 760px) 540px, 92vw" width="640" height="467" loading="lazy" data-i18n-alt="pizza.prosciutto.alt" alt="Pizza with a blistered crust topped with prosciutto, rocket and a whole burrata">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Prosciutto e burrata</h4>
-              <p data-i18n="pizza.prosciutto.desc">Tomato, silky prosciutto, peppery rocket and a whole burrata in the middle, on a puffy, blistered crust.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/pizza-funghi.jpg" data-caption="Funghi e salsiccia">
-              <img src="images/pizza-funghi-sm.jpg" srcset="images/pizza-funghi-sm.jpg 640w, images/pizza-funghi.jpg 1171w" sizes="(min-width: 760px) 540px, 92vw" width="640" height="516" loading="lazy" data-i18n-alt="pizza.funghi.alt" alt="White pizza with mixed mushrooms, crumbled sausage and a burrata on top">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Funghi e salsiccia</h4>
-              <p data-i18n="pizza.funghi.desc">A white pizza with mixed mushrooms, crumbled sausage, melted cheese and, of course, a burrata.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/pizza-pepperoni.jpg" data-i18n-caption="pizza.pepperoni.cap" data-caption="Pepperoni pizza">
-              <img src="images/pizza-pepperoni-sm.jpg" srcset="images/pizza-pepperoni-sm.jpg 640w, images/pizza-pepperoni.jpg 1164w" sizes="(min-width: 760px) 540px, 92vw" width="640" height="467" loading="lazy" data-i18n-alt="pizza.pepperoni.alt" alt="A pepperoni pizza being sliced at a wooden table by the window, with a salad and cans of Coca-Cola and Sprite">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name">Pepperoni</h4>
-              <p data-i18n="pizza.pepperoni.desc">Tomato, mozzarella and a full layer of spicy salami. The crowd-pleaser.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/pizza-fold.jpg" data-i18n-caption="pizza.fold.cap" data-caption="Folded pizza with prosciutto">
-              <img src="images/pizza-fold-sm.jpg" srcset="images/pizza-fold-sm.jpg 640w, images/pizza-fold.jpg 1161w" sizes="(min-width: 760px) 540px, 92vw" width="640" height="466" loading="lazy" data-i18n-alt="pizza.fold.alt" alt="Pizza dough folded like a sandwich around pesto, prosciutto, rocket and grated parmesan, on a green plate by a striped banquette">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" data-i18n="pizza.fold.name">Prosciutto &amp; pesto fold</h4>
-              <p data-i18n="pizza.fold.desc">Oven-baked pizza dough folded around pesto, prosciutto, rocket and parmesan. A pizza you can pick up.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="menu-group">
-        <h3 class="menu-group__title"><span data-i18n="plates.title">Pasta &amp; plates</span></h3>
-        <ul class="dishes">
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/ravioli-pesto.jpg" data-caption="Ravioli al pesto">
-              <img src="images/ravioli-pesto-sm.jpg" srcset="images/ravioli-pesto-sm.jpg 640w, images/ravioli-pesto.jpg 1163w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="863" loading="lazy" data-i18n-alt="plates.ravioli.alt" alt="Ravioli in bright green pesto with pine nuts and grated parmesan, cut open to show the spinach filling">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Ravioli al pesto</h4>
-              <p data-i18n="plates.ravioli.desc">Our own spinach-and-ricotta ravioli in basil pesto, with pine nuts and parmesan.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/tagliatelle-burrata.jpg" data-i18n-caption="plates.tagliatelle.cap" data-caption="Tagliatelle with burrata">
-              <img src="images/tagliatelle-burrata-sm.jpg" srcset="images/tagliatelle-burrata-sm.jpg 640w, images/tagliatelle-burrata.jpg 1157w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="867" loading="lazy" data-i18n-alt="plates.tagliatelle.alt" alt="Tagliatelle in a creamy tomato sauce topped with burrata and flaked almonds on a green plate, above a green-and-white tiled floor">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name">Tagliatelle &amp; burrata</h4>
-              <p data-i18n="plates.tagliatelle.desc">Fresh tagliatelle in a creamy tomato sauce, finished with burrata and toasted almonds.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/fritto-misto.jpg" data-caption="Fritto misto">
-              <img src="images/fritto-misto-sm.jpg" srcset="images/fritto-misto-sm.jpg 640w, images/fritto-misto.jpg 1156w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="868" loading="lazy" data-i18n-alt="plates.fritto.alt" alt="Fried calamari rings, prawns and battered vegetables on a black plate with a pot of creamy dip">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Fritto misto</h4>
-              <p data-i18n="plates.fritto.desc">Calamari, prawns and vegetables fried golden, with a creamy dip for dunking.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/burrata-salad.jpg" data-caption="Burrata e rucola">
-              <img src="images/burrata-salad-sm.jpg" srcset="images/burrata-salad-sm.jpg 640w, images/burrata-salad.jpg 1152w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="871" loading="lazy" data-i18n-alt="plates.burrata.alt" alt="A burrata on a bed of rocket with roasted tomatoes, with a pizza and a glass of wine behind it">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Burrata e rucola</h4>
-              <p data-i18n="plates.burrata.desc">Burrata on a bed of rocket with blistered tomatoes and a balsamic drizzle.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="menu-group">
-        <h3 class="menu-group__title"><span lang="it">Dolci</span></h3>
-        <ul class="dishes">
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/tiramisu.jpg" data-caption="Tiramisù">
-              <img src="images/tiramisu-sm.jpg" srcset="images/tiramisu-sm.jpg 640w, images/tiramisu.jpg 1168w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="511" loading="lazy" data-i18n-alt="dolci.tiramisu.alt" alt="Tiramisu in a ribbed glass topped with cocoa and two ladyfingers, beside two eggs and coffee beans">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Tiramisù</h4>
-              <p data-i18n="dolci.tiramisu.desc">Coffee-soaked ladyfingers, mascarpone cream and a snowfall of cocoa.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/torta-ricotta.jpg" data-caption="Torta alla ricotta">
-              <img src="images/torta-ricotta-sm.jpg" srcset="images/torta-ricotta-sm.jpg 640w, images/torta-ricotta.jpg 869w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="275" loading="lazy" data-i18n-alt="dolci.ricotta.alt" alt="A slice of ricotta cake topped with chocolate shavings, with a forkful cut away">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Torta alla ricotta</h4>
-              <p data-i18n="dolci.ricotta.desc">A soft, creamy ricotta cake with a light, delicate flavour, finished with chocolate shavings.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/tortino-cioccolato.jpg" data-caption="Tortino al cioccolato">
-              <img src="images/tortino-cioccolato-sm.jpg" srcset="images/tortino-cioccolato-sm.jpg 640w, images/tortino-cioccolato.jpg 760w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="473" loading="lazy" data-i18n-alt="dolci.tortino.alt" alt="A dark chocolate cake with glossy chocolate sauce, a sprig of thyme and a dusting of icing sugar">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Tortino al cioccolato</h4>
-              <p data-i18n="dolci.tortino.desc">A rich little chocolate cake with glossy chocolate sauce and a dusting of icing sugar.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/pizza-dolce.jpg" data-caption="Pizza dolce">
-              <img src="images/pizza-dolce-sm.jpg" srcset="images/pizza-dolce-sm.jpg 640w, images/pizza-dolce.jpg 1159w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="491" loading="lazy" data-i18n-alt="dolci.pizza.alt" alt="A star-shaped sweet pizza dusted with cocoa and icing sugar, with a creamy centre">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Pizza dolce</h4>
-              <p data-i18n="dolci.pizza.desc">A sweet star-shaped pizza dusted with cocoa and sugar, made for sharing.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="menu-group">
-        <h3 class="menu-group__title"><span data-i18n="drinks.title"><span lang="it">Caffè</span> &amp; drinks</span></h3>
-        <ul class="dishes">
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/cornetti.jpg" data-i18n-caption="dolci.cornetti.cap" data-caption="Cornetti and cappuccino">
-              <img src="images/cornetti-sm.jpg" srcset="images/cornetti-sm.jpg 640w, images/cornetti.jpg 1172w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="856" loading="lazy" data-i18n-alt="dolci.cornetti.alt" alt="A sunny table with three filled croissants, strawberries, a basket of bread and grissini and a cappuccino with latte art">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name">Cornetti &amp; cappuccino</h4>
-              <p data-i18n="dolci.cornetti.desc">Filled croissants, a basket of bread and grissini, and a cappuccino with proper latte art. A slow morning, Italian style.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/aperol-cart.jpg" data-i18n-caption="drinks.aperol.cap" data-caption="Aperol Spritz from the cart">
-              <img src="images/aperol-cart-sm.jpg" srcset="images/aperol-cart-sm.jpg 640w, images/aperol-cart.jpg 1159w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="866" loading="lazy" data-i18n-alt="drinks.aperol.alt" alt="A red Aperol cart with glasses of spritz and bottles, framed by green leaves">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name">Aperol Spritz</h4>
-              <p data-i18n="drinks.aperol.desc">Bright, bittersweet and very orange, straight from the Aperol cart.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/pinot-grigio.jpg" data-i18n-caption="drinks.wine.cap" data-caption="Pinot Grigio delle Venezie, on ice">
-              <img src="images/pinot-grigio-sm.jpg" srcset="images/pinot-grigio-sm.jpg 640w, images/pinot-grigio.jpg 1162w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="864" loading="lazy" data-i18n-alt="drinks.wine.alt" alt="A bottle of Pinot Grigio delle Venezie chilling in a silver ice bucket">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" data-i18n="drinks.wine.name">Italian wine</h4>
-              <p data-i18n="drinks.wine.desc">A bottle of something Italian for the table, whites served properly cold.</p>
-            </div>
-          </li>
-          <li class="dish">
-            <a class="dish__photo zoom" href="images/limoncello.jpg" data-caption="Limoncello">
-              <img src="images/limoncello-sm.jpg" srcset="images/limoncello-sm.jpg 640w, images/limoncello.jpg 1165w" sizes="(min-width: 1000px) 250px, (min-width: 600px) 45vw, 38vw" width="640" height="861" loading="lazy" data-i18n-alt="dolci.limoncello.alt" alt="Limoncello being poured into a small glass beside halved lemons, mint and jasmine, under a Buongiorno sign">
-            </a>
-            <div class="dish__text">
-              <h4 class="dish__name" lang="it">Limoncello</h4>
-              <p data-i18n="dolci.limoncello.desc">Ice-cold lemon liqueur poured into a little glass to finish the meal, the way they do on the Amalfi coast.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="burrata">
-        <a class="burrata__photo window zoom" href="images/cheeses.jpg" data-i18n-caption="cheese.cap" data-caption="Burrata, mozzarella and ricotta">
-          <img src="images/cheeses-sm.jpg" srcset="images/cheeses-sm.jpg 640w, images/cheeses.jpg 1168w" sizes="(min-width: 860px) 360px, 80vw" width="640" height="692" loading="lazy" data-i18n-alt="cheese.alt" alt="A burrata, three balls of mozzarella, two bowls of ricotta and a bottle of milk on a green plate">
-        </a>
-        <div class="burrata__copy">
-          <p class="script" data-i18n="cheese.kicker"><span lang="it">Fatto in casa</span> · made in-house</p>
-          <h3 data-i18n="cheese.title">Our own mozzarella</h3>
-          <p data-i18n="cheese.text">We make our mozzarella in our own kitchen, and it turns up all over the menu with fresh ricotta. You'll also find a whole ball of creamy burrata on our pizzas, our tagliatelle and our salad. Cut it open and let it run.</p>
-        </div>
-      </div>
+      <ul class="dishes">
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/pizza-prosciutto.jpg" data-caption="Prosciutto e burrata">
+            <img src="images/pizza-prosciutto-sm.jpg" width="640" height="467" loading="lazy" data-i18n-alt="d1.alt" alt="Pizza topped with prosciutto, rocket and a whole burrata">
+          </a>
+          <h3 lang="it">Prosciutto e burrata</h3>
+          <p data-i18n="d1">Pizza with prosciutto, rocket and a whole burrata.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/pizza-funghi.jpg" data-caption="Funghi e salsiccia">
+            <img src="images/pizza-funghi-sm.jpg" width="640" height="516" loading="lazy" data-i18n-alt="d2.alt" alt="White pizza with mushrooms, crumbled sausage and a burrata on top">
+          </a>
+          <h3 lang="it">Funghi e salsiccia</h3>
+          <p data-i18n="d2">White pizza with mushrooms, sausage and burrata.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/ravioli-pesto.jpg" data-caption="Ravioli al pesto">
+            <img src="images/ravioli-pesto-sm.jpg" width="640" height="863" loading="lazy" data-i18n-alt="d3.alt" alt="Ravioli in green pesto with pine nuts and parmesan, cut open to show the spinach filling">
+          </a>
+          <h3 lang="it">Ravioli al pesto</h3>
+          <p data-i18n="d3">Handmade spinach and ricotta ravioli in basil pesto.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/tagliatelle-burrata.jpg" data-caption="Tagliatelle &amp; burrata">
+            <img src="images/tagliatelle-burrata-sm.jpg" width="640" height="867" loading="lazy" data-i18n-alt="d4.alt" alt="Tagliatelle in creamy tomato sauce topped with burrata and flaked almonds">
+          </a>
+          <h3 lang="it">Tagliatelle &amp; burrata</h3>
+          <p data-i18n="d4">Fresh tagliatelle in a creamy tomato sauce with burrata.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/fritto-misto.jpg" data-caption="Fritto misto">
+            <img src="images/fritto-misto-sm.jpg" width="640" height="868" loading="lazy" data-i18n-alt="d5.alt" alt="Fried calamari, prawns and vegetables on a black plate with a creamy dip">
+          </a>
+          <h3 lang="it">Fritto misto</h3>
+          <p data-i18n="d5">Crispy fried calamari, prawns and vegetables with a creamy dip.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/burrata-salad.jpg" data-caption="Burrata e rucola">
+            <img src="images/burrata-salad-sm.jpg" width="640" height="871" loading="lazy" data-i18n-alt="d6.alt" alt="A burrata on a bed of rocket with roasted tomatoes">
+          </a>
+          <h3 lang="it">Burrata e rucola</h3>
+          <p data-i18n="d6">Burrata with rocket, roasted tomatoes and balsamic.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/tiramisu.jpg" data-caption="Tiramisù">
+            <img src="images/tiramisu-sm.jpg" width="640" height="511" loading="lazy" data-i18n-alt="d7.alt" alt="Tiramisu in a glass topped with cocoa and two ladyfingers">
+          </a>
+          <h3 lang="it">Tiramisù</h3>
+          <p data-i18n="d7">Coffee-soaked ladyfingers, mascarpone cream and cocoa.</p>
+        </li>
+        <li class="dish">
+          <a class="dish__photo zoom" href="images/aperol-cart.jpg" data-caption="Aperol Spritz">
+            <img src="images/aperol-cart-sm.jpg" width="640" height="866" loading="lazy" data-i18n-alt="d8.alt" alt="A red Aperol cart with glasses of spritz, framed by green leaves">
+          </a>
+          <h3>Aperol Spritz</h3>
+          <p data-i18n="d8">Bright and bittersweet, poured from the Aperol cart.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ============ FRESH PASTA ============ -->
-  <section id="pasta" class="section pasta">
+  <!-- ============ MADE BY HAND ============ -->
+  <section class="section made">
     <div class="wrap">
       <header class="section__head">
-        <p class="script" data-i18n="pasta.kicker"><span lang="it">Fatto a mano</span> · made by hand</p>
-        <h2 data-i18n="pasta.title">From flour to fork</h2>
-        <p data-i18n="pasta.intro">Every sheet of pasta at Bontà is made in our kitchen. This is how a plate of ravioli happens.</p>
+        <p class="kicker" data-i18n="made.kicker">Made by hand</p>
+        <h2 data-i18n="made.title">Made in our own kitchen</h2>
       </header>
-      <ol class="steps">
-        <li class="step">
-          <a class="step__photo zoom" href="images/pasta-sheet.jpg" data-i18n-caption="pasta.roll.cap" data-caption="Rolling the pasta">
-            <img src="images/pasta-sheet-sm.jpg" srcset="images/pasta-sheet-sm.jpg 640w, images/pasta-sheet.jpg 1169w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="858" loading="lazy" data-i18n-alt="pasta.roll.alt" alt="A chef in a Bontà apron holding up a long, silky sheet of fresh egg pasta">
+      <ul class="made__list">
+        <li>
+          <a class="made__photo zoom" href="images/pasta-sheet.jpg" data-i18n-caption="m1.title" data-caption="Fresh pasta">
+            <img src="images/pasta-sheet-sm.jpg" width="640" height="858" loading="lazy" data-i18n-alt="m1.alt" alt="A chef in a Bontà apron holding up a long sheet of fresh egg pasta">
           </a>
-          <h3 data-i18n="pasta.roll">Roll</h3>
-          <p data-i18n="pasta.roll.text">Egg dough is rolled out into long, silky golden sheets.</p>
+          <h3 data-i18n="m1.title">Fresh pasta</h3>
+          <p data-i18n="m1">Rolled, filled and cut by hand in our kitchen.</p>
         </li>
-        <li class="step">
-          <a class="step__photo zoom" href="images/pasta-piping.jpg" data-i18n-caption="pasta.fill.cap" data-caption="Piping the filling">
-            <img src="images/pasta-piping-sm.jpg" srcset="images/pasta-piping-sm.jpg 640w, images/pasta-piping.jpg 1167w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="860" loading="lazy" data-i18n-alt="pasta.fill.alt" alt="Spinach and ricotta filling being piped onto a sheet of fresh pasta">
+        <li>
+          <a class="made__photo zoom" href="images/cheeses.jpg" data-i18n-caption="m2.title" data-caption="Our own mozzarella">
+            <img src="images/cheeses-sm.jpg" width="640" height="692" loading="lazy" data-i18n-alt="m2.alt" alt="Burrata, mozzarella and ricotta on a green plate">
           </a>
-          <h3 data-i18n="pasta.fill">Fill</h3>
-          <p data-i18n="pasta.fill.text">Spinach and ricotta is piped on in neat little mounds.</p>
+          <h3 data-i18n="m2.title">Our own mozzarella</h3>
+          <p data-i18n="m2">Made in-house, with fresh ricotta and creamy burrata on many dishes.</p>
         </li>
-        <li class="step">
-          <a class="step__photo zoom" href="images/pasta-filling.jpg" data-i18n-caption="pasta.cover.cap" data-caption="Covering the filling">
-            <img src="images/pasta-filling-sm.jpg" srcset="images/pasta-filling-sm.jpg 640w, images/pasta-filling.jpg 1164w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="862" loading="lazy" data-i18n-alt="pasta.cover.alt" alt="A second sheet of pasta being laid over two rows of spinach and ricotta mounds">
+        <li>
+          <a class="made__photo zoom" href="images/chef-manuel-reale.jpg" data-caption="Chef Manuel Reale">
+            <img src="images/chef-manuel-reale-sm.jpg" width="640" height="640" loading="lazy" data-i18n-alt="m3.alt" alt="Chef Manuel Reale in chef's whites beside a pizza and his framed pizza championship certificates">
           </a>
-          <h3 data-i18n="pasta.cover">Cover</h3>
-          <p data-i18n="pasta.cover.text">A second sheet goes over the top and is pressed down around every mound.</p>
+          <h3 data-i18n="m3.title">Pizza by chef Manuel Reale</h3>
+          <p data-i18n="m3">An award-winning pizza chef, twice the top-placed competitor from Vietnam at the World Pizza Championship.</p>
         </li>
-        <li class="step">
-          <a class="step__photo zoom" href="images/ravioli.jpg" data-i18n-caption="pasta.cut.cap" data-caption="Freshly cut ravioli">
-            <img src="images/ravioli-sm.jpg" srcset="images/ravioli-sm.jpg 640w, images/ravioli.jpg 1166w" sizes="(min-width: 1000px) 250px, 45vw" width="640" height="861" loading="lazy" data-i18n-alt="pasta.cut.alt" alt="Round ravioli with fluted edges laid out on a steel bench">
-          </a>
-          <h3 data-i18n="pasta.cut">Cut</h3>
-          <p data-i18n="pasta.cut.text">Each raviolo is cut with a fluted cutter, ready for the pan and your plate.</p>
-        </li>
-      </ol>
+      </ul>
     </div>
   </section>
 
-  <!-- ============ CHEF ============ -->
-  <!-- EDIT: check how Manuel would like his role at Bontà described -->
-  <section id="chef" class="section chef">
-    <div class="wrap chef__grid">
-      <a class="chef__photo zoom" href="images/chef-manuel-reale.jpg" data-i18n-caption="chef.cap" data-caption="Chef Manuel Reale">
-        <img src="images/chef-manuel-reale-sm.jpg" srcset="images/chef-manuel-reale-sm.jpg 640w, images/chef-manuel-reale.jpg 1175w" sizes="(min-width: 900px) 480px, 92vw" width="640" height="640" loading="lazy" data-i18n-alt="chef.alt" alt="Chef Manuel Reale in chef's whites with his arms crossed, beside a pizza and framed certificates from the Accademia Pizzaioli, Albo Pizzaioli, the Consulate General of Italy in Ho Chi Minh City and the World Pizza Championship">
-      </a>
-      <div class="chef__copy">
-        <p class="script" data-i18n="chef.kicker"><span lang="it">Il pizzaiolo</span> · the pizza expert</p>
-        <h2 data-i18n="chef.title">Meet chef Manuel Reale</h2>
-        <p data-i18n="chef.intro">Bontà's pizza is built on the experience of chef Manuel Reale, a pizza specialist with more than ten years of training and competitions behind him.</p>
-        <ol class="awards">
-          <li><span class="awards__year">2014</span><span data-i18n="chef.2014">Trained in <em lang="it">pizza in pala</em>, Roman-style pizza baked on a long paddle, with the Accademia Pizzaioli in Genoa</span></li>
-          <li><span class="awards__year">2016</span><span data-i18n="chef.2016">7th place for <em lang="it">pizza in pala</em> at the World Pizza Championship in Parma</span></li>
-          <li><span class="awards__year">2017</span><span data-i18n="chef.2017">Top-placed competitor from Vietnam at the World Pizza Championship</span></li>
-          <li><span class="awards__year">2018</span><span data-i18n="chef.2018">Top-placed from Vietnam again, at the championship's 27th edition</span></li>
-          <li><span class="awards__year">2019</span><span data-i18n="chef.2019">Recognised by the Consulate General of Italy in Ho Chi Minh City for his work on the World Week of Italian Cuisine</span></li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- Chef's specials: examples only, so the section stays true as the specials change -->
-    <div class="wrap">
-      <div class="chefmenu">
-        <header class="chefmenu__head">
-          <p class="chefmenu__kicker" data-i18n="cm.kicker">Chef's menu</p>
-          <h3 data-i18n="cm.title">Signature plates</h3>
-          <p data-i18n="cm.intro">The chef's menu changes through the year. A few of the plates it has featured:</p>
-        </header>
-        <ul class="chefmenu__list">
-          <li class="chefmenu__item">
-            <a class="chefmenu__photo chefmenu__photo--fill zoom" href="images/chef-tomahawk-sm.jpg" data-caption="Tomahawk">
-              <img src="images/chef-tomahawk-sm.jpg" width="601" height="449" loading="lazy" data-i18n-alt="cm.tomahawk.alt" alt="A raw tomahawk steak with deep marbling">
-            </a>
-            <h4 class="chefmenu__name">Tomahawk</h4>
-            <p class="chefmenu__desc" data-i18n="cm.tomahawk.desc">Prime bone-in ribeye, char-grilled and served with a vibrant green herb sauce, charred baby broccoli and crisp truffle fries.</p>
-          </li>
-          <li class="chefmenu__item">
-            <a class="chefmenu__photo zoom" href="images/chef-risotto.jpg" data-caption="Il Risotto">
-              <img src="images/chef-risotto.jpg" width="459" height="220" loading="lazy" data-i18n-alt="cm.risotto.alt" alt="A plate of golden pumpkin risotto topped with sausage, toasted almonds and grated parmesan">
-            </a>
-            <h4 class="chefmenu__name"><span lang="it">Il Risotto</span></h4>
-            <p class="chefmenu__desc" data-i18n="cm.risotto.desc">Risotto with pumpkin and Italian sausage, finished with parmesan cream and toasted almonds.</p>
-          </li>
-          <li class="chefmenu__item">
-            <a class="chefmenu__photo zoom" href="images/chef-pizza-sole.jpg" data-caption="Pizza del Sole">
-              <img src="images/chef-pizza-sole.jpg" width="440" height="215" loading="lazy" data-i18n-alt="cm.sole.alt" alt="A pizza topped with yellow tomato sauce, Parma ham, stracciatella, almonds and basil">
-            </a>
-            <h4 class="chefmenu__name"><span lang="it">Pizza del Sole</span></h4>
-            <p class="chefmenu__desc" data-i18n="cm.sole.desc">Yellow cherry tomato coulis, mozzarella, Parma ham, fresh stracciatella, toasted almonds, lemon zest, basil and extra virgin olive oil.</p>
-          </li>
-        </ul>
-        <p class="chefmenu__note" data-i18n="cm.note">Ask the team what the chef is cooking this week.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ THE ROOM ============ -->
-  <section id="room" class="section room">
+  <!-- ============ THE RESTAURANT ============ -->
+  <section class="section room">
     <div class="wrap">
       <header class="section__head">
-        <p class="script" data-i18n="room.kicker"><span lang="it">La sala</span> · the dining room</p>
-        <h2 data-i18n="room.title">Arches, lanterns and long lunches</h2>
-        <p data-i18n="room.intro">Sage-green arches, sunny yellow walls, a skylight full of woven lanterns and cool cement tiles underfoot. Drop in for a coffee and a cannolo, settle in for a long dinner, or grab a spritz from the Aperol cart.</p>
+        <p class="kicker" data-i18n="room.kicker">The restaurant</p>
+        <h2 data-i18n="room.title">Come for a coffee, stay for dinner</h2>
+        <p data-i18n="room.intro">Arched windows, lanterns and sunny yellow walls, with plenty of room for families and friends.</p>
       </header>
-      <div class="room-grid">
-        <a class="room-photo room-photo--big zoom" href="images/dining-room-2.jpg" data-i18n-caption="room.main.cap" data-caption="The dining room">
-          <img src="images/dining-room-2-sm.jpg" srcset="images/dining-room-2-sm.jpg 640w, images/dining-room-2.jpg 1162w" sizes="(min-width: 900px) 740px, 100vw" width="1162" height="880" loading="lazy" data-i18n-alt="room.main.alt" alt="The dining room: arched green windows, yellow walls, a skylight of hanging lanterns and diners at wooden tables">
+      <div class="room__grid">
+        <a class="room__photo zoom" href="images/dining-room-2.jpg" data-i18n-caption="r1.cap" data-caption="The dining room">
+          <img src="images/dining-room-2-sm.jpg" width="640" height="485" loading="lazy" data-i18n-alt="r1.alt" alt="The dining room with arched green windows, yellow walls and a skylight of hanging lanterns">
         </a>
-        <a class="room-photo room-photo--tall zoom" href="images/interior-awning.jpg" data-i18n-caption="room.awning.cap" data-caption="The striped awning and the lamp post">
-          <img src="images/interior-awning-sm.jpg" srcset="images/interior-awning-sm.jpg 640w, images/interior-awning.jpg 1167w" sizes="(min-width: 900px) 370px, 100vw" width="1167" height="1568" loading="lazy" data-i18n-alt="room.awning.alt" alt="A sage-green column with lantern lamps, an arched doorway and a green-and-white striped awning over a row of tables">
+        <a class="room__photo zoom" href="images/interior-ciao-bella.jpg" data-i18n-caption="r2.cap" data-caption="A corner of the dining room">
+          <img src="images/interior-ciao-bella-sm.jpg" width="640" height="485" loading="lazy" data-i18n-alt="r2.alt" alt="A corner of the dining room with Italian posters, arched windows and a busy table">
         </a>
-        <a class="room-photo room-photo--half zoom" href="images/interior-ciao-bella.jpg" data-caption="Ciao bella">
-          <img src="images/interior-ciao-bella-sm.jpg" srcset="images/interior-ciao-bella-sm.jpg 640w, images/interior-ciao-bella.jpg 1162w" sizes="(min-width: 900px) 555px, 100vw" width="1162" height="880" loading="lazy" data-i18n-alt="room.ciao.alt" alt="A corner of the dining room with a Ciao Bella poster, a Buongiorno print, arched windows and a busy table">
+        <a class="room__photo zoom" href="images/exterior-side-night.jpg" data-i18n-caption="r3.cap" data-caption="Bontà in the evening">
+          <img src="images/exterior-side-night-sm.jpg" width="640" height="486" loading="lazy" data-i18n-alt="r3.alt" alt="Bontà in the evening: tall green-framed windows under striped awnings and a busy dining room inside">
         </a>
-        <a class="room-photo room-photo--half zoom" href="images/exterior-side-night.jpg" data-i18n-caption="room.night.cap" data-caption="A full house on a weeknight">
-          <img src="images/exterior-side-night-sm.jpg" srcset="images/exterior-side-night-sm.jpg 640w, images/exterior-side-night.jpg 1160w" sizes="(min-width: 900px) 555px, 100vw" width="1160" height="880" loading="lazy" data-i18n-alt="room.night.alt" alt="Bontà at night from the street: tall green-framed windows under striped awnings, a busy dining room inside and motorbikes parked outside">
-        </a>
-        <a class="room-photo room-photo--tall zoom" href="images/aperol-table.jpg" data-i18n-caption="room.table.cap" data-caption="Aperol spritz, salads, pasta and cannoli">
-          <img src="images/aperol-table-sm.jpg" srcset="images/aperol-table-sm.jpg 640w, images/aperol-table.jpg 1156w" sizes="(min-width: 900px) 370px, 100vw" width="1156" height="1568" loading="lazy" data-i18n-alt="room.table.alt" alt="A table set with two Aperol spritzes, a salad, a pasta dish and cannoli">
-        </a>
-        <a class="room-photo room-photo--big zoom" href="images/dining-room.jpg" data-i18n-caption="room.bar.cap" data-caption="The bar and the lanterns">
-          <img src="images/dining-room-sm.jpg" srcset="images/dining-room-sm.jpg 640w, images/dining-room.jpg 1153w" sizes="(min-width: 900px) 740px, 100vw" width="1153" height="880" loading="lazy" data-i18n-alt="room.bar.alt" alt="The green marble bar with a meat slicer, a wall of wine glasses and the glowing Bontà sign">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TEAM ============ -->
-  <section id="team" class="section team">
-    <div class="wrap team__grid">
-      <figure class="team__photo">
-        <a class="window zoom" href="images/team.jpg" data-i18n-caption="team.cap" data-caption="The Bontà team on opening day">
-          <img src="images/team-sm.jpg" srcset="images/team-sm.jpg 640w, images/team.jpg 1164w" sizes="(min-width: 900px) 420px, 80vw" width="640" height="862" loading="lazy" data-i18n-alt="team.alt" alt="The Bontà team in green aprons giving a thumbs up outside the restaurant on opening day">
-        </a>
-      </figure>
-      <div class="team__copy">
-        <p class="script" data-i18n="team.kicker"><span lang="it">La squadra</span> · the team</p>
-        <h2 data-i18n="team.title">The crew in the green aprons</h2>
-        <p data-i18n="team.text">Bontà opened its doors on 22 August 2026 with this crew, ready to roll pasta, pull coffee and pour spritz.</p>
-        <p data-i18n="team.ciao">Come and say <span lang="it">ciao</span>.</p>
       </div>
     </div>
   </section>
@@ -479,34 +275,39 @@
     <div class="awning awning--inset" aria-hidden="true"></div>
     <div class="wrap visit__grid">
       <div class="visit__copy">
-        <p class="script" data-i18n="visit.kicker"><span lang="it">Ci vediamo!</span> · see you soon</p>
-        <h2 data-i18n="visit.title">Come and find us</h2>
-        <p class="address" lang="vi">E79–E80, đường D9<br>phường Trấn Biên, Biên Hòa, Đồng Nai</p>
-        <p data-i18n="visit.look">Look for the green canopy and the glowing Bontà sign.</p>
-        <p class="phone"><span class="phone__label" data-i18n="visit.bookings">Bookings &amp; questions</span><span class="phone__number">036 666 4930</span></p>
+        <h2 data-i18n="visit.title">Visit us</h2>
+        <dl class="details">
+          <div>
+            <dt data-i18n="visit.address">Address</dt>
+            <dd lang="vi">E79–E80, đường D9<br>phường Trấn Biên, Biên Hòa, Đồng Nai</dd>
+          </div>
+          <div>
+            <dt data-i18n="visit.hours">Opening hours</dt>
+            <!-- EDIT: opening hours. Change the text and data-open / data-close together (24-hour, Vietnam time); also "openingHours" in <head> -->
+            <dd><span data-i18n="hours.every" data-open="10:00" data-close="22:00">Every day 10:00 – 22:00</span><br><span class="status" data-open-status hidden></span></dd>
+          </div>
+          <div>
+            <dt data-i18n="visit.book">Bookings</dt>
+            <dd><a class="phone" href="tel:+84366664930">036 666 4930</a></dd>
+          </div>
+        </dl>
         <div class="visit__actions">
-          <a class="btn btn--light" href="tel:+84366664930" data-i18n="visit.call">Call us</a>
-          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Bont%C3%A0%20Pizza%20Pasta%20Cafe%2C%20E79-E80%20%C4%91%C6%B0%E1%BB%9Dng%20D9%2C%20Tr%E1%BA%A5n%20Bi%C3%AAn%2C%20Bi%C3%AAn%20H%C3%B2a" target="_blank" rel="noopener">Google Maps</a>
+          <a class="btn btn--light" href="tel:+84366664930">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+            <span data-i18n="call">Call</span>
+          </a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Bont%C3%A0%20Pizza%20Pasta%20Cafe%2C%20E79-E80%20%C4%91%C6%B0%E1%BB%9Dng%20D9%2C%20Tr%E1%BA%A5n%20Bi%C3%AAn%2C%20Bi%C3%AAn%20H%C3%B2a" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span data-i18n="directions">Directions</span>
+          </a>
           <a class="btn btn--ghost" href="https://zalo.me/0366664930" target="_blank" rel="noopener">Zalo</a>
-          <a class="btn btn--ghost" href="https://wa.me/84366664930" target="_blank" rel="noopener">WhatsApp</a>
           <!-- EDIT: swap the search link for the Facebook page's own address -->
           <a class="btn btn--ghost" href="https://www.facebook.com/search/top?q=Bont%C3%A0%20Pizza%20Pasta%20Cafe" target="_blank" rel="noopener">Facebook</a>
         </div>
-        <!-- EDIT: opening hours. Change the text and data-open / data-close together (24-hour, Vietnam time); also "openingHours" in <head> -->
-        <p class="hours">
-          <span class="phone__label" data-i18n="visit.hours">Opening hours</span>
-          <span class="hours__time" data-open="10:00" data-close="22:00">10:00 – 22:00</span>
-          <span class="hours__status" data-open-status hidden></span>
-        </p>
       </div>
-      <div class="visit__photos">
-        <a class="visit__photo zoom" href="images/exterior-dusk.jpg" data-i18n-caption="visit.dusk.cap" data-caption="Bontà at dusk">
-          <img src="images/exterior-dusk-sm.jpg" srcset="images/exterior-dusk-sm.jpg 640w, images/exterior-dusk.jpg 1161w" sizes="(min-width: 900px) 520px, 100vw" width="1161" height="880" loading="lazy" data-i18n-alt="visit.dusk.alt" alt="Bontà at dusk: a terracotta building with arched windows, a green steel canopy, lit planters and the Bontà sign">
-        </a>
-        <a class="visit__photo visit__photo--night zoom" href="images/exterior-night.jpg" data-i18n-caption="visit.night.cap" data-caption="Bontà at night">
-          <img src="images/exterior-night-sm.jpg" srcset="images/exterior-night-sm.jpg 640w, images/exterior-night.jpg 1168w" sizes="(min-width: 900px) 520px, 100vw" width="1168" height="638" loading="lazy" data-i18n-alt="visit.night.alt" alt="Bontà at night with its sign glowing and warm light pouring through the arched windows">
-        </a>
-      </div>
+      <a class="visit__photo zoom" href="images/exterior-dusk.jpg" data-i18n-caption="visit.cap" data-caption="Look for the green canopy and the Bontà sign">
+        <img src="images/exterior-dusk-sm.jpg" srcset="images/exterior-dusk-sm.jpg 640w, images/exterior-dusk.jpg 1161w" sizes="(min-width: 900px) 520px, 100vw" width="1161" height="880" loading="lazy" data-i18n-alt="visit.alt" alt="The front of Bontà: arched windows, a green canopy and the Bontà sign">
+      </a>
     </div>
   </section>
 
@@ -516,24 +317,14 @@
 
 <footer class="foot">
   <div class="wrap foot__inner">
-    <div class="foot__brand">
-      <img class="foot__logo" src="images/logo-cream.png" width="720" height="274" loading="lazy" alt="Bontà · Pizza · Pasta · Cafe">
-      <p lang="vi">E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai</p>
-      <p>036 666 4930</p>
-    </div>
-    <nav class="foot__nav" data-i18n-aria="foot.label" aria-label="Footer">
-      <a href="#food" data-i18n="nav.food">Food</a>
-      <a href="#pasta" data-i18n="nav.pasta">Fresh pasta</a>
-      <a href="#chef" data-i18n="nav.chef">Chef</a>
-      <a href="#room" data-i18n="nav.room">The room</a>
-      <a href="#visit" data-i18n="nav.visit">Visit</a>
-    </nav>
+    <img class="foot__logo" src="images/logo-cream.png" width="720" height="274" loading="lazy" alt="Bontà · Pizza · Pasta · Cafe">
+    <p lang="vi">E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai · 036 666 4930</p>
     <p class="foot__legal">© <span id="year">2026</span> Bontà Pizza Pasta Cafe</p>
   </div>
 </footer>
 
-<dialog class="lightbox" id="lightbox" data-i18n-aria="lightbox.label" aria-label="Photo">
-  <button class="lightbox__close" type="button" data-i18n-aria="lightbox.close" aria-label="Close photo">
+<dialog class="lightbox" id="lightbox" data-i18n-aria="photo" aria-label="Photo">
+  <button class="lightbox__close" type="button" data-i18n-aria="photo.close" aria-label="Close photo">
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <img class="lightbox__img" src="data:," alt="">
