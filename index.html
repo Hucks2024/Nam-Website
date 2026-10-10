@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Bontà Pizza Pasta Cafe</title>
-  <meta name="description" content="Bontà is an Italian pizza, pasta and café house at E79–E80 đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai. Fresh pasta made by hand, pizza, burrata, tiramisu and Aperol spritz. Open 10:00–22:00. Call 036 666 4930 to book.">
+  <meta name="description" content="Bontà is an Italian pizza, pasta and café house at E79–E80 đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai. Homemade mozzarella, fresh pasta made by hand, pizza, burrata, tiramisu, limoncello and Aperol spritz. Open 10:00–22:00. Call 036 666 4930 to book.">
   <meta name="theme-color" content="#1F5A4C">
   <meta property="og:title" content="Bontà · Pizza · Pasta · Cafe">
   <meta property="og:description" content="Handmade pasta, proper pizza and a spritz in the sun, in Biên Hòa.">
@@ -29,16 +29,18 @@
     "@type": "Restaurant",
     "name": "Bontà Pizza Pasta Cafe",
     "servesCuisine": ["Italian", "Pizza", "Pasta"],
-    "telephone": "+84 366 664 930",
+    "telephone": "+84 36 666 4930",
+    "priceRange": "₫₫",
+    "openingHours": "Mo-Su 10:00-22:00",
     "image": "https://hucks2024.github.io/Nam-Website/images/exterior-dusk.jpg",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "E79–E80, đường D9, phường Trấn Biên",
       "addressLocality": "Biên Hòa",
       "addressRegion": "Đồng Nai",
+      "postalCode": "76000",
       "addressCountry": "VN"
-    },
-    "sameAs": ["https://www.facebook.com/search/top?q=Bont%C3%A0%20Pizza%20Pasta%20Cafe"]
+    }
   }
   </script>
 </head>
@@ -62,6 +64,20 @@
 </svg>
 
 <a class="skip" href="#food">Skip to content</a>
+
+<!-- EDIT: time-limited offer. js/main.js shows it only until data-until (Vietnam time); change the text and date for the next one -->
+<aside class="promo" data-until="2026-10-20" aria-label="Special offer" hidden>
+  <div class="wrap promo__inner">
+    <p class="promo__text">
+      <span class="promo__date">20.10</span>
+      <span><strong lang="vi">Ngày Phụ Nữ Việt Nam</strong> · Happy Vietnamese Women's Day! Book a table and receive a special Mystery Box, a little surprise for amazing women.</span>
+    </p>
+    <a class="promo__cta" href="tel:+84366664930">Book a table</a>
+    <button class="promo__close" type="button" aria-label="Hide this offer">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</aside>
 
 <div class="awning" aria-hidden="true"></div>
 
@@ -92,13 +108,13 @@
       <div class="hero__copy">
         <p class="script"><span lang="it">Benvenuti!</span></p>
         <h1>Handmade pasta, proper pizza and a spritz in the sun.</h1>
-        <p class="lede">Bontà is an Italian pizza, pasta and café house in Biên Hòa. Our pasta is rolled by hand in our own kitchen, and the dining room feels like a long summer evening in Italy.</p>
+        <p class="lede">Bontà is an Italian pizza, pasta and café house in Biên Hòa. Our pasta is rolled by hand and our mozzarella is made in our own kitchen, and the dining room feels like a long summer evening in Italy.</p>
         <div class="cta">
           <a class="btn btn--green" href="tel:+84366664930">Call to book a table</a>
           <a class="btn btn--line" href="#visit">How to find us</a>
         </div>
         <ul class="facts">
-          <li>Fresh pasta made in-house</li>
+          <li>Homemade pasta &amp; mozzarella</li>
           <li>Pizza by chef Manuel Reale</li>
           <li>Open 10:00 – 22:00</li>
         </ul>
@@ -324,9 +340,9 @@
           <img src="images/cheeses-sm.jpg" srcset="images/cheeses-sm.jpg 640w, images/cheeses.jpg 1168w" sizes="(min-width: 860px) 360px, 80vw" width="640" height="692" loading="lazy" alt="A burrata, three balls of mozzarella, two bowls of ricotta and a bottle of milk on a green plate">
         </a>
         <div class="burrata__copy">
-          <p class="script">A soft spot for burrata</p>
-          <h3>Cut it open and let it run</h3>
-          <p>You'll find a whole ball of creamy burrata on our pizzas, our tagliatelle and our salad. Fresh mozzarella and ricotta turn up all over the menu too.</p>
+          <p class="script"><span lang="it">Fatto in casa</span> · made in-house</p>
+          <h3>Our own mozzarella</h3>
+          <p>We make our mozzarella in our own kitchen, and it turns up all over the menu with fresh ricotta. You'll also find a whole ball of creamy burrata on our pizzas, our tagliatelle and our salad. Cut it open and let it run.</p>
         </div>
       </div>
     </div>

@@ -40,6 +40,13 @@ and Dancing Script for the little Italian phrases.
 
 Tap any photo to see it full size.
 
+## Time-limited offers
+
+A slim bar above the header announces an offer and hides itself after a set date (Vietnam time).
+Right now it promotes **Vietnamese Women's Day (20.10)**: book a table and receive a Mystery Box. It disappears on 21 October 2026.
+For the next offer, edit the text in `<aside class="promo" data-until="2026-10-20">` in `index.html` and change `data-until` to the last day it should show.
+Visitors can close it with the ×.
+
 ## Still to fill in
 
 Search `index.html` for `EDIT:` to find each spot.
@@ -50,7 +57,8 @@ Search `index.html` for `EDIT:` to find each spot.
 - [ ] **New dishes.** The *Novità* row is for whatever is new; swap the two cards when the next dish launches.
 - [ ] **Chef wording.** Check that Manuel is happy with how his role and awards are described.
 - [ ] **Google Maps link.** It currently searches for the name and address. Swap in the real place link (Google Maps → Share) once the listing exists.
-- [ ] **Facebook link.** It searches Facebook for "Bontà Pizza Pasta Cafe"; replace it with the page's own address.
+- [ ] **Facebook link.** It searches Facebook for "Bontà Pizza Pasta Cafe"; replace it with the page's own address
+      (in the Facebook app: the page's ••• menu → Copy link).
 - [ ] **Zalo / WhatsApp.** Both use 036 666 4930; check that number is set up on each app.
 - [ ] **Dish descriptions.** Written from the photos; correct any names or ingredients that are off.
 

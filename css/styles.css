@@ -117,6 +117,31 @@ h2 { font-size: clamp(2.3rem, 4.8vw, 3.5rem); line-height: 1.05; letter-spacing:
 
 .zoom { cursor: zoom-in; }
 
+/* ---------- Time-limited offer bar ---------- */
+.promo { background: var(--terracotta); color: var(--on-green); }
+.promo__inner { display: flex; align-items: center; gap: 10px 20px; padding-block: 10px; }
+.promo__text { flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; font-size: .92rem; line-height: 1.4; }
+.promo__date { flex: none; font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1; color: var(--wall); font-variant-numeric: lining-nums; }
+.promo__cta {
+  flex: none; padding: .55em 1.1em; border-radius: 999px;
+  background: var(--paper); color: var(--terracotta);
+  font-weight: 600; font-size: .88rem; line-height: 1.2; text-decoration: none; white-space: nowrap;
+}
+.promo__cta:hover { background: var(--wall); }
+.promo__close {
+  flex: none; width: 40px; height: 40px; margin-right: -8px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer;
+}
+.promo__close:hover { background: rgba(255, 252, 244, .14); }
+.promo__close path { stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; fill: none; }
+@media (max-width: 680px) {
+  .promo__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; }
+  .promo__text { align-items: flex-start; font-size: .88rem; }
+  .promo__cta { grid-column: 1; grid-row: 2; justify-self: start; margin-left: calc(1.6rem + 14px); }
+  .promo__close { grid-column: 2; grid-row: 1; }
+}
+
 /* ---------- Header ---------- */
 .topbar {
   position: sticky;

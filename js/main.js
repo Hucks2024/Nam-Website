@@ -38,6 +38,25 @@
     box.addEventListener('close', () => { img.src = 'data:,'; });
   }
 
+  /* ---------- Time-limited offer: shown until its data-until date (Vietnam time) ---------- */
+  const promo = document.querySelector('.promo[data-until]');
+  if (promo) {
+    const key = `bonta-promo-hidden-${promo.dataset.until}`;
+    let today = null;
+    try {
+      const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
+      const get = (type) => parts.find((p) => p.type === type)?.value;
+      today = `${get('year')}-${get('month')}-${get('day')}`;
+    } catch { /* no time-zone support: leave the offer hidden */ }
+    let dismissed = false;
+    try { dismissed = localStorage.getItem(key) === '1'; } catch { /* storage blocked */ }
+    if (today && today <= promo.dataset.until && !dismissed) promo.hidden = false;
+    promo.querySelector('.promo__close')?.addEventListener('click', () => {
+      promo.hidden = true;
+      try { localStorage.setItem(key, '1'); } catch { /* storage blocked */ }
+    });
+  }
+
   /* ---------- Open now? (Vietnam time) ---------- */
   // EDIT: opening hours as minutes after midnight, every day.
   const OPEN_FROM = 10 * 60;
