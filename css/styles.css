@@ -16,6 +16,7 @@
   --on-green: #FFFCF4;
   --on-green-muted: #CFDCD3;
   --shadow: rgba(29, 43, 37, .45);
+  --open-dot: #7DDB8E;    /* 'open now' light on the dark green */
   --studio: #EEF0F2;      /* the white backdrop of the pizza photos */
 
   --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -217,15 +218,27 @@ h2 { font-size: clamp(2.3rem, 4.8vw, 3.5rem); line-height: 1.05; letter-spacing:
 .dish__name { font-family: var(--display); font-weight: 600; font-size: 1.65rem; line-height: 1.1; color: var(--green-deep); margin: 0; }
 .dish p { font-size: .98rem; color: var(--muted); }
 
+.dishes--new { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+.dishes--new .dish { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 22px; }
+.dishes--new .dish__photo { border-radius: 18px; }
+.dishes--new .dish__photo img { aspect-ratio: 1 / 1; }
+.price {
+  justify-self: start;
+  font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1;
+  color: var(--on-green);
+  padding: .25em .75em .2em; border-radius: 999px; background: var(--green);
+  font-variant-numeric: lining-nums;
+}
 .dishes--wide { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 32px; }
 .dishes--wide .dish__photo { border-radius: 22px; background: var(--studio); }
 .dishes--wide .dish__photo img { aspect-ratio: 1166 / 850; object-fit: cover; }
 .dishes--wide .dish__name { font-size: 1.9rem; }
 
-@media (max-width: 1000px) { .dishes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1000px) { .dishes { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dishes--new { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   .dishes { grid-template-columns: 1fr; gap: 26px; }
   .dishes:not(.dishes--wide) .dish { grid-template-columns: 38% minmax(0, 1fr); align-items: center; gap: 18px; }
+  .dishes--new { gap: 22px; }
   .dishes--wide { gap: 32px; }
 }
 
@@ -273,6 +286,30 @@ h2 { font-size: clamp(2.3rem, 4.8vw, 3.5rem); line-height: 1.05; letter-spacing:
 
 @media (max-width: 1000px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .steps { gap: 32px 14px; } .step h3 { font-size: 1.5rem; } .step p { font-size: .92rem; } }
+
+/* ---------- Chef ---------- */
+.chef__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 80px);
+  align-items: center;
+}
+.chef__photo { display: block; border-radius: 26px; overflow: hidden; box-shadow: 0 34px 60px -34px var(--shadow); }
+.chef__photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.chef__copy { display: grid; gap: 14px; min-width: 0; }
+.chef__copy h2 { color: var(--green-deep); }
+.chef__copy > p:not(.script) { font-size: 1.08rem; color: var(--muted); max-width: 34rem; }
+.awards { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.awards li {
+  display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 14px; align-items: baseline;
+  padding-block: 12px; border-bottom: 1px solid var(--line);
+  font-size: .98rem; line-height: 1.5;
+}
+.awards__year { font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1; color: var(--terracotta); font-variant-numeric: lining-nums tabular-nums; }
+@media (max-width: 860px) {
+  .chef__grid { grid-template-columns: 1fr; }
+  .chef__photo { max-width: 520px; }
+}
 
 /* ---------- The room ---------- */
 .room { background: var(--wall); }
@@ -331,7 +368,12 @@ h2 { font-size: clamp(2.3rem, 4.8vw, 3.5rem); line-height: 1.05; letter-spacing:
 .phone__label { font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--on-green-muted); }
 .phone__number { font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 4.6vw, 3rem); line-height: 1.1; letter-spacing: .02em; font-variant-numeric: lining-nums tabular-nums; }
 .visit__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-.hours { margin-top: 8px; font-size: .95rem; }
+.hours { display: grid; gap: 2px; margin-top: 8px; }
+.hours__time { font-family: var(--display); font-weight: 600; font-size: 1.7rem; line-height: 1.2; color: var(--on-green); font-variant-numeric: lining-nums tabular-nums; }
+.hours__status { display: inline-flex; align-items: center; gap: .5em; font-size: .92rem; font-weight: 500; color: var(--on-green-muted); }
+.hours__status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--on-green-muted); }
+.hours__status.is-open { color: var(--on-green); }
+.hours__status.is-open::before { background: var(--open-dot); box-shadow: 0 0 0 4px rgba(125, 219, 142, .2); }
 .visit__photos { display: grid; gap: 16px; min-width: 0; }
 .visit__photo { display: block; overflow: hidden; border-radius: 999px 999px 16px 16px; border: 10px solid var(--sage); }
 .visit__photo img { width: 100%; aspect-ratio: 1161 / 880; object-fit: cover; }

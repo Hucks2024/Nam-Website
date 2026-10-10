@@ -25,14 +25,15 @@ and Dancing Script for the little Italian phrases.
 ## What's on the page
 
 1. **Hero**: "Handmade pasta, proper pizza and a spritz in the sun." with the carbonara and a call-to-book button.
-2. **Food**, in three groups: *La pizza* (prosciutto e burrata, funghi e salsiccia), *Pasta & plates* (ravioli al pesto,
+2. **Food**, starting with *Novità* (new on the menu: torta alla ricotta and tortino al cioccolato, 45k each), then three groups: *La pizza* (prosciutto e burrata, funghi e salsiccia), *Pasta & plates* (ravioli al pesto,
    tagliatelle & burrata, fritto misto, burrata e rucola) and *Dolci & drinks* (tiramisù, pizza dolce, Aperol Spritz, Italian wine),
    then a burrata feature.
 3. **Fresh pasta**: roll, fill, cover, cut. The ravioli process in four photos.
-4. **The room**: the dining room, a spritz table, the bar and the busy windows at night.
-5. **The team**: the crew in the green aprons on opening day (22 August 2026).
-6. **Visit**: E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai; phone, Google Maps, Zalo, WhatsApp and Facebook,
-   with the shop front at dusk and at night.
+4. **Chef**: chef Manuel Reale, with his training and World Pizza Championship results (2014–2019), taken from his certificates.
+5. **The room**: six photos of the dining room, the striped awning, the bar and the busy windows at night.
+6. **The team**: the crew in the green aprons on opening day (22 August 2026).
+7. **Visit**: E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai; phone, Google Maps, Zalo, WhatsApp and Facebook,
+   opening hours 10:00–22:00 with a live "open now" light, and the shop front at dusk and at night.
 
 Tap any photo to see it full size.
 
@@ -40,10 +41,12 @@ Tap any photo to see it full size.
 
 Search `index.html` for `EDIT:` to find each spot.
 
-- [ ] **Opening hours.** The Visit section says they're coming soon.
+- [ ] **Opening hours.** 10:00–22:00 every day, from the dessert posters. If they change, update the Visit section and `OPEN_FROM` / `OPEN_UNTIL` in `js/main.js`.
+- [ ] **New dishes.** The *Novità* row is for whatever is new; swap the two cards when the next dish launches.
+- [ ] **Chef wording.** Check that Manuel is happy with how his role and awards are described.
 - [ ] **Google Maps link.** It currently searches for the name and address. Swap in the real place link (Google Maps → Share) once the listing exists.
 - [ ] **Facebook link.** It searches Facebook for "Bontà Pizza Pasta Cafe"; replace it with the page's own address.
-- [ ] **Zalo / WhatsApp.** Both use 0366 664 930; check that number is set up on each app.
+- [ ] **Zalo / WhatsApp.** Both use 036 666 4930; check that number is set up on each app.
 - [ ] **Dish descriptions.** Written from the photos; correct any names or ingredients that are off.
 
 ## Adding or swapping photos

@@ -38,6 +38,32 @@
     box.addEventListener('close', () => { img.src = 'data:,'; });
   }
 
+  /* ---------- Open now? (Vietnam time) ---------- */
+  // EDIT: opening hours as minutes after midnight, every day.
+  const OPEN_FROM = 10 * 60;
+  const OPEN_UNTIL = 22 * 60;
+  const openStatus = document.querySelector('[data-open-status]');
+  if (openStatus) {
+    const hhmm = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+    const update = () => {
+      let parts;
+      try {
+        parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+      } catch { return; }
+      const get = (type) => Number(parts.find((p) => p.type === type)?.value);
+      const now = (get('hour') % 24) * 60 + get('minute');
+      if (Number.isNaN(now)) return;
+      const open = now >= OPEN_FROM && now < OPEN_UNTIL;
+      openStatus.textContent = open
+        ? `Open now, until ${hhmm(OPEN_UNTIL)}`
+        : `Closed now, opens ${now < OPEN_FROM ? 'today' : 'tomorrow'} at ${hhmm(OPEN_FROM)}`;
+      openStatus.classList.toggle('is-open', open);
+      openStatus.hidden = false;
+    };
+    update();
+    setInterval(update, 60 * 1000);
+  }
+
   /* ---------- Footer year ---------- */
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
