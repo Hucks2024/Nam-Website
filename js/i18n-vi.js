@@ -7,7 +7,7 @@ window.BONTA_VI = {
   "call": "Gọi",
   "hero.title": "Ẩm thực Ý làm thủ công tại Biên Hòa",
   "hero.lede": "Pizza, mì Ý tươi, mozzarella nhà làm, cà phê và bánh ngọt Ý, trong không gian như một mùa hè nước Ý.",
-  "hours.every": "Mở cửa mỗi ngày 10:00 – 22:00",
+  "hours.every": "Mở cửa mỗi ngày 10:00 - 22:00",
   "book": "Gọi đặt bàn",
   "directions": "Chỉ đường",
   "hero.alt": "Một tổ spaghetti carbonara phủ thịt heo muối giòn, phía sau là pizza và salad",

@@ -59,7 +59,7 @@ The page is written so it stays true for years without editing:
 
 ### The only things that would ever need changing
 
-- **Opening hours** (10:00–22:00 every day): in the Visit section of `index.html`, change the text and the `data-open` / `data-close`
+- **Opening hours** (10:00-22:00 every day): in the Visit section of `index.html`, change the text and the `data-open` / `data-close`
   values on the same line, plus `"openingHours"` in `<head>`. The "open now" light reads them from there.
 - **Phone number or address**, if they change.
 - **Google Maps / Facebook links**: they currently search for the restaurant. Swapping in the exact page links is optional.
