@@ -25,11 +25,14 @@ and Dancing Script for the little Italian phrases.
 ## What's on the page
 
 1. **Hero**: "Handmade pasta, proper pizza and a spritz in the sun." with the carbonara and a call-to-book button.
-2. **Food**, starting with *Novità* (new on the menu: torta alla ricotta and tortino al cioccolato, 45k each), then three groups: *La pizza* (prosciutto e burrata, funghi e salsiccia), *Pasta & plates* (ravioli al pesto,
-   tagliatelle & burrata, fritto misto, burrata e rucola) and *Dolci & drinks* (tiramisù, pizza dolce, Aperol Spritz, Italian wine),
-   then a burrata feature.
+2. **Food**, starting with *Novità* (new on the menu: torta alla ricotta and tortino al cioccolato, 45k each), then four groups:
+   *La pizza* (prosciutto e burrata, funghi e salsiccia, pepperoni, prosciutto & pesto fold), *Pasta & plates* (ravioli al pesto,
+   tagliatelle & burrata, fritto misto, burrata e rucola), *Dolci & caffè* (tiramisù, pizza dolce, cornetti & cappuccino, limoncello)
+   and *Da bere · drinks* (Aperol Spritz, Peroni, Italian wine, kombucha), then a burrata feature.
 3. **Fresh pasta**: roll, fill, cover, cut. The ravioli process in four photos.
-4. **Chef**: chef Manuel Reale, with his training and World Pizza Championship results (2014–2019), taken from his certificates.
+4. **Chef**: chef Manuel Reale, with his training and World Pizza Championship results (2014–2019), taken from his certificates,
+   and the black-and-gold **Chef's menu**: Tomahawk (270.000₫ / 100 g, limited stock), Il Risotto (230.000₫) and Pizza del Sole (280.000₫),
+   with the note that prices exclude 8% VAT and a 5% service charge.
 5. **The room**: six photos of the dining room, the striped awning, the bar and the busy windows at night.
 6. **The team**: the crew in the green aprons on opening day (22 August 2026).
 7. **Visit**: E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai; phone, Google Maps, Zalo, WhatsApp and Facebook,
@@ -42,6 +45,8 @@ Tap any photo to see it full size.
 Search `index.html` for `EDIT:` to find each spot.
 
 - [ ] **Opening hours.** 10:00–22:00 every day, from the dessert posters. If they change, update the Visit section and `OPEN_FROM` / `OPEN_UNTIL` in `js/main.js`.
+- [ ] **Chef's menu prices.** Copied from the Chef Menu poster; update them in `index.html` if they change.
+- [ ] **Pizza names.** "Pepperoni" and "Prosciutto & pesto fold" are descriptive names; swap in the names on the real menu.
 - [ ] **New dishes.** The *Novità* row is for whatever is new; swap the two cards when the next dish launches.
 - [ ] **Chef wording.** Check that Manuel is happy with how his role and awards are described.
 - [ ] **Google Maps link.** It currently searches for the name and address. Swap in the real place link (Google Maps → Share) once the listing exists.
