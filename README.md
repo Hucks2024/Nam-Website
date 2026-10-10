@@ -32,7 +32,8 @@ A short, simple page built around what customers look for: when you're open, whe
 3. **Our food**: eight dishes with photos and one line each.
 4. **Made in our own kitchen**: fresh pasta, homemade mozzarella and pizza by chef Manuel Reale.
 5. **The restaurant**: three photos of the dining room.
-6. **Visit us**: address, hours, phone, and Call, Directions, Zalo and Facebook buttons, with the shop front.
+6. **The team**: the crew in the green aprons on opening day (22 August 2026).
+7. **Visit us**: address, hours, phone, and Call, Directions, Zalo and Facebook buttons, with the shop front.
 
 Tap any photo to see it full size.
 

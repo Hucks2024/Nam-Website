@@ -59,5 +59,10 @@ window.BONTA_VI = {
   "photo": "Ảnh",
   "photo.close": "Đóng ảnh",
   "js.openNow": "Đang mở cửa",
-  "js.closedNow": "Đang đóng cửa"
+  "js.closedNow": "Đang đóng cửa",
+  "team.kicker": "Đội ngũ",
+  "team.title": "Gửi lời chào đến đội ngũ",
+  "team.text": "Đội ngũ của chúng tôi trong ngày khai trương, 22 tháng 8 năm 2026. Những người mặc tạp dề xanh luôn sẵn sàng chăm sóc bạn, từ ly cà phê đầu tiên đến ly spritz cuối cùng.",
+  "team.cap": "Đội ngũ Bontà trong ngày khai trương",
+  "team.alt": "Đội ngũ Bontà mặc tạp dề xanh giơ ngón cái trước nhà hàng trong ngày khai trương"
 };

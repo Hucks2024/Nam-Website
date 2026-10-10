@@ -193,6 +193,17 @@ h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); line-height: 1.05; letter-spacing:
   .room__photo:first-child { grid-column: span 2; }
 }
 
+/* ---------- The team ---------- */
+.team { background: var(--wall); }
+.team__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.team__photo { margin: 0; width: 100%; max-width: 360px; justify-self: center; }
+.team__copy { display: grid; gap: 12px; max-width: 32rem; }
+.team__copy p:not(.kicker) { font-size: 1.1rem; }
+@media (max-width: 760px) {
+  .team__grid { grid-template-columns: 1fr; }
+  .team__photo { max-width: 280px; }
+}
+
 /* ---------- Visit ---------- */
 .visit { background: var(--green-deep); color: var(--on-green); padding-bottom: clamp(56px, 8vw, 104px); }
 .awning--inset { margin-bottom: clamp(44px, 6vw, 80px); }
