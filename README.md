@@ -17,7 +17,7 @@ tools/            source and script for regenerating og-image.png
 
 ## The look
 
-Taken from the restaurant itself: butter-yellow walls, sage-green arched windows (every photo sits in an arch),
+Taken from the restaurant itself: the real Bontà logo (`images/logo.png`, and `logo-cream.png` for dark backgrounds), butter-yellow walls, sage-green arched windows (every photo sits in an arch),
 the green-and-white striped awning and the green quatrefoil cement tiles from the dining-room floor.
 Fonts: Cormorant Garamond for headings, Be Vietnam Pro for text (it handles Vietnamese accents well),
 and Dancing Script for the little Italian phrases.
@@ -25,11 +25,14 @@ and Dancing Script for the little Italian phrases.
 ## What's on the page
 
 1. **Hero**: "Handmade pasta, proper pizza and a spritz in the sun." with the carbonara and a call-to-book button.
-2. **Food**: fritto misto, ravioli al pesto, tagliatelle with burrata and Italian wine.
+2. **Food**, in three groups: *La pizza* (prosciutto e burrata, funghi e salsiccia), *Pasta & plates* (ravioli al pesto,
+   tagliatelle & burrata, fritto misto, burrata e rucola) and *Dolci & drinks* (tiramisù, pizza dolce, Aperol Spritz, Italian wine),
+   then a burrata feature.
 3. **Fresh pasta**: roll, fill, cover, cut. The ravioli process in four photos.
-4. **The room**: the dining room, the bar, the Aperol cart.
+4. **The room**: the dining room, a spritz table, the bar and the busy windows at night.
 5. **The team**: the crew in the green aprons on opening day (22 August 2026).
-6. **Visit**: address, phone, Zalo, WhatsApp and Google Maps.
+6. **Visit**: E79–E80, đường D9, phường Trấn Biên, Biên Hòa, Đồng Nai; phone, Google Maps, Zalo, WhatsApp and Facebook,
+   with the shop front at dusk and at night.
 
 Tap any photo to see it full size.
 
@@ -37,9 +40,9 @@ Tap any photo to see it full size.
 
 Search `index.html` for `EDIT:` to find each spot.
 
-- [ ] **Street address.** Only "Phường Trấn Biên, Biên Hòa, Đồng Nai" is on the site; the street number on the banner photo was too blurry to read.
 - [ ] **Opening hours.** The Visit section says they're coming soon.
-- [ ] **Google Maps link.** It currently searches for "Bontà Pizza Pasta Cafe Biên Hòa". Swap in the real place link (Google Maps → Share) once the listing exists.
+- [ ] **Google Maps link.** It currently searches for the name and address. Swap in the real place link (Google Maps → Share) once the listing exists.
+- [ ] **Facebook link.** It searches Facebook for "Bontà Pizza Pasta Cafe"; replace it with the page's own address.
 - [ ] **Zalo / WhatsApp.** Both use 0366 664 930; check that number is set up on each app.
 - [ ] **Dish descriptions.** Written from the photos; correct any names or ingredients that are off.
 
