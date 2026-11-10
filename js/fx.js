@@ -12,13 +12,30 @@
   /* ---------- The 3D walk-in ----------
      <head> put "journey" on <html> if this browser can draw it. If the model fails to load,
      take the class away again and the ordinary top screen comes back. */
+  let forced = false;
+  try { forced = new URLSearchParams(location.search).get('3d') === '1'; } catch (e) { /* old browser */ }
   if (root.classList.contains('journey')) {
-    const url = new URL('journey.js', self && self.src ? self.src : new URL('js/', document.baseURI)).href;
-    import(url).catch((err) => {
+    // journey.js carries the same ?v= as this file, so a new release is never paired with a saved old copy
+    const base = self && self.src ? new URL(self.src) : new URL('js/fx.js', document.baseURI);
+    import(new URL('journey.js' + base.search, base).href).catch((err) => {
       root.classList.remove('journey', 'tour', 'tour-ready', 'past-stage');
       if (window.console) console.warn('Bontà: the 3D walk-in is off.', err);
+      if (forced) {                       // asked for by name (?3d=1): say why, so it can be reported
+        const note = document.createElement('p');
+        note.className = 'tour__error';
+        note.textContent = `The 3D walk-in could not start here: ${err && err.message ? err.message : err}`;
+        document.body.appendChild(note);
+      }
     });
   }
+  // "See it in 3D", for visitors whose phone asks for less motion: reload this page with the walk-in switched on.
+  document.querySelectorAll('.tour__optin').forEach((link) => link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const url = new URL(location.href);
+    url.searchParams.set('3d', '1');
+    url.hash = '';
+    location.href = url.href;
+  }));
 
   // The header is see-through while it sits over the night scene, and solid once the page has covered it.
   const setHeader = () => {

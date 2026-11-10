@@ -21,7 +21,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- EDIT: after changing a CSS or JS file, raise every ?v= number in this file (search for "?v="), so phones that
+       visited recently fetch the new files instead of mixing them with saved old ones -->
+  <link rel="stylesheet" href="css/styles.css?v=2">
   <script>
     /* Language: ?lang=vi|en in the link, else the visitor's last choice, else their phone/browser language. */
     (function () {
@@ -39,26 +41,33 @@
         setTimeout(function () { root.classList.remove('i18n-wait'); }, 2500);
       }
     })();
-    /* The 3D walk-in: only where the browser can draw it and the visitor hasn't asked for less motion or less data.
-       Everyone else gets the ordinary top screen. ?3d=0 switches it off, ?3d=1 forces it on. */
+    /* The 3D walk-in: only where the browser can draw it. Visitors who asked their phone for less motion or less
+       data get the ordinary top screen with a "See it in 3D" button instead (html.can-3d), so it is their choice.
+       ?3d=0 switches it off, ?3d=1 forces it on. */
     (function () {
-      var root = document.documentElement, want = null, ok = false;
+      var root = document.documentElement, want = null;
       try { want = new URLSearchParams(location.search).get('3d'); } catch (e) {}
       if (want === '0' || !('noModule' in HTMLScriptElement.prototype)) return;
       try {
-        if (want !== '1') {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-          if (navigator.connection && navigator.connection.saveData) return;
-        }
-        var gl = document.createElement('canvas').getContext('webgl2', { failIfMajorPerformanceCaveat: want !== '1' });
-        ok = !!gl;
-        var lose = gl && gl.getExtension('WEBGL_lose_context');
+        var gl = document.createElement('canvas').getContext('webgl2');
+        if (!gl) return;
+        // It needs a graphics chip: skip the rare computer that would draw it with the processor alone.
+        var chip = String(gl.getParameter(gl.RENDERER) || '');
+        var info = /webkit webgl/i.test(chip) || !chip ? gl.getExtension('WEBGL_debug_renderer_info') : null;
+        if (info) chip = String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL) || '');
+        var lose = gl.getExtension('WEBGL_lose_context');
         if (lose) lose.loseContext();
-      } catch (e) {}
-      if (!ok) return;
+        if (want !== '1') {
+          if (/swiftshader|llvmpipe|softpipe|software/i.test(chip)) return;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) {
+            root.classList.add('can-3d');
+            return;
+          }
+        }
+      } catch (e) { return; }
       root.classList.add('journey');
       // start fetching the model's code now, alongside the styles and fonts
-      ['js/vendor/three.module.min.js', 'js/journey.js'].forEach(function (href) {
+      ['js/vendor/three.module.min.js', 'js/journey.js?v=2'].forEach(function (href) {
         var link = document.createElement('link');
         link.rel = 'modulepreload'; link.href = href;
         document.head.appendChild(link);
@@ -163,6 +172,8 @@
             <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
             <span data-i18n="directions">Directions</span>
           </a>
+          <!-- Only shown to visitors whose phone asks for less motion or data: the 3D walk-in is then their choice -->
+          <a class="btn btn--line tour__optin" href="?3d=1"><span data-i18n="tour.optin">See it in 3D</span></a>
         </div>
       </div>
       <figure class="hero__photo">
@@ -399,8 +410,8 @@
   <p class="lightbox__caption"></p>
 </dialog>
 
-<script src="js/i18n-vi.js"></script>
-<script src="js/main.js"></script>
-<script src="js/fx.js"></script>
+<script src="js/i18n-vi.js?v=2"></script>
+<script src="js/main.js?v=2"></script>
+<script src="js/fx.js?v=2"></script>
 </body>
 </html>

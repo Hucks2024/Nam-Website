@@ -247,7 +247,15 @@ h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); line-height: 1.05; letter-spacing:
    "tour" is added once the model is ready: the stage is pinned while a long scroll walks the
    camera through the door and round the room. Without these classes nothing below applies
    and the hero is the ordinary one above. */
-.tour__canvas, .tour__shade, .tour__ui, .cap, .logo__cream { display: none; }
+.tour__canvas, .tour__shade, .tour__ui, .cap, .logo__cream, .tour__optin { display: none; }
+/* visitors who asked for less motion or data are offered the walk-in as a button, never given it unasked */
+.can-3d .tour__optin { display: inline-flex; }
+/* only ever shown with ?3d=1: says why the model could not start, so it can be reported */
+.tour__error {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+  padding: 12px 14px; border-radius: 12px; background: var(--green-night); color: var(--on-green);
+  font-size: .9rem; line-height: 1.4; overflow-wrap: anywhere;
+}
 
 /* header: floats over the night scene, turns solid once the page has covered it */
 .journey .topbar {
