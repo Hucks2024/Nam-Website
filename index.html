@@ -39,6 +39,31 @@
         setTimeout(function () { root.classList.remove('i18n-wait'); }, 2500);
       }
     })();
+    /* The 3D walk-in: only where the browser can draw it and the visitor hasn't asked for less motion or less data.
+       Everyone else gets the ordinary top screen. ?3d=0 switches it off, ?3d=1 forces it on. */
+    (function () {
+      var root = document.documentElement, want = null, ok = false;
+      try { want = new URLSearchParams(location.search).get('3d'); } catch (e) {}
+      if (want === '0' || !('noModule' in HTMLScriptElement.prototype)) return;
+      try {
+        if (want !== '1') {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if (navigator.connection && navigator.connection.saveData) return;
+        }
+        var gl = document.createElement('canvas').getContext('webgl2', { failIfMajorPerformanceCaveat: want !== '1' });
+        ok = !!gl;
+        var lose = gl && gl.getExtension('WEBGL_lose_context');
+        if (lose) lose.loseContext();
+      } catch (e) {}
+      if (!ok) return;
+      root.classList.add('journey');
+      // start fetching the model's code now, alongside the styles and fonts
+      ['js/vendor/three.module.min.js', 'js/journey.js'].forEach(function (href) {
+        var link = document.createElement('link');
+        link.rel = 'modulepreload'; link.href = href;
+        document.head.appendChild(link);
+      });
+    })();
   </script>
   <script type="application/ld+json">
   {
@@ -90,6 +115,7 @@
   <div class="wrap topbar__inner">
     <a class="logo" href="#top">
       <img src="images/logo.png" width="720" height="274" alt="Bontà · Pizza · Pasta · Cafe">
+      <img class="logo__cream" src="images/logo-cream.png" width="720" height="274" alt="" aria-hidden="true">
     </a>
     <div class="topbar__actions">
       <div class="lang" role="group" aria-label="Language · Ngôn ngữ">
@@ -107,7 +133,12 @@
 <main id="top">
 
   <!-- ============ HERO: what, when, where, call ============ -->
+  <!-- With the 3D walk-in (html.journey) this is also the stage: the model is drawn on the canvas behind the text,
+       and scrolling walks the camera through the door and round the photos. See js/journey.js. -->
   <section class="hero">
+    <div class="hero__stage">
+    <canvas class="tour__canvas" aria-hidden="true"></canvas>
+    <div class="tour__shade" aria-hidden="true"></div>
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <p class="kicker">Pizza · Pasta · Cafe</p>
@@ -140,9 +171,33 @@
         </a>
       </figure>
     </div>
+    <!-- Shown only during the 3D walk-in -->
+    <div class="tour__ui">
+      <div class="tour__cap" aria-hidden="true">
+        <div class="tour__cap-in">
+          <p class="tour__kicker"></p>
+          <p class="tour__title"></p>
+          <p class="tour__text"></p>
+        </div>
+      </div>
+      <p class="tour__hint" aria-hidden="true">
+        <span data-i18n="tour.hint">Scroll to step inside</span>
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 9l6 6 6-6"/></svg>
+      </p>
+      <a class="tour__skip" href="#food"><span data-i18n="tour.skip">Skip the tour</span></a>
+      <div class="tour__bar" aria-hidden="true"><i></i></div>
+      <!-- The words for the walk-in captions; dish names and descriptions are read from the food list below -->
+      <span hidden data-tour="in.title" data-i18n="tour.in.title">Come on in</span>
+      <span hidden data-tour="in.text" data-i18n="tour.in.text">Keep scrolling to walk through the door.</span>
+      <span hidden data-tour="room.title" data-i18n="tour.room.title">Welcome to Bontà</span>
+      <span hidden data-tour="room.text" data-i18n="tour.room.text">Take a walk around the dining room. Our food is on the walls.</span>
+    </div>
+    </div>
   </section>
 
-  <svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#floor-tile)"/></svg>
+  <!-- The floor tiles rise as an arch over the 3D scene when the walk-in ends -->
+  <div class="cap" aria-hidden="true"><div class="cap__dome"><svg class="cap__tiles" focusable="false"><rect x="-44" width="200%" height="100%" fill="url(#floor-tile)"/></svg></div></div>
+  <svg class="tiles" aria-hidden="true" focusable="false"><rect x="-44" width="200%" height="100%" fill="url(#floor-tile)"/></svg>
 
   <!-- ============ FOOD ============ -->
   <!-- EDIT: dish names and descriptions were written from photos; correct anything that's off -->
@@ -326,7 +381,7 @@
 
 </main>
 
-<svg class="tiles" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#floor-tile)"/></svg>
+<svg class="tiles" aria-hidden="true" focusable="false"><rect x="-44" width="200%" height="100%" fill="url(#floor-tile)"/></svg>
 
 <footer class="foot">
   <div class="wrap foot__inner">
@@ -346,5 +401,6 @@
 
 <script src="js/i18n-vi.js"></script>
 <script src="js/main.js"></script>
+<script src="js/fx.js"></script>
 </body>
 </html>
