@@ -64,11 +64,14 @@ Things worth knowing:
 - **Tap a photo on the wall** to open it full size, the same as anywhere else on the page.
 - **Skip the tour** (bottom right while walking) jumps straight to the food. The header with the **Call** button
   stays on screen the whole time.
-- **It only runs where it can run well.** Visitors whose device asks for reduced motion or data saving, and browsers
-  without WebGL 2, get the ordinary top screen with the carbonara photo instead, with nothing missing.
-  If the model fails to load, the page falls back to that screen by itself.
+- **It only runs where it can run well.** Browsers that cannot draw it get the ordinary top screen with the
+  carbonara photo instead, with nothing missing. If the model fails to load, the page falls back to that screen by itself.
+- **Reduce Motion is respected.** A visitor whose phone asks for less motion (iPhone: Settings → Accessibility →
+  Motion → Reduce Motion) or less data also gets the ordinary top screen, plus a **See it in 3D** button, so the
+  walk-in is their choice.
 - While the model loads (a moment on a slow connection) the real photo of the shop front is shown in its place.
-- To see the page without it, add `?3d=0` to the link. `?3d=1` forces it on.
+- To see the page without it, add `?3d=0` to the link. `?3d=1` forces it on, and if the model cannot start on that
+  device it says why at the bottom of the screen.
 - The rest of the page has its own scroll transitions (`js/fx.js` and the last part of `css/styles.css`):
   headlines rise word by word, dish photos open from an arch into their square, the green and dark-green sections
   open like arched doorways, the three dining-room photos fan out from a pile, and the team photo swings round.
@@ -98,6 +101,12 @@ The page is written so it stays true for years without editing:
 - **No outside code.** Everything runs from this repository on GitHub Pages; only the fonts come from Google Fonts, with standard fonts as a fallback.
   The 3D library is a copy kept in `js/vendor/`, so nothing can change or disappear underneath the site.
 
+### After changing a CSS or JS file
+
+Raise the `?v=` number wherever it appears in `index.html` (search for `?v=`; they should all match). Phones keep
+files for a few minutes after a visit, and the number makes them fetch the new ones together instead of mixing new
+and old.
+
 ### The only things that would ever need changing
 
 - **Opening hours** (10:00-22:00 every day): in the Visit section of `index.html`, change the text and the `data-open` / `data-close`
@@ -126,8 +135,11 @@ to keep working. To move to a newer version:
 ```sh
 npm i three esbuild
 echo "export * from 'three';" > three-entry.js
-npx esbuild three-entry.js --bundle --minify --format=esm --outfile=js/vendor/three.module.min.js
+npx esbuild three-entry.js --bundle --minify --format=esm --target=es2020 --outfile=js/vendor/three.module.min.js
 ```
+
+Keep `--target=es2020`: without it the file uses newer JavaScript that iPhones on iOS older than 16.4 cannot read,
+and those phones silently fall back to the ordinary top screen.
 
 Then check the walk-in still looks right, and copy `node_modules/three/LICENSE` over `js/vendor/three.LICENSE.txt`.
 

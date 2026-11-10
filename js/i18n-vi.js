@@ -13,6 +13,7 @@ window.BONTA_VI = {
   "hero.alt": "Một tổ spaghetti carbonara phủ thịt heo muối giòn, phía sau là pizza và salad",
   "tour.hint": "Cuộn xuống để bước vào quán",
   "tour.skip": "Bỏ qua tham quan",
+  "tour.optin": "Xem không gian 3D",
   "tour.in.title": "Mời bạn vào",
   "tour.in.text": "Cuộn tiếp để bước qua cửa.",
   "tour.room.title": "Chào mừng đến Bontà",
