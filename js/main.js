@@ -39,6 +39,8 @@
     });
     langButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     onLangChange.forEach((fn) => fn());
+    // Tell the scroll effects and the 3D walk-in (js/fx.js, js/journey.js) that the words changed.
+    document.dispatchEvent(new CustomEvent('bonta:lang'));
     if (!remember) return;
     try { localStorage.setItem('bonta-lang', lang); } catch { /* storage blocked */ }
     // Put the language in the address, so a shared link opens in the same language.

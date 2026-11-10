@@ -241,6 +241,231 @@ h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); line-height: 1.05; letter-spacing:
 }
 .lightbox__close path { stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; fill: none; }
 
+/* ---------- The 3D walk-in ----------
+   <head> puts "journey" on <html> when the browser can draw the model (js/journey.js).
+   The top screen then becomes a stage: the model on a canvas, the headline on top of it.
+   "tour" is added once the model is ready: the stage is pinned while a long scroll walks the
+   camera through the door and round the room. Without these classes nothing below applies
+   and the hero is the ordinary one above. */
+.tour__canvas, .tour__shade, .tour__ui, .cap, .logo__cream { display: none; }
+
+/* header: floats over the night scene, turns solid once the page has covered it */
+.journey .topbar {
+  position: fixed; left: 0; right: 0; top: 0;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: background-color .4s ease, border-color .4s ease;
+}
+.journey .logo { position: relative; }
+.journey .logo img { transition: opacity .4s ease; }
+.journey .logo__cream { display: block; position: absolute; left: 0; top: 0; opacity: 0; }
+.journey:not(.past-stage) .topbar { background: transparent; border-bottom-color: transparent; }
+.journey:not(.past-stage) .topbar::before {
+  content: ""; position: absolute; inset: 0 0 -28px; z-index: -1; pointer-events: none;
+  background: linear-gradient(rgba(6, 13, 20, .62), rgba(6, 13, 20, 0));
+}
+.journey:not(.past-stage) .logo img:not(.logo__cream) { opacity: 0; }
+.journey:not(.past-stage) .logo__cream { opacity: 1; }
+.journey:not(.past-stage) .lang { border-color: rgba(255, 252, 244, .38); }
+.journey:not(.past-stage) .lang button { color: var(--on-green-muted); }
+.journey:not(.past-stage) .lang button:hover { color: var(--paper); }
+.journey:not(.past-stage) .lang button[aria-pressed="true"] { background: var(--paper); color: var(--green-deep); }
+.journey:not(.past-stage) .topbar .btn--green { background: var(--paper); color: var(--green-deep); }
+.journey:not(.past-stage) .topbar .btn--green:hover { background: var(--wall); }
+
+/* the stage */
+.journey .hero { background: #0E1826; }
+.journey .hero__stage {
+  position: relative; overflow: hidden;
+  height: 100vh; height: 100lvh;
+  color: var(--on-green);
+  /* the real shop front shows until the model has loaded, then the model fades in over it */
+  background: #0E1826 url("../images/exterior-dusk-sm.jpg") 60% 50% / cover no-repeat;
+}
+.journey .tour__canvas {
+  display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  opacity: 0; transition: opacity 1.4s ease;
+  /* iPhone: no grey flash or copy bubble when a photo on the wall is tapped or held */
+  -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none;
+}
+.tour-ready .tour__canvas { opacity: 1; }
+.journey .tour__shade {
+  display: block; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(125% 95% at 50% 45%, transparent 52%, rgba(5, 10, 16, .6) 100%),
+    linear-gradient(90deg, rgba(6, 13, 20, calc(.8 * var(--hero-in, 1))) 0%, rgba(6, 13, 20, calc(.42 * var(--hero-in, 1))) 36%, transparent 60%),
+    linear-gradient(0deg, rgba(5, 10, 16, .72) 0%, transparent 36%);
+}
+/* a breath of warm light as you cross the threshold */
+.journey .tour__shade::after {
+  content: ""; position: absolute; inset: 0; opacity: var(--flash, 0);
+  background: radial-gradient(circle at 50% 52%, rgba(255, 226, 170, .95), rgba(255, 190, 110, .4) 42%, transparent 76%);
+}
+
+/* the headline over the scene */
+.journey .hero__grid {
+  position: relative; z-index: 2;
+  height: 100vh; height: 100svh;
+  grid-template-columns: minmax(0, 35rem); align-content: center;
+  padding-block: 96px 76px;
+  pointer-events: none;
+}
+.journey .hero__copy { opacity: var(--hero-in, 1); transform: translate3d(0, calc((1 - var(--hero-in, 1)) * -56px), 0); }
+.journey .hero__copy a { pointer-events: auto; }
+.journey .hero__photo { display: none; }
+.journey .hero .kicker { color: var(--wall); }
+.journey .hero h1 { color: var(--paper); font-size: clamp(2.5rem, min(6vw, 10vh), 4.6rem); text-shadow: 0 2px 28px rgba(0, 0, 0, .5); }
+.journey .hero .lede { color: #EDF1EA; text-shadow: 0 1px 14px rgba(0, 0, 0, .6); }
+.journey .hero .info { color: var(--paper); text-shadow: 0 1px 12px rgba(0, 0, 0, .6); }
+.journey .hero .info .icon { color: var(--wall); }
+.journey .hero .status { color: var(--on-green-muted); }
+.journey .hero .status.is-open { color: var(--open-on-green); }
+.journey .hero .btn--green { background: var(--paper); color: var(--green-deep); }
+.journey .hero .btn--green:hover { background: var(--wall); }
+.journey .hero .btn--line { border-color: rgba(255, 252, 244, .6); color: var(--paper); }
+.journey .hero .btn--line:hover { background: rgba(255, 252, 244, .12); }
+
+/* captions, hint, skip and progress line */
+.journey .tour__ui {
+  display: block; position: absolute; left: 0; right: 0; top: 0; z-index: 3;
+  height: 100vh; height: 100svh;
+  pointer-events: none;
+}
+.tour__cap { position: absolute; left: 0; right: 0; bottom: calc(74px + env(safe-area-inset-bottom, 0px)); opacity: 0; will-change: opacity, transform; }
+.tour__cap-in { max-width: 1160px; margin-inline: auto; padding-inline: var(--gutter); display: grid; gap: 6px; justify-items: start; }
+.tour__kicker { font-size: .74rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--wall); text-shadow: 0 1px 10px rgba(0, 0, 0, .6); }
+.tour__title { font-family: var(--display); font-weight: 600; font-size: clamp(2.1rem, 5vw, 3.5rem); line-height: 1.05; color: var(--paper); text-shadow: 0 2px 24px rgba(0, 0, 0, .6); text-wrap: balance; }
+.tour__text { max-width: 30rem; color: #EDF1EA; text-shadow: 0 1px 12px rgba(0, 0, 0, .7); text-wrap: pretty; }
+.tour__hint {
+  position: absolute; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  display: none; align-items: center; gap: .5em;
+  font-size: .82rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap;
+  color: var(--paper); text-shadow: 0 1px 10px rgba(0, 0, 0, .7);
+}
+.tour .tour__hint { display: flex; }
+.tour__hint svg { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; animation: nudge 1.6s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(4px); } }
+.tour__skip {
+  position: absolute; right: var(--gutter); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); opacity: 0; pointer-events: auto;
+  padding: .55em 1em; border: 1.5px solid rgba(255, 252, 244, .45); border-radius: 999px;
+  font-size: .82rem; font-weight: 600; text-decoration: none; color: var(--paper);
+  background: rgba(6, 13, 20, .35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.tour__skip:hover { border-color: var(--paper); background: rgba(6, 13, 20, .55); }
+.tour__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255, 252, 244, .14); }
+.tour__bar i { display: block; height: 100%; background: var(--wall); transform-origin: 0 50%; transform: scaleX(0); }
+
+@media (max-width: 860px) {
+  /* on a phone the building takes the top of the screen and the words sit below it */
+  .journey .hero__grid { grid-template-columns: 1fr; align-content: end; padding-block: 84px calc(64px + env(safe-area-inset-bottom, 0px)); }
+  .journey .hero__copy { gap: 14px; }
+  .journey .hero .kicker { display: none; }      /* the logo and the sign on the building already say it */
+  .journey .hero .lede { font-size: 1rem; }
+  .journey .tour__shade {
+    background:
+      radial-gradient(140% 95% at 50% 40%, transparent 55%, rgba(5, 10, 16, .55) 100%),
+      linear-gradient(0deg, rgba(6, 13, 20, calc(.5 + .4 * var(--hero-in, 1))) 0%, rgba(6, 13, 20, calc(.2 + .5 * var(--hero-in, 1))) 34%, transparent calc(46% + 20% * var(--hero-in, 1)));
+  }
+  .tour__cap { bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
+  .tour__text { font-size: 1rem; }
+  .tour__hint { font-size: .74rem; }
+}
+@media (max-width: 860px) and (max-height: 700px), (max-height: 520px) {
+  .journey .hero .lede { display: none; }
+}
+
+/* the walk itself: a tall track with the stage pinned inside it, and the page sliding over at the end */
+.tour .hero { height: var(--tour-h, 720vh); margin-bottom: -100vh; margin-bottom: -100lvh; }
+.tour .hero__stage { position: sticky; top: 0; }
+.tour main > .hero ~ * { position: relative; z-index: 2; }
+.tour #food { background: var(--paper); }
+/* the floor tiles rise over the scene as a dome and flatten into the usual strip */
+.tour .cap { display: block; height: 0; }
+.cap__dome {
+  position: absolute; left: 0; bottom: 0; width: 100%; height: 440px;   /* ten tiles, so the pattern meets the strip below */
+  -webkit-clip-path: ellipse(74% var(--cap, 0px) at 50% 100%); clip-path: ellipse(74% var(--cap, 0px) at 50% 100%);
+}
+.cap__tiles { display: block; width: 100%; height: 100%; }
+
+/* ---------- Scroll transitions ----------
+   "fx" is put on <html> by js/fx.js (never for visitors who asked for less motion).
+   .rv things wait off-stage and get "in" when they scroll into view; --p things follow the scroll. */
+:root { --ease: cubic-bezier(.16, 1, .3, 1); }
+.fx .rv {
+  --d: calc(var(--i, 0) * 80ms);
+  transition: opacity .9s var(--ease) var(--d), transform 1.2s var(--ease) var(--d), clip-path 1.4s var(--ease) var(--d),
+    background-color .15s ease, border-color .15s ease;
+}
+.fx .rv-up { opacity: 0; transform: translate3d(0, 38px, 0); }
+.fx .rv-card { opacity: 0; transform: perspective(1000px) translate3d(0, 76px, 0) rotateX(-26deg) scale(.93); transform-origin: 50% 100%; }
+.fx .rv-made { opacity: 0; transform: translate3d(0, 84px, 0) scale(.92); }
+.fx .rv-made:nth-child(3n + 1) { transform: translate3d(-64px, 36px, 0) rotate(-5deg); }
+.fx .rv-made:nth-child(3n) { transform: translate3d(64px, 36px, 0) rotate(5deg); }
+@media (max-width: 760px) {
+  /* one column on a phone: come straight up, so nothing pokes out past the side of the screen */
+  .fx .rv-made:nth-child(n) { transform: translate3d(0, 70px, 0) scale(.93) rotate(-2deg); }
+  .fx .rv-made:nth-child(even) { transform: translate3d(0, 70px, 0) scale(.93) rotate(2deg); }
+}
+.fx .rv.in { opacity: 1; transform: none; }
+/* arched photos rise into their frames. The clip goes on the picture inside, never on the element being
+   watched: a fully clipped element counts as "not in view" and would never be told to appear. */
+.fx .hero__photo.rv .window, .fx .visit__photo.rv img { clip-path: inset(100% 0 0 0); transition: clip-path 1.5s var(--ease) var(--d), scale .5s ease; }
+.fx .hero__photo.rv.in .window, .fx .visit__photo.rv.in img { clip-path: inset(0 0 0 0); }
+/* each dish photo opens from an arched window into its square */
+.fx .rv-card .dish__photo { border-radius: 999px 999px 18px 18px; transition: border-radius 1.3s var(--ease) calc(var(--d) + .25s); }
+.fx .rv-card.in .dish__photo { border-radius: 18px; }
+
+/* headlines: each word slides up from behind a mask */
+.fx .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: .24em .05em .14em; margin: -.24em -.05em -.14em; }
+.fx .w > span { display: inline-block; transform: translate3d(0, 118%, 0) rotate(6deg); transform-origin: 0 100%; transition: transform 1.15s var(--ease) calc(var(--d, 0s) + var(--w, 0) * 65ms); }
+.fx .rv-words.in .w > span { transform: none; }
+
+/* photos drift a little inside their frames as they pass */
+.fx .zoom:not(.window) img { translate: 0 calc(var(--py, 0) * -4.5%); scale: var(--zs, 1.1); transform: none; transition: scale .5s ease; }
+.fx .zoom:not(.window):hover img { --zs: 1.15; transform: none; }
+
+/* the green "made by hand" room opens like an arched doorway, widening to the full page */
+.fx .made {
+  clip-path: inset(0 calc((1 - var(--p, 1)) * 11%) 0 calc((1 - var(--p, 1)) * 11%) round calc((1 - var(--p, 1)) * 50vw) calc((1 - var(--p, 1)) * 50vw) 0 0);
+}
+/* the last room rises as a dome out of the yellow one before it */
+.fx .team { padding-bottom: calc(clamp(56px, 8vw, 104px) + 28vw); margin-bottom: -28vw; }
+.fx .visit { position: relative; z-index: 2; clip-path: inset(0 round calc((1 - var(--p, 1)) * 28vw) calc((1 - var(--p, 1)) * 28vw) 0 0); }
+
+/* the three dining-room photos start as a pile of prints and fan out into place */
+.fx .room__photo {
+  transform:
+    translate3d(calc(var(--dx, 0px) * (1 - var(--p, 1))), calc(var(--dy, 0px) * (1 - var(--p, 1)) + (1 - var(--p, 1)) * 40px), 0)
+    rotate(calc(var(--rot, 0deg) * (1 - var(--p, 1))))
+    scale(calc(.78 + .22 * var(--p, 1)));
+  box-shadow: 0 calc((1 - var(--p, 1)) * 26px) calc((1 - var(--p, 1)) * 44px) -18px var(--shadow);
+}
+.fx .room__photo:nth-child(1) { --rot: -9deg; }
+.fx .room__photo:nth-child(2) { --rot: 4deg; z-index: 1; }
+.fx .room__photo:nth-child(3) { --rot: 11deg; }
+
+/* the team photo swings round to face you */
+.fx .team__grid { perspective: 1300px; }
+.fx .team__photo {
+  transform: translate3d(calc((1 - var(--p, 1)) * -40px), 0, 0) rotateY(calc((1 - var(--p, 1)) * 38deg)) rotate(calc((1 - var(--p, 1)) * -4deg));
+  transform-origin: 0 60%;
+}
+
+/* Nothing that slides in from the side may widen the page. This goes on the sections themselves, not on
+   <main>: clipping an ancestor of the pinned 3D stage can stop it pinning in Safari. */
+.fx .made, .fx .room, .fx .team, .fx .visit, .fx .foot { overflow-x: hidden; overflow-x: clip; }
+
+/* tile strips slide sideways as you scroll; a thin line in the header shows how far down you are */
+.fx .tiles rect, .fx .cap__tiles rect { transform: translateX(var(--tx, 0px)); }
+.fx .topbar::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: var(--terracotta); transform-origin: 0 50%; transform: scaleX(var(--read, 0));
+}
+.fx.journey:not(.past-stage) .topbar::after { opacity: 0; }
+
+@media print {
+  .fx .rv, .fx .w > span { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+}
+
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
